@@ -1,0 +1,30 @@
+[project]
+name = "project-1l"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13.12"
+dependencies = [
+    "databento>=0.72.0",
+    "duckdb>=1.4.4",
+    "loguru>=0.7.3",
+    "orjson>=3.11.7",
+    "polars>=1.38.1",
+    "pyarrow>=23.0.1",
+    "pydantic>=2.12.5",
+    "watchdog>=6.0.0",
+]
+
+[project.scripts]
+project-1l = "project_1l:main"
+
+[build-system]
+requires = ["uv_build>=0.10.7,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pytest>=9.0.2",
+    "ruff>=0.15.4",
+]

@@ -1,0 +1,31 @@
+### Python & Tooling ###
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+.coverage
+htmlcov/
+### Project 1L Application State ###
+state.json
+signal.tmp
+signal.txt
+### Emergency & Operations Locks ###
+*.lock
+!uv.lock
+STOP_TRADING.lock
+PROTECTIVE_LOCK.lock
+VICTORY_ACHIEVED.lock
+### Data and Storage (Runtime Only) ###
+/data/
+/audit/logs/
+### Logs ###
+*.log
+### Operational Files ###
+calendar/tier1_events.csv
+### Secrets/Environment ###
+.env
