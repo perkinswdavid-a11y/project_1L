@@ -1,0 +1,33 @@
+{
+  "db_path": "E:\\project_1L\\marketdata\\catalog\\marketdata.duckdb",
+  "reports_root": "E:\\project_1L\\marketdata\\backtests",
+  "family": "MES",
+  "interval": "1m",
+  "start_date": "2023-02-26",
+  "end_date": "2026-02-22",
+  "instrument_mode": "dominant_by_day",
+  "instrument_key": null,
+  "allow_missing_instrument": false,
+  "session_timezone": "America/Chicago",
+  "session_start": null,
+  "session_end": null,
+  "initial_cash": 100000.0,
+  "contract_multiplier": 5.0,
+  "tick_size": 0.25,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "flatten_daily": false,
+  "flatten_on_last_bar": true,
+  "max_days": 10,
+  "report_tag": "mes_1m_sma_cross_smoke",
+  "strategy": "sma_cross",
+  "strategy_params": {
+    "fast": 20,
+    "slow": 50,
+    "allow_short": true,
+    "position_size": 1
+  },
+  "write_daily_equity_csv": true,
+  "write_executions_csv": true,
+  "write_closed_trades_csv": true
+}

@@ -12,6 +12,7 @@ dependencies = [
     "polars>=1.38.1",
     "pyarrow>=23.0.1",
     "pydantic>=2.12.5",
+    "pytz>=2026.1.post1",
     "watchdog>=6.0.0",
 ]
 

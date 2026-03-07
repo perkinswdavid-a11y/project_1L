@@ -1,0 +1,19 @@
+{
+    "report_tag": "vwap_reversion_1m",
+    "strategy": "vwap_reversion",
+    "session_start": "08:30",
+    "session_end": "15:00",
+    "flatten_daily": true,
+    "strategy_params": {
+        "deviation_ticks": 12,
+        "exit_band_ticks": 2,
+        "min_bars_before_entry": 30,
+        "position_size": 1,
+        "tick_size": 0.25,
+        "session_start": "08:30",
+        "no_new_entries_after": "14:30",
+        "allow_long": true,
+        "allow_short": true,
+        "timezone": "America/Chicago"
+    }
+}

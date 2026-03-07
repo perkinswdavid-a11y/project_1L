@@ -1,0 +1,18 @@
+{
+    "report_tag": "opening_range_breakout_1m",
+    "strategy": "opening_range_breakout",
+    "session_start": "08:30",
+    "session_end": "15:00",
+    "flatten_daily": true,
+    "strategy_params": {
+        "range_minutes": 15,
+        "buffer_ticks": 1,
+        "position_size": 1,
+        "tick_size": 0.25,
+        "session_open": "08:30",
+        "no_new_entries_after": "11:00",
+        "allow_long": true,
+        "allow_short": true,
+        "timezone": "America/Chicago"
+    }
+}
