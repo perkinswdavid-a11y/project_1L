@@ -61,6 +61,20 @@ This file is meant to function like an institutional research notebook:
 
 | Experiment ID | Date | Status | Strategy | Family | Interval | Sample | Closed Trades | Trades/Tested Day | Profit Factor | Net PnL | Max DD % | Decision | Next Action | Run ID |
 |---|---|---|---|---|---|---|---:|---:|---:|---:|---:|---|---|---|
+| EXP-20260308-002 | 2026-03-08 | COMPLETED | opening_range_breakout_v3 | MES | 1m | FULL | 52 | 0.20 | 0.8448 | -283.75 | 0.60 | TBD | TBD | 20260308T000454_opening_range_breakout_v3B_1m_validation |
+| EXP-20260308-001 | 2026-03-08 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
+| EXP-20260307-030 | 2026-03-07 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
+| EXP-20260307-029 | 2026-03-07 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
+| EXP-20260307-028 | 2026-03-07 | FAILED | opening_range_breakout_v3B | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260307-027 | 2026-03-07 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
+| EXP-20260307-026 | 2026-03-07 | COMPLETED | opening_range_breakout_v3 | MES | 1m | FULL | 70 | 0.27 | 1.1732 | 373.75 | 0.39 | TBD | TBD | 20260307T233418_opening_range_breakout_v3B_1m_dev |
+| EXP-20260307-025 | 2026-03-07 | COMPLETED | opening_range_breakout_v3 | MES | 1m | SMOKE | 4 | 0.12 | 0.4101 | -131.25 | 0.22 | TBD | TBD | 20260307T232722_opening_range_breakout_v3_1m_smoke |
+| EXP-20260307-024 | 2026-03-07 | COMPLETED | opening_range_breakout_v3 | MES | 1m | FULL | 55 | 0.21 | 1.0119 | 20.00 | 0.54 | TBD | TBD | 20260307T231235_opening_range_breakout_v3_1m_dev |
+| EXP-20260307-023 | 2026-03-07 | COMPLETED | opening_range_breakout_v3 | MES | 1m | SMOKE | 4 | 0.12 | 0.4101 | -131.25 | 0.22 | TBD | TBD | 20260307T225809_opening_range_breakout_v3_1m_smoke |
+| EXP-20260307-022 | 2026-03-07 | FAILED | opening_range_breakout_v3 | MES | 1m | SMOKE | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260307-021 | 2026-03-07 | FAILED | opening_range_breakout_v3 | MES | 1m | SMOKE | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260307-020 | 2026-03-07 | COMPLETED | opening_range_breakout_v2 | MES | 1m | FULL | 150 | 0.60 | 1.0263 | 192.50 | 1.11 | TBD | TBD | 20260307T192841_opening_range_breakout_v2_1m_holdout |
+| EXP-20260307-019 | 2026-03-07 | COMPLETED | opening_range_breakout_v2 | MES | 1m | FULL | 141 | 0.55 | 1.2256 | 1108.75 | 1.01 | TBD | TBD | 20260307T191320_opening_range_breakout_v2_1m_validation |
 | EXP-20260307-018 | 2026-03-07 | COMPLETED | opening_range_breakout_v2 | MES | 1m | FULL | 143 | 0.55 | 1.2109 | 965.00 | 0.74 | TBD | TBD | 20260307T184945_opening_range_breakout_v2_1m_dev |
 | EXP-20260307-017 | 2026-03-07 | COMPLETED | opening_range_breakout_v2 | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260307T183750_opening_range_breakout_v2_1m_smoke |
 | EXP-20260307-016 | 2026-03-07 | COMPLETED | opening_range_breakout_v2 | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260307T183713_opening_range_breakout_v2_1m_smoke |
@@ -1858,5 +1872,1356 @@ TBD
 - **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T184945_opening_range_breakout_v2_1m_dev`
 - **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260307T184945_opening_range_breakout_v2_1m_dev\closed_trades.csv`
 - **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260307T184945_opening_range_breakout_v2_1m_dev\daily_equity.csv`
+
+---
+
+## EXP-20260307-019 | opening_range_breakout_v2 | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv2 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260307T191320_opening_range_breakout_v2_1m_validation`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T191320_opening_range_breakout_v2_1m_validation`
+- **Strategy:** `opening_range_breakout_v2`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2024-03-01 -> 2025-02-28`
+- **Days Tested:** `257`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Frozen ORB-v2 rules should remain economically non-broken on the validation window if the design has real edge rather than development-period luck.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Validation-window run for ORB-v2 on MES using the exact frozen v2.0 rule set from the development phase.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 101108.75 |
+| Net PnL | 1108.75 |
+| Total Return % | 1.1087 |
+| Max Drawdown Abs | 1012.50 |
+| Max Drawdown % | 1.0056 |
+| Daily Sharpe Approx | 1.0182 |
+| Execution Count | 282 |
+| Closed Trade Count | 141 |
+| Win Rate % | 46.0993 |
+| Gross Profit | 6022.50 |
+| Gross Loss | 4913.75 |
+| Profit Factor | 1.2256 |
+| Trades / Tested Day | 0.55 |
+| Approx Winning Trades | 65 |
+| Approx Losing Trades | 76 |
+| Approx Average Winner | 92.65 |
+| Approx Average Loser | 64.65 |
+| Approx Winner / Loser Ratio | 1.43 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T191320_opening_range_breakout_v2_1m_validation`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260307T191320_opening_range_breakout_v2_1m_validation\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260307T191320_opening_range_breakout_v2_1m_validation\daily_equity.csv`
+
+---
+
+## EXP-20260307-020 | opening_range_breakout_v2 | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv2 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** PROMOTE_TO_VALIDATION
+
+### Metadata
+- **Run ID:** `20260307T192841_opening_range_breakout_v2_1m_holdout`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T192841_opening_range_breakout_v2_1m_holdout`
+- **Strategy:** `opening_range_breakout_v2`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2025-03-01 -> 2026-02-22`
+- **Days Tested:** `252`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+If ORB-v2 has genuine robustness, it should still behave reasonably on the untouched MES holdout window without any rule changes.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Final untouched holdout-window run for ORB-v2 on MES using the exact frozen v2.0 rule set.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100192.50 |
+| Net PnL | 192.50 |
+| Total Return % | 0.1925 |
+| Max Drawdown Abs | 1115.00 |
+| Max Drawdown % | 1.1114 |
+| Daily Sharpe Approx | 0.1366 |
+| Execution Count | 300 |
+| Closed Trade Count | 150 |
+| Win Rate % | 47.3333 |
+| Gross Profit | 7517.50 |
+| Gross Loss | 7325.00 |
+| Profit Factor | 1.0263 |
+| Trades / Tested Day | 0.60 |
+| Approx Winning Trades | 71 |
+| Approx Losing Trades | 79 |
+| Approx Average Winner | 105.88 |
+| Approx Average Loser | 92.72 |
+| Approx Winner / Loser Ratio | 1.14 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+ORB-v3B materially improved on v3A by restoring trade opportunity while preserving low drawdown. Development-window performance remains weaker than ORB-v2 on raw profitability, but the lower-drawdown profile is credible enough to justify a validation-window robustness test.
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T192841_opening_range_breakout_v2_1m_holdout`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260307T192841_opening_range_breakout_v2_1m_holdout\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260307T192841_opening_range_breakout_v2_1m_holdout\daily_equity.csv`
+
+---
+
+## EXP-20260307-021 | opening_range_breakout_v3 | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv3 #family/MES #interval/1m #sample/smoke #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `Config: configs/opening_range_breakout_v3_1m_smoke.json`
+- **Strategy:** `opening_range_breakout_v3`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3A may improve ORB-v2 robustness by requiring close-confirmed breakouts, stronger opening-range close location, and a cap on oversized initial structural risk.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v3A on MES. This branch keeps ORB-v2 trade management but adds close-confirmed breakout entry, OR close location filtering, and max initial risk cap.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "entry_trigger_mode": "close",
+  "or_close_location_min": 0.6,
+  "max_initial_risk_ticks": 60,
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+Unknown strategy 'opening_range_breakout_v3'.
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/opening_range_breakout_v3_1m_smoke.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260307-022 | opening_range_breakout_v3 | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv3 #family/MES #interval/1m #sample/smoke #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `Config: configs/opening_range_breakout_v3_1m_smoke.json`
+- **Strategy:** `opening_range_breakout_v3`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3A may improve ORB-v2 robustness by requiring close-confirmed breakouts, stronger opening-range close location, and a cap on oversized initial structural risk.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v3A on MES. This branch keeps ORB-v2 trade management but adds close-confirmed breakout entry, OR close location filtering, and max initial risk cap.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "entry_trigger_mode": "close",
+  "or_close_location_min": 0.6,
+  "max_initial_risk_ticks": 60,
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+Unknown strategy 'opening_range_breakout_v3'.
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/opening_range_breakout_v3_1m_smoke.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260307-023 | opening_range_breakout_v3 | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv3 #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260307T225809_opening_range_breakout_v3_1m_smoke`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T225809_opening_range_breakout_v3_1m_smoke`
+- **Strategy:** `opening_range_breakout_v3`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3A may improve ORB-v2 robustness by requiring close-confirmed breakouts, stronger opening-range close location, and a cap on oversized initial structural risk.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v3A on MES. This branch keeps ORB-v2 trade management but adds close-confirmed breakout entry, OR close location filtering, and max initial risk cap.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "entry_trigger_mode": "close",
+  "or_close_location_min": 0.6,
+  "max_initial_risk_ticks": 60,
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99868.75 |
+| Net PnL | -131.25 |
+| Total Return % | -0.1313 |
+| Max Drawdown Abs | 222.50 |
+| Max Drawdown % | 0.2225 |
+| Daily Sharpe Approx | -2.3510 |
+| Execution Count | 8 |
+| Closed Trade Count | 4 |
+| Win Rate % | 25.0000 |
+| Gross Profit | 91.25 |
+| Gross Loss | 222.50 |
+| Profit Factor | 0.4101 |
+| Trades / Tested Day | 0.12 |
+| Approx Winning Trades | 1 |
+| Approx Losing Trades | 3 |
+| Approx Average Winner | 91.25 |
+| Approx Average Loser | 74.17 |
+| Approx Winner / Loser Ratio | 1.23 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T225809_opening_range_breakout_v3_1m_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260307T225809_opening_range_breakout_v3_1m_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260307T225809_opening_range_breakout_v3_1m_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260307-024 | opening_range_breakout_v3 | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv3 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `REJECT_AT_DEV`
+
+### Metadata
+- **Run ID:** `20260307T231235_opening_range_breakout_v3_1m_dev`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T231235_opening_range_breakout_v3_1m_dev`
+- **Strategy:** `opening_range_breakout_v3`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2024-02-29`
+- **Days Tested:** `261`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3 may create a more robust long-only morning breakout system on MES by combining structural OR entry, structural initial stop, cost-protected stop escalation, ATR trailing, and a broad OR-width quality filter.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Development-window run for ORB-v3 on MES. This is the design-period evaluation for the frozen v2.0 rule set.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "entry_trigger_mode": "close",
+  "or_close_location_min": 0.6,
+  "max_initial_risk_ticks": 60,
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100020.00 |
+| Net PnL | 20.00 |
+| Total Return % | 0.0200 |
+| Max Drawdown Abs | 538.75 |
+| Max Drawdown % | 0.5366 |
+| Daily Sharpe Approx | 0.0386 |
+| Execution Count | 110 |
+| Closed Trade Count | 55 |
+| Win Rate % | 41.8182 |
+| Gross Profit | 1705.00 |
+| Gross Loss | 1685.00 |
+| Profit Factor | 1.0119 |
+| Trades / Tested Day | 0.21 |
+| Approx Winning Trades | 23 |
+| Approx Losing Trades | 32 |
+| Approx Average Winner | 74.13 |
+| Approx Average Loser | 52.66 |
+| Approx Winner / Loser Ratio | 1.41 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+ORB-v3A reduced trade count and drawdown, but also removed too much of the profit engine. Development-window performance was effectively flat after costs, so this branch does not earn promotion to validation. Next step is a controlled follow-up branch that relaxes OR close-location strictness while keeping the initial risk cap in place.
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T231235_opening_range_breakout_v3_1m_dev`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260307T231235_opening_range_breakout_v3_1m_dev\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260307T231235_opening_range_breakout_v3_1m_dev\daily_equity.csv`
+
+---
+
+## EXP-20260307-025 | opening_range_breakout_v3B | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv3B #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260307T232722_opening_range_breakout_v3B_1m_smoke`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T232722_opening_range_breakout_v3B_1m_smoke`
+- **Strategy:** `opening_range_breakout_v3B`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3B may improve ORB-v3 robustness by requiring close-confirmed breakouts, stronger opening-range close location, and a cap on oversized initial structural risk.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v3B on MES. This branch keeps ORB-3A trade management but adds close-confirmed breakout entry, OR close location filtering, and max initial risk cap.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "entry_trigger_mode": "close",
+  "or_close_location_min": 0.5,
+  "max_initial_risk_ticks": 60,
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99868.75 |
+| Net PnL | -131.25 |
+| Total Return % | -0.1313 |
+| Max Drawdown Abs | 222.50 |
+| Max Drawdown % | 0.2225 |
+| Daily Sharpe Approx | -2.3510 |
+| Execution Count | 8 |
+| Closed Trade Count | 4 |
+| Win Rate % | 25.0000 |
+| Gross Profit | 91.25 |
+| Gross Loss | 222.50 |
+| Profit Factor | 0.4101 |
+| Trades / Tested Day | 0.12 |
+| Approx Winning Trades | 1 |
+| Approx Losing Trades | 3 |
+| Approx Average Winner | 91.25 |
+| Approx Average Loser | 74.17 |
+| Approx Winner / Loser Ratio | 1.23 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T232722_opening_range_breakout_v3_1m_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260307T232722_opening_range_breakout_v3_1m_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260307T232722_opening_range_breakout_v3_1m_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260307-026 | opening_range_breakout_v3 | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv3 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** REJECT_AT_VALIDATION
+
+### Metadata
+- **Run ID:** `20260307T233418_opening_range_breakout_v3B_1m_dev`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T233418_opening_range_breakout_v3B_1m_dev`
+- **Strategy:** `opening_range_breakout_v3`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2024-02-29`
+- **Days Tested:** `261`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3B may recover too much-filtered profit opportunity from v3A by relaxing the opening-range close-location threshold while preserving the max-initial-risk cap.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v3B did not validate. Although the branch reduced drawdown and activity in development, out-of-sample validation turned clearly negative with sub-1.0 profit factor and materially worse performance than ORB-v2 on the same window. Do not continue this branch. Archive as an informative failed attempt and return to new ORB hypothesis design rather than further tuning this line.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "entry_trigger_mode": "close",
+  "or_close_location_min": 0.5,
+  "max_initial_risk_ticks": 60,
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100373.75 |
+| Net PnL | 373.75 |
+| Total Return % | 0.3737 |
+| Max Drawdown Abs | 390.00 |
+| Max Drawdown % | 0.3884 |
+| Daily Sharpe Approx | 0.5459 |
+| Execution Count | 140 |
+| Closed Trade Count | 70 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 2531.25 |
+| Gross Loss | 2157.50 |
+| Profit Factor | 1.1732 |
+| Trades / Tested Day | 0.27 |
+| Approx Winning Trades | 30 |
+| Approx Losing Trades | 40 |
+| Approx Average Winner | 84.38 |
+| Approx Average Loser | 53.94 |
+| Approx Winner / Loser Ratio | 1.56 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260307T233418_opening_range_breakout_v3B_1m_dev`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260307T233418_opening_range_breakout_v3B_1m_dev\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260307T233418_opening_range_breakout_v3B_1m_dev\daily_equity.csv`
+
+---
+
+## EXP-20260307-027 | unknown | unknown | unknown | FULL
+
+**Tags:** #sample/full #status/failed #decision/invalid_run
+
+**Status:** `FAILED`  
+**Decision:** `INVALID_RUN`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B_1m_validation.json`
+- **Strategy:** `unknown`
+- **Strategy Archetype:** `unknown`
+- **Family:** `unknown`
+- **Interval:** `unknown`
+- **Sample Type:** `FULL`
+- **Date Range:** `unknown -> unknown`
+- **Days Tested:** `1`
+- **Instrument Mode:** `unknown`
+- **Instrument Key:** `null`
+
+### Research Question / Hypothesis
+TBD
+
+### Change Description
+- **Parent Experiment:** `TBD`
+- **What changed:** `TBD`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `unknown`
+- **Session:** `unknown -> unknown`
+- **Flatten Daily:** `unknown`
+- **Flatten On Last Bar:** `unknown`
+- **Initial Cash:** `unknown`
+- **Contract Multiplier:** `unknown`
+- **Tick Size:** `unknown`
+- **Slippage Ticks:** `unknown`
+- **Commission Per Side:** `unknown`
+
+### Strategy Parameters
+```json
+{}
+```
+
+### Results
+Run failed with error:
+```
+[Errno 2] No such file or directory: 'configs\\opening_range_breakout_v3B_1m_validation.json'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B_1m_validation.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260307-028 | opening_range_breakout_v3B | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv3B #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B_1m_validation.json`
+- **Strategy:** `opening_range_breakout_v3B`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2024-03-01 -> 2025-02-28`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3B may improve out-of-sample robustness versus ORB-v2 by preserving the max initial risk cap while relaxing the OR close-location filter enough to restore viable trade opportunity.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Validation-window run for ORB-v3B on MES. Same ORB-v3 structure as v3A, but with OR close location minimum relaxed from 0.60 to 0.50 while keeping close-confirmed breakout entry and max initial risk cap unchanged.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+Unknown strategy 'opening_range_breakout_v3B'.
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B_1m_validation.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260307-029 | unknown | unknown | unknown | FULL
+
+**Tags:** #sample/full #status/failed #decision/invalid_run
+
+**Status:** `FAILED`  
+**Decision:** `INVALID_RUN`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B_1m_validation.json`
+- **Strategy:** `unknown`
+- **Strategy Archetype:** `unknown`
+- **Family:** `unknown`
+- **Interval:** `unknown`
+- **Sample Type:** `FULL`
+- **Date Range:** `unknown -> unknown`
+- **Days Tested:** `1`
+- **Instrument Mode:** `unknown`
+- **Instrument Key:** `null`
+
+### Research Question / Hypothesis
+TBD
+
+### Change Description
+- **Parent Experiment:** `TBD`
+- **What changed:** `TBD`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `unknown`
+- **Session:** `unknown -> unknown`
+- **Flatten Daily:** `unknown`
+- **Flatten On Last Bar:** `unknown`
+- **Initial Cash:** `unknown`
+- **Contract Multiplier:** `unknown`
+- **Tick Size:** `unknown`
+- **Slippage Ticks:** `unknown`
+- **Commission Per Side:** `unknown`
+
+### Strategy Parameters
+```json
+{}
+```
+
+### Results
+Run failed with error:
+```
+[Errno 2] No such file or directory: 'configs\\opening_range_breakout_v3B_1m_validation.json'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B_1m_validation.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260307-030 | unknown | unknown | unknown | FULL
+
+**Tags:** #sample/full #status/failed #decision/invalid_run
+
+**Status:** `FAILED`  
+**Decision:** `INVALID_RUN`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-07`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B.json`
+- **Strategy:** `unknown`
+- **Strategy Archetype:** `unknown`
+- **Family:** `unknown`
+- **Interval:** `unknown`
+- **Sample Type:** `FULL`
+- **Date Range:** `unknown -> unknown`
+- **Days Tested:** `1`
+- **Instrument Mode:** `unknown`
+- **Instrument Key:** `null`
+
+### Research Question / Hypothesis
+TBD
+
+### Change Description
+- **Parent Experiment:** `TBD`
+- **What changed:** `TBD`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `unknown`
+- **Session:** `unknown -> unknown`
+- **Flatten Daily:** `unknown`
+- **Flatten On Last Bar:** `unknown`
+- **Initial Cash:** `unknown`
+- **Contract Multiplier:** `unknown`
+- **Tick Size:** `unknown`
+- **Slippage Ticks:** `unknown`
+- **Commission Per Side:** `unknown`
+
+### Strategy Parameters
+```json
+{}
+```
+
+### Results
+Run failed with error:
+```
+[Errno 2] No such file or directory: 'configs\\opening_range_breakout_v3B.json'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260308-001 | unknown | unknown | unknown | FULL
+
+**Tags:** #sample/full #status/failed #decision/invalid_run
+
+**Status:** `FAILED`  
+**Decision:** `INVALID_RUN`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-08`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B.json`
+- **Strategy:** `unknown`
+- **Strategy Archetype:** `unknown`
+- **Family:** `unknown`
+- **Interval:** `unknown`
+- **Sample Type:** `FULL`
+- **Date Range:** `unknown -> unknown`
+- **Days Tested:** `1`
+- **Instrument Mode:** `unknown`
+- **Instrument Key:** `null`
+
+### Research Question / Hypothesis
+TBD
+
+### Change Description
+- **Parent Experiment:** `TBD`
+- **What changed:** `TBD`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `unknown`
+- **Session:** `unknown -> unknown`
+- **Flatten Daily:** `unknown`
+- **Flatten On Last Bar:** `unknown`
+- **Initial Cash:** `unknown`
+- **Contract Multiplier:** `unknown`
+- **Tick Size:** `unknown`
+- **Slippage Ticks:** `unknown`
+- **Commission Per Side:** `unknown`
+
+### Strategy Parameters
+```json
+{}
+```
+
+### Results
+Run failed with error:
+```
+[Errno 2] No such file or directory: 'configs\\opening_range_breakout_v3B.json'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/opening_range_breakout_v3B.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260308-002 | opening_range_breakout_v3 | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv3 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260308T000454_opening_range_breakout_v3B_1m_validation`
+- **Run Date:** `2026-03-08`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `begin_backtesting @ 41ade39`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260308T000454_opening_range_breakout_v3B_1m_validation`
+- **Strategy:** `opening_range_breakout_v3`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2024-03-01 -> 2025-02-28`
+- **Days Tested:** `257`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v3B may improve out-of-sample robustness versus ORB-v2 by preserving the max initial risk cap while relaxing the OR close-location filter enough to restore viable trade opportunity.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Validation-window run for ORB-v3B on MES. Same ORB-v3 structure as v3A, but with OR close location minimum relaxed from 0.60 to 0.50 while keeping close-confirmed breakout entry and max initial risk cap unchanged.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "entry_trigger_mode": "close",
+  "or_close_location_min": 0.5,
+  "max_initial_risk_ticks": 60,
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99716.25 |
+| Net PnL | -283.75 |
+| Total Return % | -0.2838 |
+| Max Drawdown Abs | 605.00 |
+| Max Drawdown % | 0.6041 |
+| Daily Sharpe Approx | -0.5147 |
+| Execution Count | 104 |
+| Closed Trade Count | 52 |
+| Win Rate % | 36.5385 |
+| Gross Profit | 1545.00 |
+| Gross Loss | 1828.75 |
+| Profit Factor | 0.8448 |
+| Trades / Tested Day | 0.20 |
+| Approx Winning Trades | 19 |
+| Approx Losing Trades | 33 |
+| Approx Average Winner | 81.32 |
+| Approx Average Loser | 55.42 |
+| Approx Winner / Loser Ratio | 1.47 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260308T000454_opening_range_breakout_v3B_1m_validation`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260308T000454_opening_range_breakout_v3B_1m_validation\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260308T000454_opening_range_breakout_v3B_1m_validation\daily_equity.csv`
 
 ---

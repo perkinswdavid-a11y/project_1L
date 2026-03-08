@@ -50,6 +50,8 @@ class Execution:
     family: str
     instrument_key: str
     action: str
+    str
+    action: str
     qty_delta: int
     fill_price: float
     reference_price: float
@@ -616,6 +618,7 @@ class OpeningRangeBreakoutV2Strategy(Strategy):
         return current_position
 
 
+
 class PreviousDayHighLowBreakoutStrategy(Strategy):
     def __init__(
         self,
@@ -747,17 +750,6 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             timezone=str(params.get("timezone", "America/Chicago")),
         )
 
-    if name == "momentum_pullback":
-        return MomentumPullbackStrategy(
-            fast=int(params.get("fast", 20)),
-            slow=int(params.get("slow", 50)),
-            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
-            position_size=int(params.get("position_size", 1)),
-            tick_size=float(params.get("tick_size", 0.25)),
-            allow_short=bool(params.get("allow_short", True)),
-        )
-
-
     if name in {"opening_range_breakout_v2", "orb_v2"}:
         return OpeningRangeBreakoutV2Strategy(
             range_minutes=int(params.get("range_minutes", 15)),
@@ -769,7 +761,6 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             no_new_entries_after=str(params.get("no_new_entries_after", "11:00")),
             time_stop=str(params.get("time_stop", "13:30")),
             allow_long=bool(params.get("allow_long", True)),
-            timezone=str(params.get("timezone", "America/Chicago")),
             or_width_lookback_days=int(params.get("or_width_lookback_days", 20)),
             or_width_min_factor=float(params.get("or_width_min_factor", 0.5)),
             or_width_max_factor=float(params.get("or_width_max_factor", 2.0)),
@@ -777,9 +768,20 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             trail_activate_r=float(params.get("trail_activate_r", 2.0)),
             atr_period=int(params.get("atr_period", 20)),
             atr_trail_multiple=float(params.get("atr_trail_multiple", 3.0)),
-            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
             commission_per_side=float(params.get("commission_per_side", 1.25)),
             contract_multiplier=float(params.get("contract_multiplier", 5.0)),
+            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
+            timezone=str(params.get("timezone", "America/Chicago")),
+        )
+
+    if name == "momentum_pullback":
+        return MomentumPullbackStrategy(
+            fast=int(params.get("fast", 20)),
+            slow=int(params.get("slow", 50)),
+            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
+            position_size=int(params.get("position_size", 1)),
+            tick_size=float(params.get("tick_size", 0.25)),
+            allow_short=bool(params.get("allow_short", True)),
         )
 
     if name in {"previous_day_high_low_breakout", "pdh_pdl_breakout"}:

@@ -45,8 +45,8 @@
   "start_date": "2023-02-26",
   "end_date": "2024-02-29",
   "report_tag": "opening_range_breakout_v2_1m_dev",
-  "research_hypothesis": "ORB-v2 may create a more robust long-only morning breakout system on MES by combining structural OR entry, structural initial stop, cost-protected stop escalation, ATR trailing, and a broad OR-width quality filter.",
-  "research_change_description": "Development-window run for ORB-v2 on MES. This is the design-period evaluation for the frozen v2.0 rule set.",
+  "research_hypothesis": "ORB-v3 may create a more robust long-only morning breakout system on MES by combining structural OR entry, structural initial stop, cost-protected stop escalation, ATR trailing, and a broad OR-width quality filter.",
+  "research_change_description": "Development-window run for ORB-v3 on MES. This is the design-period evaluation for the frozen v2.0 rule set.",
   "research_parent_experiment_id": "none",
   "research_decision": "TBD",
   "research_recommendation": "TBD"
