@@ -50,6 +50,8 @@ class Execution:
     family: str
     instrument_key: str
     action: str
+    str
+    action: str
     qty_delta: int
     fill_price: float
     reference_price: float
@@ -100,9 +102,6 @@ def _minutes_since_midnight(value: time) -> int:
 
 
 class Strategy:
-    def on_open(self, bar: Bar, current_position: int, pending_target: int) -> int:
-        return pending_target
-
     def on_bar(self, bar: Bar, current_position: int) -> int:
         raise NotImplementedError
 
@@ -619,213 +618,6 @@ class OpeningRangeBreakoutV2Strategy(Strategy):
         return current_position
 
 
-
-class OpeningRangeBreakoutV3Strategy(OpeningRangeBreakoutV2Strategy):
-    def __init__(
-        self,
-        range_minutes: int = 15,
-        entry_buffer_ticks: float = 1.0,
-        stop_buffer_ticks: float = 1.0,
-        position_size: int = 1,
-        tick_size: float = 0.25,
-        session_open: str = "08:30",
-        no_new_entries_after: str = "11:00",
-        time_stop: str = "13:30",
-        allow_long: bool = True,
-        timezone: str = "America/Chicago",
-        or_width_lookback_days: int = 20,
-        or_width_min_factor: float = 0.5,
-        or_width_max_factor: float = 2.0,
-        cost_protect_trigger_r: float = 1.25,
-        trail_activate_r: float = 2.0,
-        atr_period: int = 20,
-        atr_trail_multiple: float = 3.0,
-        slippage_ticks: float = 1.0,
-        commission_per_side: float = 1.25,
-        contract_multiplier: float = 5.0,
-        entry_trigger_mode: str = "close",
-        or_close_location_min: float = 0.60,
-        max_initial_risk_ticks: float = 60.0,
-    ) -> None:
-        super().__init__(
-            range_minutes=range_minutes,
-            entry_buffer_ticks=entry_buffer_ticks,
-            stop_buffer_ticks=stop_buffer_ticks,
-            position_size=position_size,
-            tick_size=tick_size,
-            session_open=session_open,
-            no_new_entries_after=no_new_entries_after,
-            time_stop=time_stop,
-            allow_long=allow_long,
-            timezone=timezone,
-            or_width_lookback_days=or_width_lookback_days,
-            or_width_min_factor=or_width_min_factor,
-            or_width_max_factor=or_width_max_factor,
-            cost_protect_trigger_r=cost_protect_trigger_r,
-            trail_activate_r=trail_activate_r,
-            atr_period=atr_period,
-            atr_trail_multiple=atr_trail_multiple,
-            slippage_ticks=slippage_ticks,
-            commission_per_side=commission_per_side,
-            contract_multiplier=contract_multiplier,
-        )
-
-        trigger_mode = str(entry_trigger_mode).strip().lower()
-        if trigger_mode not in {"touch", "close"}:
-            raise ValueError("entry_trigger_mode must be either 'touch' or 'close'.")
-        if not 0.0 <= float(or_close_location_min) <= 1.0:
-            raise ValueError("or_close_location_min must be between 0.0 and 1.0.")
-        if float(max_initial_risk_ticks) <= 0:
-            raise ValueError("max_initial_risk_ticks must be > 0.")
-
-        self.entry_trigger_mode = trigger_mode
-        self.or_close_location_min = float(or_close_location_min)
-        self.max_initial_risk_ticks = float(max_initial_risk_ticks)
-        self.or_close: Optional[float] = None
-
-    def _roll_day(self, new_day: str) -> None:
-        super()._roll_day(new_day)
-        self.or_close = None
-
-    def _or_close_location_passes(self) -> bool:
-        if self.or_close_location_min <= 0:
-            return True
-        if (
-            self.or_high is None
-            or self.or_low is None
-            or self.or_close is None
-            or self.current_day_or_width is None
-            or self.current_day_or_width <= 0
-        ):
-            return False
-        close_location = (self.or_close - self.or_low) / self.current_day_or_width
-        return close_location >= self.or_close_location_min
-
-    def on_open(self, bar: Bar, current_position: int, pending_target: int) -> int:
-        if not self.pending_long_entry or pending_target <= current_position:
-            return pending_target
-
-        local_time = _bar_local_time(bar, self.tz)
-        if local_time >= self.no_new_entries_after:
-            self._clear_trade_state()
-            return current_position
-
-        if self.or_low is None:
-            self._clear_trade_state()
-            return current_position
-
-        candidate_entry_price = float(bar.open) + (self.slippage_ticks * self.tick_size)
-        initial_stop = self.or_low - (self.stop_buffer_ticks * self.tick_size)
-        risk_points = candidate_entry_price - initial_stop
-        if risk_points <= 0:
-            self._clear_trade_state()
-            return current_position
-
-        risk_ticks = risk_points / self.tick_size if self.tick_size > 0 else float("inf")
-        if risk_ticks > self.max_initial_risk_ticks + 1e-9:
-            self._clear_trade_state()
-            return current_position
-
-        return pending_target
-
-    def on_bar(self, bar: Bar, current_position: int) -> int:
-        if bar.yyyymmdd != self.current_day:
-            self._roll_day(bar.yyyymmdd)
-
-        local_time = _bar_local_time(bar, self.tz)
-        if local_time < self.session_open:
-            return current_position
-
-        local_minutes = _minutes_since_midnight(local_time)
-        open_minutes = _minutes_since_midnight(self.session_open)
-        price = float(bar.close)
-
-        self._append_true_range(bar)
-
-        if current_position == 0 and self.entry_price is not None:
-            self._clear_trade_state()
-
-        if current_position > 0 and self.pending_long_entry:
-            self._initialize_filled_long(bar)
-
-        in_range_window = open_minutes <= local_minutes < (open_minutes + self.range_minutes)
-        if in_range_window:
-            high = float(bar.high)
-            low = float(bar.low)
-            self.or_high = high if self.or_high is None else max(self.or_high, high)
-            self.or_low = low if self.or_low is None else min(self.or_low, low)
-            self.or_close = price
-            self.current_day_or_width = (
-                (self.or_high - self.or_low)
-                if self.or_high is not None and self.or_low is not None
-                else None
-            )
-            return current_position
-
-        if self.or_high is None or self.or_low is None:
-            return current_position
-
-        if self.current_day_or_width is None:
-            self.current_day_or_width = self.or_high - self.or_low
-
-        if current_position > 0:
-            high = float(bar.high)
-            self.best_high_since_entry = high if self.best_high_since_entry is None else max(self.best_high_since_entry, high)
-            self.highest_close_since_entry = (
-                price if self.highest_close_since_entry is None else max(self.highest_close_since_entry, price)
-            )
-
-            if (
-                self.entry_price is not None
-                and self.risk_per_contract is not None
-                and self.active_stop is not None
-                and self.best_high_since_entry is not None
-            ):
-                if (
-                    not self.cost_protected
-                    and self.best_high_since_entry >= self.entry_price + (self.cost_protect_trigger_r * self.risk_per_contract)
-                ):
-                    self.active_stop = max(self.active_stop, self.entry_price + self.cost_buffer_points)
-                    self.cost_protected = True
-
-                if self.best_high_since_entry >= self.entry_price + (self.trail_activate_r * self.risk_per_contract):
-                    atr_value = self._current_atr()
-                    if atr_value is not None and self.highest_close_since_entry is not None:
-                        trail_stop = self.highest_close_since_entry - (self.atr_trail_multiple * atr_value)
-                        self.active_stop = max(self.active_stop, trail_stop)
-                        self.trail_active = True
-
-            if self.active_stop is not None and price <= self.active_stop:
-                return 0
-            if local_time >= self.time_stop:
-                return 0
-            return current_position
-
-        if not self.allow_long:
-            return current_position
-        if self.traded_today:
-            return current_position
-        if not self._or_filter_passes():
-            return current_position
-        if not self._or_close_location_passes():
-            return current_position
-        if local_time >= self.no_new_entries_after:
-            return current_position
-
-        entry_trigger = self.or_high + (self.entry_buffer_ticks * self.tick_size)
-        breakout_confirmed = (
-            float(bar.high) >= entry_trigger
-            if self.entry_trigger_mode == "touch"
-            else price > entry_trigger
-        )
-        if breakout_confirmed:
-            self.traded_today = True
-            self.pending_long_entry = True
-            return self.position_size
-
-        return current_position
-
-
 class OpeningRangeBreakoutV4Strategy(OpeningRangeBreakoutV2Strategy):
     def __init__(
         self,
@@ -875,19 +667,23 @@ class OpeningRangeBreakoutV4Strategy(OpeningRangeBreakoutV2Strategy):
         )
 
         mode = str(vwap_filter_mode).strip().lower()
-        if mode not in {"none", "signal_close_above_vwap"}:
+        if mode not in {"none", "signal_close_above_vwap", "or_close_above_vwap"}:
             raise ValueError(
-                "vwap_filter_mode must be either 'none' or 'signal_close_above_vwap'."
+                "vwap_filter_mode must be one of 'none', 'signal_close_above_vwap', or 'or_close_above_vwap'."
             )
 
         self.vwap_filter_mode = mode
         self.cum_pv = 0.0
         self.cum_vol = 0.0
+        self.or_close: Optional[float] = None
+        self.vwap_at_or_close: Optional[float] = None
 
     def _roll_day(self, new_day: str) -> None:
         super()._roll_day(new_day)
         self.cum_pv = 0.0
         self.cum_vol = 0.0
+        self.or_close = None
+        self.vwap_at_or_close = None
 
     def _append_session_vwap(self, bar: Bar) -> None:
         volume = max(float(bar.volume), 0.0)
@@ -906,12 +702,16 @@ class OpeningRangeBreakoutV4Strategy(OpeningRangeBreakoutV2Strategy):
         if self.vwap_filter_mode == "none":
             return True
 
-        session_vwap = self._current_session_vwap()
-        if session_vwap is None:
-            return False
-
         if self.vwap_filter_mode == "signal_close_above_vwap":
+            session_vwap = self._current_session_vwap()
+            if session_vwap is None:
+                return False
             return signal_close > session_vwap
+
+        if self.vwap_filter_mode == "or_close_above_vwap":
+            if self.or_close is None or self.vwap_at_or_close is None:
+                return False
+            return self.or_close > self.vwap_at_or_close
 
         return True
 
@@ -942,6 +742,8 @@ class OpeningRangeBreakoutV4Strategy(OpeningRangeBreakoutV2Strategy):
             low = float(bar.low)
             self.or_high = high if self.or_high is None else max(self.or_high, high)
             self.or_low = low if self.or_low is None else min(self.or_low, low)
+            self.or_close = price
+            self.vwap_at_or_close = self._current_session_vwap()
             self.current_day_or_width = (
                 (self.or_high - self.or_low)
                 if self.or_high is not None and self.or_low is not None
@@ -1006,6 +808,389 @@ class OpeningRangeBreakoutV4Strategy(OpeningRangeBreakoutV2Strategy):
             return self.position_size
 
         return current_position
+
+
+class OpeningRangeBreakoutV5AStrategy(OpeningRangeBreakoutV2Strategy):
+    def __init__(
+        self,
+        range_minutes: int = 15,
+        entry_buffer_ticks: float = 1.0,
+        stop_buffer_ticks: float = 1.0,
+        position_size: int = 1,
+        tick_size: float = 0.25,
+        session_open: str = "08:30",
+        no_new_entries_after: str = "11:00",
+        time_stop: str = "13:30",
+        allow_long: bool = True,
+        timezone: str = "America/Chicago",
+        or_width_lookback_days: int = 20,
+        or_width_min_factor: float = 0.80,
+        or_width_max_factor: float = 1.60,
+        cost_protect_trigger_r: float = 1.25,
+        trail_activate_r: float = 2.0,
+        atr_period: int = 20,
+        atr_trail_multiple: float = 3.0,
+        slippage_ticks: float = 1.0,
+        commission_per_side: float = 1.25,
+        contract_multiplier: float = 5.0,
+        or_close_location_min: float = 0.70,
+    ) -> None:
+        super().__init__(
+            range_minutes=range_minutes,
+            entry_buffer_ticks=entry_buffer_ticks,
+            stop_buffer_ticks=stop_buffer_ticks,
+            position_size=position_size,
+            tick_size=tick_size,
+            session_open=session_open,
+            no_new_entries_after=no_new_entries_after,
+            time_stop=time_stop,
+            allow_long=allow_long,
+            timezone=timezone,
+            or_width_lookback_days=or_width_lookback_days,
+            or_width_min_factor=or_width_min_factor,
+            or_width_max_factor=or_width_max_factor,
+            cost_protect_trigger_r=cost_protect_trigger_r,
+            trail_activate_r=trail_activate_r,
+            atr_period=atr_period,
+            atr_trail_multiple=atr_trail_multiple,
+            slippage_ticks=slippage_ticks,
+            commission_per_side=commission_per_side,
+            contract_multiplier=contract_multiplier,
+        )
+        self.or_close_location_min = float(or_close_location_min)
+        self.or_close: Optional[float] = None
+
+    def _roll_day(self, new_day: str) -> None:
+        super()._roll_day(new_day)
+        self.or_close = None
+
+    def on_bar(self, bar: Bar, current_position: int) -> int:
+        result = super().on_bar(bar, current_position)
+
+        local_time = _bar_local_time(bar, self.tz)
+        local_minutes = _minutes_since_midnight(local_time)
+        open_minutes = _minutes_since_midnight(self.session_open)
+
+        in_range_window = open_minutes <= local_minutes < (open_minutes + self.range_minutes)
+        if in_range_window:
+            self.or_close = float(bar.close)
+
+        return result
+
+    def _or_filter_passes(self) -> bool:
+        if not super()._or_filter_passes():
+            return False
+
+        if self.or_close is None or self.or_high is None or self.or_low is None:
+            return False
+
+        or_height = self.or_high - self.or_low
+        if or_height <= 0:
+            return False
+
+        or_close_location = (self.or_close - self.or_low) / or_height
+        if or_close_location < self.or_close_location_min:
+            return False
+
+        return True
+
+
+class OpeningRangeBreakoutV5BStrategy(OpeningRangeBreakoutV2Strategy):
+    def __init__(
+        self,
+        range_minutes: int = 15,
+        entry_buffer_ticks: float = 1.0,
+        stop_buffer_ticks: float = 1.0,
+        position_size: int = 1,
+        tick_size: float = 0.25,
+        session_open: str = "08:30",
+        no_new_entries_after: str = "11:00",
+        time_stop: str = "13:30",
+        allow_long: bool = True,
+        timezone: str = "America/Chicago",
+        or_width_lookback_days: int = 20,
+        or_width_min_factor: float = 0.5,
+        or_width_max_factor: float = 2.0,
+        cost_protect_trigger_r: float = 1.25,
+        trail_activate_r: float = 2.0,
+        atr_period: int = 20,
+        atr_trail_multiple: float = 3.0,
+        slippage_ticks: float = 1.0,
+        commission_per_side: float = 1.25,
+        contract_multiplier: float = 5.0,
+        or_close_location_min: float = 0.70,
+    ) -> None:
+        super().__init__(
+            range_minutes=range_minutes,
+            entry_buffer_ticks=entry_buffer_ticks,
+            stop_buffer_ticks=stop_buffer_ticks,
+            position_size=position_size,
+            tick_size=tick_size,
+            session_open=session_open,
+            no_new_entries_after=no_new_entries_after,
+            time_stop=time_stop,
+            allow_long=allow_long,
+            timezone=timezone,
+            or_width_lookback_days=or_width_lookback_days,
+            or_width_min_factor=or_width_min_factor,
+            or_width_max_factor=or_width_max_factor,
+            cost_protect_trigger_r=cost_protect_trigger_r,
+            trail_activate_r=trail_activate_r,
+            atr_period=atr_period,
+            atr_trail_multiple=atr_trail_multiple,
+            slippage_ticks=slippage_ticks,
+            commission_per_side=commission_per_side,
+            contract_multiplier=contract_multiplier,
+        )
+        self.or_close_location_min = float(or_close_location_min)
+        self.or_close: Optional[float] = None
+
+    def _roll_day(self, new_day: str) -> None:
+        super()._roll_day(new_day)
+        self.or_close = None
+
+    def on_bar(self, bar: Bar, current_position: int) -> int:
+        result = super().on_bar(bar, current_position)
+
+        local_time = _bar_local_time(bar, self.tz)
+        local_minutes = _minutes_since_midnight(local_time)
+        open_minutes = _minutes_since_midnight(self.session_open)
+
+        in_range_window = open_minutes <= local_minutes < (open_minutes + self.range_minutes)
+        if in_range_window:
+            self.or_close = float(bar.close)
+
+        return result
+
+    def _or_filter_passes(self) -> bool:
+        if not super()._or_filter_passes():
+            return False
+
+        if self.or_close is None or self.or_high is None or self.or_low is None:
+            return False
+
+        or_height = self.or_high - self.or_low
+        if or_height <= 0:
+            return False
+
+        or_close_location = (self.or_close - self.or_low) / or_height
+        if or_close_location < self.or_close_location_min:
+            return False
+
+        return True
+
+class PerknastyOriginalStrategy(Strategy):
+    def __init__(
+        self,
+        range_minutes: int = 15,
+        entry_offset_ticks: float = 2.0,
+        position_size: int = 2,
+        tick_size: float = 0.25,
+        session_open: str = "08:30",
+        force_exit: str = "14:30",
+        timezone: str = "America/Chicago",
+    ) -> None:
+        if range_minutes <= 0:
+            raise ValueError("range_minutes must be > 0.")
+        if position_size <= 0:
+            raise ValueError("position_size must be > 0.")
+        if entry_offset_ticks < 0:
+            raise ValueError("entry_offset_ticks must be >= 0.")
+
+        self.range_minutes = int(range_minutes)
+        self.entry_offset_ticks = float(entry_offset_ticks)
+        self.position_size = int(position_size)
+        self.tick_size = float(tick_size)
+        self.session_open = _parse_time_hhmm(session_open)
+        self.force_exit = _parse_time_hhmm(force_exit)
+        self.tz = ZoneInfo(timezone)
+
+        self.current_day: Optional[str] = None
+        self.or_high: Optional[float] = None
+        self.or_low: Optional[float] = None
+        self.traded_today = False
+
+        self.prev_bar: Optional[Bar] = None
+
+        # Pending retest-limit order state
+        self.pending_order_side: Optional[str] = None   # "long" | "short"
+        self.pending_order_price: Optional[float] = None
+        self.pending_order_active = False
+
+        # Active position state
+        self.active_side: Optional[str] = None          # "long" | "short"
+
+    def _reset_day(self) -> None:
+        self.or_high = None
+        self.or_low = None
+        self.traded_today = False
+        self.prev_bar = None
+
+        self.pending_order_side = None
+        self.pending_order_price = None
+        self.pending_order_active = False
+
+        self.active_side = None
+
+    def _clear_pending_order(self) -> None:
+        self.pending_order_side = None
+        self.pending_order_price = None
+        self.pending_order_active = False
+
+    def on_bar(self, bar: Bar, current_position: int) -> int:
+        if bar.yyyymmdd != self.current_day:
+            self.current_day = bar.yyyymmdd
+            self._reset_day()
+
+        local_time = _bar_local_time(bar, self.tz)
+        local_minutes = _minutes_since_midnight(local_time)
+        open_minutes = _minutes_since_midnight(self.session_open)
+        force_exit_minutes = _minutes_since_midnight(self.force_exit)
+
+        if local_minutes < open_minutes:
+            self.prev_bar = bar
+            return current_position
+
+        # Sync position-side state with engine
+        if current_position == 0:
+            self.active_side = None
+        elif current_position > 0:
+            self.active_side = "long"
+        else:
+            self.active_side = "short"
+
+        # Build opening range from first 15 minutes only
+        in_or_window = open_minutes <= local_minutes < (open_minutes + self.range_minutes)
+        if in_or_window:
+            high = float(bar.high)
+            low = float(bar.low)
+            self.or_high = high if self.or_high is None else max(self.or_high, high)
+            self.or_low = low if self.or_low is None else min(self.or_low, low)
+            self.prev_bar = bar
+            return current_position
+
+        if self.or_high is None or self.or_low is None:
+            self.prev_bar = bar
+            return current_position
+
+        # Hard time exit / cancel pending orders at 14:30
+        if local_minutes >= force_exit_minutes:
+            self._clear_pending_order()
+            if current_position != 0:
+                self.prev_bar = bar
+                return 0
+            self.prev_bar = bar
+            return current_position
+
+        price_close = float(bar.close)
+        price_high = float(bar.high)
+        price_low = float(bar.low)
+        price_open = float(bar.open)
+
+        # Manage active position
+        if current_position > 0:
+            # Structural hard stop: long stop at OR low
+            if price_low <= self.or_low:
+                self.prev_bar = bar
+                return 0
+
+            # Invalidation: 5m candle closes back inside OR
+            if price_close <= self.or_high:
+                self.prev_bar = bar
+                return 0
+
+            self.prev_bar = bar
+            return current_position
+
+        if current_position < 0:
+            # Structural hard stop: short stop at OR high
+            if price_high >= self.or_high:
+                self.prev_bar = bar
+                return 0
+
+            # Invalidation: 5m candle closes back inside OR
+            if price_close >= self.or_low:
+                self.prev_bar = bar
+                return 0
+
+            self.prev_bar = bar
+            return current_position
+
+        # No new trades after first trade of day
+        if self.traded_today:
+            self._clear_pending_order()
+            self.prev_bar = bar
+            return current_position
+
+        # If a pending retest limit exists, see if this bar fills it
+        if self.pending_order_active and self.pending_order_side and self.pending_order_price is not None:
+            if self.pending_order_side == "long":
+                # Buy limit should fill if bar trades down to or through the limit
+                if price_low <= self.pending_order_price <= price_high:
+                    self.traded_today = True
+                    self._clear_pending_order()
+                    self.prev_bar = bar
+                    return self.position_size
+
+            elif self.pending_order_side == "short":
+                # Sell limit should fill if bar trades up/down through the limit
+                if price_low <= self.pending_order_price <= price_high:
+                    self.traded_today = True
+                    self._clear_pending_order()
+                    self.prev_bar = bar
+                    return -self.position_size
+
+        # If we already have a pending order, do not generate another one
+        if self.pending_order_active:
+            self.prev_bar = bar
+            return current_position
+
+        # Need a prior 5m candle to evaluate breakout + hold
+        if self.prev_bar is None:
+            self.prev_bar = bar
+            return current_position
+
+        prev_close = float(self.prev_bar.close)
+
+        # Long setup:
+        # prior 5m candle closes above OR high
+        # current 5m candle opens above OR high
+        if prev_close > self.or_high and price_open > self.or_high:
+            self.pending_order_side = "long"
+            self.pending_order_price = self.or_high + (self.entry_offset_ticks * self.tick_size)
+            self.pending_order_active = True
+
+            # Allow same-bar fill after order becomes active
+            if price_low <= self.pending_order_price <= price_high:
+                self.traded_today = True
+                self._clear_pending_order()
+                self.prev_bar = bar
+                return self.position_size
+
+            self.prev_bar = bar
+            return current_position
+
+        # Short setup:
+        # prior 5m candle closes below OR low
+        # current 5m candle opens below OR low
+        if prev_close < self.or_low and price_open < self.or_low:
+            self.pending_order_side = "short"
+            self.pending_order_price = self.or_low - (self.entry_offset_ticks * self.tick_size)
+            self.pending_order_active = True
+
+            # Allow same-bar fill after order becomes active
+            if price_low <= self.pending_order_price <= price_high:
+                self.traded_today = True
+                self._clear_pending_order()
+                self.prev_bar = bar
+                return -self.position_size
+
+            self.prev_bar = bar
+            return current_position
+
+        self.prev_bar = bar
+        return current_position
+
 
 class PreviousDayHighLowBreakoutStrategy(Strategy):
     def __init__(
@@ -1138,17 +1323,6 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             timezone=str(params.get("timezone", "America/Chicago")),
         )
 
-    if name == "momentum_pullback":
-        return MomentumPullbackStrategy(
-            fast=int(params.get("fast", 20)),
-            slow=int(params.get("slow", 50)),
-            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
-            position_size=int(params.get("position_size", 1)),
-            tick_size=float(params.get("tick_size", 0.25)),
-            allow_short=bool(params.get("allow_short", True)),
-        )
-
-
     if name in {"opening_range_breakout_v2", "orb_v2"}:
         return OpeningRangeBreakoutV2Strategy(
             range_minutes=int(params.get("range_minutes", 15)),
@@ -1160,7 +1334,6 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             no_new_entries_after=str(params.get("no_new_entries_after", "11:00")),
             time_stop=str(params.get("time_stop", "13:30")),
             allow_long=bool(params.get("allow_long", True)),
-            timezone=str(params.get("timezone", "America/Chicago")),
             or_width_lookback_days=int(params.get("or_width_lookback_days", 20)),
             or_width_min_factor=float(params.get("or_width_min_factor", 0.5)),
             or_width_max_factor=float(params.get("or_width_max_factor", 2.0)),
@@ -1168,36 +1341,10 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             trail_activate_r=float(params.get("trail_activate_r", 2.0)),
             atr_period=int(params.get("atr_period", 20)),
             atr_trail_multiple=float(params.get("atr_trail_multiple", 3.0)),
-            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
             commission_per_side=float(params.get("commission_per_side", 1.25)),
             contract_multiplier=float(params.get("contract_multiplier", 5.0)),
-        )
-
-    if name in {"opening_range_breakout_v3", "orb_v3"}:
-        return OpeningRangeBreakoutV3Strategy(
-            range_minutes=int(params.get("range_minutes", 15)),
-            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
-            stop_buffer_ticks=float(params.get("stop_buffer_ticks", 1.0)),
-            position_size=int(params.get("position_size", 1)),
-            tick_size=float(params.get("tick_size", 0.25)),
-            session_open=str(params.get("session_open", "08:30")),
-            no_new_entries_after=str(params.get("no_new_entries_after", "11:00")),
-            time_stop=str(params.get("time_stop", "13:30")),
-            allow_long=bool(params.get("allow_long", True)),
+            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
             timezone=str(params.get("timezone", "America/Chicago")),
-            or_width_lookback_days=int(params.get("or_width_lookback_days", 20)),
-            or_width_min_factor=float(params.get("or_width_min_factor", 0.5)),
-            or_width_max_factor=float(params.get("or_width_max_factor", 2.0)),
-            cost_protect_trigger_r=float(params.get("cost_protect_trigger_r", 1.25)),
-            trail_activate_r=float(params.get("trail_activate_r", 2.0)),
-            atr_period=int(params.get("atr_period", 20)),
-            atr_trail_multiple=float(params.get("atr_trail_multiple", 3.0)),
-            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
-            commission_per_side=float(params.get("commission_per_side", 1.25)),
-            contract_multiplier=float(params.get("contract_multiplier", 5.0)),
-            entry_trigger_mode=str(params.get("entry_trigger_mode", "close")),
-            or_close_location_min=float(params.get("or_close_location_min", 0.60)),
-            max_initial_risk_ticks=float(params.get("max_initial_risk_ticks", 60.0)),
         )
 
     if name in {"opening_range_breakout_v4", "orb_v4"}:
@@ -1211,7 +1358,6 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             no_new_entries_after=str(params.get("no_new_entries_after", "11:00")),
             time_stop=str(params.get("time_stop", "13:30")),
             allow_long=bool(params.get("allow_long", True)),
-            timezone=str(params.get("timezone", "America/Chicago")),
             or_width_lookback_days=int(params.get("or_width_lookback_days", 20)),
             or_width_min_factor=float(params.get("or_width_min_factor", 0.5)),
             or_width_max_factor=float(params.get("or_width_max_factor", 2.0)),
@@ -1219,10 +1365,21 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             trail_activate_r=float(params.get("trail_activate_r", 2.0)),
             atr_period=int(params.get("atr_period", 20)),
             atr_trail_multiple=float(params.get("atr_trail_multiple", 3.0)),
-            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
             commission_per_side=float(params.get("commission_per_side", 1.25)),
             contract_multiplier=float(params.get("contract_multiplier", 5.0)),
+            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
+            timezone=str(params.get("timezone", "America/Chicago")),
             vwap_filter_mode=str(params.get("vwap_filter_mode", "signal_close_above_vwap")),
+        )
+
+    if name == "momentum_pullback":
+        return MomentumPullbackStrategy(
+            fast=int(params.get("fast", 20)),
+            slow=int(params.get("slow", 50)),
+            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
+            position_size=int(params.get("position_size", 1)),
+            tick_size=float(params.get("tick_size", 0.25)),
+            allow_short=bool(params.get("allow_short", True)),
         )
 
     if name in {"previous_day_high_low_breakout", "pdh_pdl_breakout"}:
@@ -1234,6 +1391,91 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             no_new_entries_after=str(params.get("no_new_entries_after", "11:30")),
             allow_long=bool(params.get("allow_long", True)),
             allow_short=bool(params.get("allow_short", True)),
+            timezone=str(params.get("timezone", "America/Chicago")),
+        )
+
+    if name == "perknasty_original":
+        return PerknastyOriginalStrategy(
+            range_minutes=int(params.get("range_minutes", 15)),
+            entry_offset_ticks=float(params.get("entry_offset_ticks", 2.0)),
+            position_size=int(params.get("position_size", 2)),
+            tick_size=float(params.get("tick_size", 0.25)),
+            session_open=str(params.get("session_open", "08:30")),
+            force_exit=str(params.get("force_exit", "14:30")),
+            timezone=str(params.get("timezone", "America/Chicago")),
+        )
+
+    if name in {"opening_range_breakout_v5a", "orb_v5a"}:
+        return OpeningRangeBreakoutV5AStrategy(
+            range_minutes=int(params.get("range_minutes", 15)),
+            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
+            stop_buffer_ticks=float(params.get("stop_buffer_ticks", 1.0)),
+            position_size=int(params.get("position_size", 1)),
+            tick_size=float(params.get("tick_size", 0.25)),
+            session_open=str(params.get("session_open", "08:30")),
+            no_new_entries_after=str(params.get("no_new_entries_after", "11:00")),
+            time_stop=str(params.get("time_stop", "13:30")),
+            allow_long=bool(params.get("allow_long", True)),
+            or_width_lookback_days=int(params.get("or_width_lookback_days", 20)),
+            or_width_min_factor=float(params.get("or_width_min_factor", 0.80)),
+            or_width_max_factor=float(params.get("or_width_max_factor", 1.60)),
+            cost_protect_trigger_r=float(params.get("cost_protect_trigger_r", 1.25)),
+            trail_activate_r=float(params.get("trail_activate_r", 2.0)),
+            atr_period=int(params.get("atr_period", 20)),
+            atr_trail_multiple=float(params.get("atr_trail_multiple", 3.0)),
+            commission_per_side=float(params.get("commission_per_side", 1.25)),
+            contract_multiplier=float(params.get("contract_multiplier", 5.0)),
+            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
+            timezone=str(params.get("timezone", "America/Chicago")),
+            or_close_location_min=float(params.get("or_close_location_min", 0.70)),
+        )
+
+    if name in {"opening_range_breakout_v5b", "orb_v5b"}:
+        return OpeningRangeBreakoutV5BStrategy(
+            range_minutes=int(params.get("range_minutes", 15)),
+            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
+            stop_buffer_ticks=float(params.get("stop_buffer_ticks", 1.0)),
+            position_size=int(params.get("position_size", 1)),
+            tick_size=float(params.get("tick_size", 0.25)),
+            session_open=str(params.get("session_open", "08:30")),
+            no_new_entries_after=str(params.get("no_new_entries_after", "11:00")),
+            time_stop=str(params.get("time_stop", "13:30")),
+            allow_long=bool(params.get("allow_long", True)),
+            or_width_lookback_days=int(params.get("or_width_lookback_days", 20)),
+            or_width_min_factor=float(params.get("or_width_min_factor", 0.5)),
+            or_width_max_factor=float(params.get("or_width_max_factor", 2.0)),
+            cost_protect_trigger_r=float(params.get("cost_protect_trigger_r", 1.25)),
+            trail_activate_r=float(params.get("trail_activate_r", 2.0)),
+            atr_period=int(params.get("atr_period", 20)),
+            atr_trail_multiple=float(params.get("atr_trail_multiple", 3.0)),
+            commission_per_side=float(params.get("commission_per_side", 1.25)),
+            contract_multiplier=float(params.get("contract_multiplier", 5.0)),
+            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
+            timezone=str(params.get("timezone", "America/Chicago")),
+            or_close_location_min=float(params.get("or_close_location_min", 0.70)),
+        )
+
+    if name in {"opening_range_breakout_v5c", "orb_v5c"}:
+        return OpeningRangeBreakoutV2Strategy(
+            range_minutes=int(params.get("range_minutes", 15)),
+            entry_buffer_ticks=float(params.get("entry_buffer_ticks", 1.0)),
+            stop_buffer_ticks=float(params.get("stop_buffer_ticks", 1.0)),
+            position_size=int(params.get("position_size", 1)),
+            tick_size=float(params.get("tick_size", 0.25)),
+            session_open=str(params.get("session_open", "08:30")),
+            no_new_entries_after=str(params.get("no_new_entries_after", "11:00")),
+            time_stop=str(params.get("time_stop", "13:30")),
+            allow_long=bool(params.get("allow_long", True)),
+            or_width_lookback_days=int(params.get("or_width_lookback_days", 20)),
+            or_width_min_factor=float(params.get("or_width_min_factor", 0.80)),
+            or_width_max_factor=float(params.get("or_width_max_factor", 1.60)),
+            cost_protect_trigger_r=float(params.get("cost_protect_trigger_r", 1.25)),
+            trail_activate_r=float(params.get("trail_activate_r", 2.0)),
+            atr_period=int(params.get("atr_period", 20)),
+            atr_trail_multiple=float(params.get("atr_trail_multiple", 3.0)),
+            commission_per_side=float(params.get("commission_per_side", 1.25)),
+            contract_multiplier=float(params.get("contract_multiplier", 5.0)),
+            slippage_ticks=float(params.get("slippage_ticks", 1.0)),
             timezone=str(params.get("timezone", "America/Chicago")),
         )
 
@@ -1642,9 +1884,6 @@ class BacktestEngine:
                         continue
                     session_bars += 1
                     self._apply_open_pnl(bar)
-                    self.pending_target_qty = int(
-                        self.strategy.on_open(bar, self.position_qty, self.pending_target_qty)
-                    )
                     self._execute_pending_target(bar)
                     self._apply_intrabar_pnl(bar)
 

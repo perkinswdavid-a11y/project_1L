@@ -200,3 +200,86 @@ Code is not done until all items below pass:
    - sim mode: signal → risk approve → execution → fill → bracket attached → audit logs complete
 
 If any item fails, correct behavior is **halt** (fail safe), not “best effort trading”.
+
+
+# IDE Agent Rules for Project 1L
+
+## Purpose
+You are the implementation agent for Project 1L. Your job is to code the exact requested change and nothing else. You do not redesign the strategy, reinterpret the research goal, or make “helpful” side changes.
+
+## Source of Truth
+The prompt/spec you are given for each branch is the source of truth.
+If the prompt/spec conflicts with your preferences, the prompt/spec wins.
+If something is missing or ambiguous, state the assumption explicitly before coding.
+
+## No Drift Rules
+You must not introduce drift.
+
+Drift includes, but is not limited to:
+- changing interval
+- changing start/end dates
+- changing session hours
+- changing parent config templates
+- changing report tags beyond what is requested
+- changing folder names or file paths
+- switching from active configs to archive configs without being told
+- changing parameter defaults that were not explicitly requested
+- changing engine behavior
+- changing trade logic outside the requested module
+- changing parent strategy behavior
+- adding filters, indicators, exits, logging, packages, or helper behavior not explicitly requested
+- running extra test windows or extra branches not explicitly requested
+- “cleaning up” unrelated code
+
+## Parent Strategy Protection
+If a branch is defined as a child of a parent strategy, preserve the parent exactly except for the explicitly requested module.
+Do not modify:
+- entries
+- exits
+- sizing
+- stops
+- trailing logic
+- execution model
+- report/output behavior
+unless the prompt explicitly says to do so.
+
+## Config Discipline
+Use the current official active config family for the parent strategy unless explicitly told otherwise.
+Do not pull templates from archive configs unless explicitly instructed.
+Do not alter config assumptions unless explicitly instructed.
+Only change the fields named in the prompt.
+
+## Testing Discipline
+Run only the tests explicitly requested.
+If instructed to run smoke and Dev-A only, do not run Dev-B.
+If instructed to create a config but not run it, create it and stop.
+
+## Assumption Discipline
+If you must make an assumption, keep it minimal and local.
+Report every assumption clearly in the final output.
+Do not silently make research decisions.
+
+## Package Discipline
+Do not install packages, change environments, or alter dependencies unless explicitly instructed.
+If a dependency issue blocks execution, report it first.
+
+## Output Requirements
+After implementation, return:
+1. exact files modified
+2. exact files created
+3. exact code changes made
+4. exact commands run
+5. requested test outputs
+6. all assumptions made
+7. any deviations from spec, if any
+
+## Failure Condition
+If you cannot complete the exact requested implementation without drifting, stop and say why.
+Do not improvise.
+
+## Core Rule
+Implement the requested branch exactly.
+No freelancing.
+No speculation.
+No silent changes.
+No drift.
