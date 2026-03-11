@@ -109,21 +109,28 @@ Later frozen-rule confirmation instrument:
 
 - MNQ
 
-### 3.3 Current parent benchmark
-Current ORB parent benchmark:
+### 3.3 Current ORB benchmark parent
 
-- ORB-v2
+Current ORB benchmark parent:
+
+- ORB-v6A
 
 Reason:
 
-- ORB-v2 showed credible performance on the original development and validation windows
-- ORB-v2 did not fully survive the original holdout, but it remained the most credible ORB family benchmark so far
-- ORB-v3 branches did not improve robustness
+- ORB-v6A is the first ORB child in the current Project 1L lineage to beat the prior parent on both Dev-A and Dev-B and survive promotion review.
+- ORB-v2 remains the superseded prior ORB benchmark and an important historical comparison anchor.
+- ORB remains a live strategy family, but it is no longer treated as the entire project.
 
 ### 3.4 Current family status
+
 The ORB family has already consumed significant historical exposure on MES.
 
-Therefore, SSVF now treats later windows with honest downgraded status.
+Therefore:
+
+- later ORB work must remain honest about spent data status
+- ORB child branching should now be more selective and more diagnostic-driven
+- repeated local child branching is not automatically good research allocation
+- ORB is one strategy family inside Project 1L, not the whole project
 
 ---
 
@@ -422,7 +429,7 @@ Recommended structure:
 ### 13.3 One active engine file
 Maintain one active backtest engine file:
 
-- `scripts/replay_backtest.py`
+- `scripts/replay_backtest_v4b.py`
 
 Keep archival backups separately, but do not maintain multiple live versions in active use.
 
@@ -455,7 +462,11 @@ Do not upgrade weak evidence into pass language.
 
 ---
 
-## 15. Current Official V4 Testing Plan
+## 15. Historical V4 Testing Plan (Archived Example)
+
+This section is retained as historical research context only.
+It is not the current live Project 1L research anchor.
+The current benchmark parent and current research allocation rules are defined elsewhere in this framework.
 
 ### 15.1 Benchmark parent
 - ORB-v2
@@ -527,6 +538,14 @@ Use this block before each new branch.
 - Reason:
 - Main risk:
 
+### Evidence Memo
+- Target pattern frequency:
+- Relative performance of targeted pattern:
+- Already covered by existing rule/module?:
+- Sample size adequate?:
+- Expected effect if branch works:
+- Main risk of false story:
+
 ---
 
 ## 17. Post-Run Record Template
@@ -550,6 +569,14 @@ Use this block after each meaningful run.
 - Whether to archive:
 - Whether to combine later:
 
+### Diagnostic Follow-Up
+- Mechanism cluster tested:
+- Whether the targeted pattern actually appeared:
+- Whether the branch removed weak trades or merely delayed/shifted fills:
+- Whether this mechanism cluster should now be paused:
+- Whether a parent postmortem is required before more local branches:
+- Whether research allocation should shift to another family:
+
 ---
 
 ## 18. Enforcement Rule
@@ -559,3 +586,198 @@ If a branch result creates temptation to rewrite the rules after viewing the res
 The process is designed to protect Project 1L from false confidence.
 
 If the framework feels restrictive, that usually means it is doing its job.
+
+---
+
+## 19. Research Allocation Rules
+
+Project 1L distinguishes between:
+
+- correct branch discipline
+- correct research allocation
+
+A team may run branches honestly and still allocate effort poorly by spending too many cycles in a low-yield mechanism cluster.
+
+This distinction is mandatory.
+
+### 19.1 Branch discipline is necessary but not sufficient
+
+It is not enough to say:
+
+- the branch was thin
+- the branch was tested honestly
+- the branch was rejected properly
+
+That is good process, but it does not automatically mean the next nearby branch is a good use of research time.
+
+Project 1L must evaluate both:
+
+- whether a branch was tested correctly
+- whether the next branch is justified by evidence rather than intuition alone
+
+### 19.2 Do not choose child branches from story alone
+
+A plausible story is not enough to justify a new child branch.
+
+Before coding a new child branch, Project 1L should ask:
+
+- how often does the targeted pattern actually occur in the parent trade set
+- are those trades materially worse than the rest
+- is that pattern already mostly covered by an existing filter
+- is the sample size large enough to matter
+- would the proposed change truly remove weak trades, or would it mostly delay or shift fills
+
+If those questions cannot be answered, the next step should usually be diagnostics, not coding.
+
+### 19.3 Mandatory pre-code evidence memo
+
+Before launching a new child branch off a mature parent, record a short evidence memo.
+
+The memo must answer:
+
+- target pattern frequency
+- target pattern relative performance
+- overlap with existing filters or protections
+- sample size adequacy
+- expected effect: remove bad trades vs delay entries vs reduce activity
+
+If the memo cannot be completed honestly, the branch should normally not be coded yet.
+
+### 19.4 Mechanism-cluster budget
+
+After three failed thin children in the same mechanism cluster, that cluster should normally be paused.
+
+A paused cluster may only be resumed if diagnostics reveal a specific, untested failure mode.
+
+Examples of mechanism clusters:
+
+- breakout-bar geometry filters
+- anti-chase gates
+- freshness cutoffs
+- immediate failed-breakout exits
+- context filters
+- post-entry protection rules
+
+This rule exists to prevent local over-mining of one idea neighborhood.
+
+### 19.5 Mandatory parent postmortem before continued local branching
+
+When a benchmark parent survives promotion but several nearby child branches fail, Project 1L should run a parent postmortem before launching more local children.
+
+The postmortem should include, when available:
+
+- signal time after OR completion
+- signal bar close-location
+- signal bar body fraction
+- extension from trigger
+- first-bar follow-through after entry
+- MAE
+- MFE
+- exit reason
+- hold time
+- PnL grouped by meaningful bins
+- contribution of top winners versus broad trade distribution
+
+The goal is to select the next branch from observed leak points, not from general intuition.
+
+---
+
+## 20. Parent-Family Discovery Rules
+
+### 20.1 A strategy family is not the project
+
+Project 1L must not treat one strategy family as the entire project.
+
+A benchmark ORB strategy may become one valuable sleeve.
+It is not automatically the final system.
+
+### 20.2 Parallel parent-family discovery is allowed
+
+When one family becomes locally exhausted, Project 1L should open disciplined discovery in other parent strategy families rather than endlessly forcing more nearby child branches.
+
+Examples of separate parent families may include:
+
+- failed opening-range breakout reversal
+- pullback continuation after initial breakout
+- opening drive exhaustion / mean reversion
+- range re-expansion after initial balance
+- intraday trend continuation outside pure OR logic
+
+These are examples of distinct families, not instructions to test all of them at once.
+
+### 20.3 New families must still follow SSVF
+
+Opening a new parent family does not relax discipline.
+
+Each new family still requires:
+
+- written hypothesis
+- fixed parent definition
+- predeclared gates
+- honest Dev-A and Dev-B handling
+- honest data exposure tracking
+
+### 20.4 Discovery breadth is part of robustness
+
+A serious intraday research program should usually maintain some controlled breadth.
+
+This does not mean random idea sprawl.
+It means not allowing one family to consume all research effort after local evidence has weakened.
+
+---
+
+## 21. Portfolio Sleeve Principle
+
+Project 1L should assume that robust intraday performance may eventually come from a small group of distinct, validated strategy sleeves rather than one holy-grail setup.
+
+This means:
+
+- one family does not have to do everything
+- a family may earn retention even if it is not the full system
+- final system quality may come from combining distinct, independently validated edges later
+
+A sleeve must still stand on its own before any combination work begins.
+
+Combination is not a rescue device.
+
+---
+
+## 22. Current Process Guidance
+
+### 22.1 Current ORB benchmark status
+
+Current ORB benchmark parent:
+
+- ORB-v6A
+
+ORB remains active and important.
+It is not abandoned.
+
+### 22.2 Current ORB research guidance
+
+Further ORB child branching should not proceed by default from intuition alone.
+
+Before additional ORB child branches are launched, Project 1L should normally require either:
+
+- a completed pre-code evidence memo, or
+- a benchmark-parent postmortem showing a specific leak point worth testing
+
+### 22.3 Current research allocation priority
+
+Current priority should be:
+
+- keep ORB-v6A as the active benchmark parent
+- perform a formal ORB-v6A postmortem
+- open at least two non-ORB parent-family discovery tracks
+- use evidence to decide which family deserves the next heavy research allocation
+
+### 22.4 High rejection rate is normal
+
+A high rejection rate in systematic strategy research is normal.
+
+Months-long development timelines are normal.
+
+What is not acceptable is allowing repeated rejections to produce little new information.
+
+The goal is not to avoid rejection.
+The goal is to make each rejection informative.

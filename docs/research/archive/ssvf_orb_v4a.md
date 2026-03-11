@@ -1,3 +1,8 @@
+> Historical status note:
+> This document is an archived predeclared branch record for ORB-v4A against ORB-v2.
+> It is retained as part of the Project 1L audit trail and as an example of SSVF branch documentation.
+> It is not the current benchmark parent, not the current ORB research anchor, and not the current Project 1L testing plan.
+
 Predeclared V4A branch record
 
 Use this in SSVF before the run:

@@ -619,7 +619,6 @@ class OpeningRangeBreakoutV2Strategy(Strategy):
         return current_position
 
 
-
 class OpeningRangeBreakoutV3Strategy(OpeningRangeBreakoutV2Strategy):
     def __init__(
         self,
@@ -1007,6 +1006,7 @@ class OpeningRangeBreakoutV4Strategy(OpeningRangeBreakoutV2Strategy):
 
         return current_position
 
+
 class PreviousDayHighLowBreakoutStrategy(Strategy):
     def __init__(
         self,
@@ -1224,6 +1224,7 @@ def build_strategy(strategy_name: str, params: Dict[str, object]) -> Strategy:
             contract_multiplier=float(params.get("contract_multiplier", 5.0)),
             vwap_filter_mode=str(params.get("vwap_filter_mode", "signal_close_above_vwap")),
         )
+
 
     if name in {"previous_day_high_low_breakout", "pdh_pdl_breakout"}:
         return PreviousDayHighLowBreakoutStrategy(

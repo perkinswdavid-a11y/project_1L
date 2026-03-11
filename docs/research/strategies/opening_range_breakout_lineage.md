@@ -1,4 +1,4 @@
-# Project 1L ORB-v2 Strategy Specification
+# Project 1L Opening Range Breakout Strategy Lineage
 Version: v2.0
 Status: Draft research specification
 Design instrument: MES
@@ -446,3 +446,15 @@ But because it is the correct next scientific step:
 - specific enough to test,
 - disciplined enough to avoid vibes,
 - and complete enough to resemble how a strong manual trader would actually manage the trade.
+
+---
+
+## 19. Benchmark Status
+*Status updated: 2026-03-09*
+
+ORB-v2 holds the historical record as the first fully specified baseline logic.
+It has now been **superseded** as the official benchmark parent by **ORB-v6a**.
+
+ORB-v6a retains all ORB-v2 logic but adds a single structural breakout bar close-location gate `(close - low) / (high - low) >= 0.70`, which demonstrably improved risk-adjusted performance on both Dev-A and Dev-B out-of-sample slices without breaking any other mechanics.
+
+All future ORB research should branch from `opening_range_breakout_v6a` unless explicitly testing an isolated bare-bones structure.

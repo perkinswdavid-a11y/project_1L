@@ -61,6 +61,66 @@ This file is meant to function like an institutional research notebook:
 
 | Experiment ID | Date | Status | Strategy | Family | Interval | Sample | Closed Trades | Trades/Tested Day | Profit Factor | Net PnL | Max DD % | Decision | Next Action | Run ID |
 |---|---|---|---|---|---|---|---:|---:|---:|---:|---:|---|---|---|
+| EXP-20260310-018 | 2026-03-10 | COMPLETED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | N/A | 0.00 | N/A | INVALID_RUN | Data catalog spans ~2.5 years; 0 trades matches expected stat freq for 3-sigma event, but fails 30-trade minimum | 20260310T211028_price_gap_reversion_v1_extended_dev_a |
+| EXP-20260310-017 | 2026-03-10 | COMPLETED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | N/A | 0.00 | N/A | INVALID_RUN | Data catalog only contains 133 days; test cannot capture 30-trade minimum for 3-sigma events | 20260310T210359_price_gap_reversion_v1_extended_dev_a |
+| EXP-20260310-016 | 2026-03-10 | COMPLETED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | N/A | 0.00 | N/A | TBD | TBD | 20260310T210338_price_gap_reversion_v1_extended_dev_a |
+| EXP-20260310-015 | 2026-03-10 | FAILED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-014 | 2026-03-10 | FAILED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-013 | 2026-03-10 | FAILED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-012 | 2026-03-10 | FAILED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-011 | 2026-03-10 | FAILED | price_gap_reversion_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-010 | 2026-03-10 | COMPLETED | mes_mnq_co_oc_extreme_reversal_v1 | MES | 1m | FULL | 8 | 0.06 | 1.6768 | -939.75 | 1.17 | TBD | TBD | 20260310T205233_mes_mnq_co_oc_extreme_reversal_v1_extended_dev_a |
+| EXP-20260310-009 | 2026-03-10 | COMPLETED | mes_mnq_co_oc_extreme_reversal_v1 | MES | 1m | FULL | 8 | 0.06 | 1.6768 | -939.75 | 1.17 | TBD | TBD | 20260310T205042_mes_mnq_co_oc_extreme_reversal_v1_dev_a |
+| EXP-20260310-008 | 2026-03-10 | COMPLETED | mes_mnq_co_oc_reversal_v1 | MES | 1m | FULL | 132 | 0.99 | 1.1777 | -1772.75 | 3.01 | TBD | TBD | 20260310T203852_mes_mnq_co_oc_reversal_v1_sign_flip_dev_a |
+| EXP-20260310-007 | 2026-03-10 | COMPLETED | mes_mnq_co_oc_reversal_v1 | MES | 1m | FULL | 132 | 0.99 | 0.7189 | -2632.50 | 4.50 | TBD | TBD | 20260310T202924_mes_mnq_co_oc_reversal_v1_dev_a |
+| EXP-20260310-006 | 2026-03-10 | FAILED | opening_range_breakout_v5a | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-005 | 2026-03-10 | COMPLETED | mes_mnq_relative_value_spread_v1 | MES | 1m | FULL | 47 | 0.35 | 0.7513 | -308.25 | 0.72 | TBD | TBD | 20260310T134625_mes_mnq_relative_value_spread_v1_dev_a |
+| EXP-20260310-004 | 2026-03-10 | FAILED | mes_mnq_relative_value_spread_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-003 | 2026-03-10 | FAILED | mes_mnq_relative_value_spread_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260310-002 | 2026-03-10 | COMPLETED | overnight_intraday_reversal_v1 | MES | 1m | FULL | 75 | 0.59 | 0.7539 | -691.25 | 1.19 | TBD | TBD | 20260310T084539_overnight_intraday_reversal_v1_dev_b |
+| EXP-20260310-001 | 2026-03-10 | COMPLETED | overnight_intraday_reversal_v1 | MES | 1m | FULL | 86 | 0.65 | 1.3582 | 1007.50 | 0.43 | TBD | TBD | 20260310T084154_overnight_intraday_reversal_v1_dev_a |
+| EXP-20260309-042 | 2026-03-09 | COMPLETED | hedging_demand_intraday_momentum_v1 | MES | 1m | DEV_A | 36 | 0.27 | 0.4348 | -373.75 | 0.48 | REJECT_CURRENT_BASELINE | No further testing; parent failed Dev-A with no raw life | 20260309T220049_hedging_demand_intraday_momentum_v1_dev_a |
+| EXP-20260309-041 | 2026-03-09 | COMPLETED | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL | 36 | 0.27 | 0.4348 | -373.75 | 0.48 | TBD | TBD | 20260309T220017_hedging_demand_intraday_momentum_v1_dev_a |
+| EXP-20260309-040 | 2026-03-09 | FAILED | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-039 | 2026-03-09 | FAILED | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-038 | 2026-03-09 | FAILED | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-037 | 2026-03-09 | FAILED | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-036 | 2026-03-09 | FAILED | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-035 | 2026-03-09 | FAILED | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-034 | 2026-03-09 | COMPLETED | mes_mnq_rmr_v1 | MES | 1m | FULL | 68 | 0.51 | 0.9733 | -25.00 | 0.26 | TBD | TBD | 20260309T193920_mes_mnq_rmr_v1_dev_a |
+| EXP-20260309-033 | 2026-03-09 | COMPLETED | mes_mnq_rmr_v1 | MES | 1m | SMOKE | 21 | 0.66 | 1.2797 | 91.25 | 0.15 | TBD | TBD | 20260309T193730_mes_mnq_rmr_v1_smoke |
+| EXP-20260309-032 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 68 | 0.53 | 1.1869 | 441.25 | 0.67 | TBD | TBD | 20260309T191007_opening_range_breakout_v6a_dev_b |
+| EXP-20260309-031 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | TBD | TBD | 20260309T190952_opening_range_breakout_v6a_dev_a |
+| EXP-20260309-030 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T190938_opening_range_breakout_v6a_smoke |
+| EXP-20260309-029 | 2026-03-09 | COMPLETED | gir_v1 | MES | 1m | FULL | 26 | 0.20 | 1.0451 | 27.50 | 0.43 | TBD | TBD | 20260309T190409_gir_v1_dev_a |
+| EXP-20260309-028 | 2026-03-09 | COMPLETED | gir_v1 | MES | 1m | SMOKE | 5 | 0.16 | N/A | 305.00 | N/A | TBD | TBD | 20260309T190348_gir_v1_smoke |
+| EXP-20260309-027 | 2026-03-09 | FAILED | gir_v1 | MES | 1m | SMOKE | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-026 | 2026-03-09 | FAILED | gir_v1 | MES | 1m | SMOKE | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | TBD | Fix error in config or execution | unknown |
+| EXP-20260309-025 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 68 | 0.53 | 1.1869 | 441.25 | 0.67 | TBD | TBD | 20260309T185710_opening_range_breakout_v6a_dev_b |
+| EXP-20260309-024 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | TBD | TBD | 20260309T185654_opening_range_breakout_v6a_dev_a |
+| EXP-20260309-023 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T185157_opening_range_breakout_v6a_smoke |
+| EXP-20260309-022 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T185051_opening_range_breakout_v6a_smoke |
+| EXP-20260309-021 | 2026-03-09 | COMPLETED | odpc_v1 | MES | 1m | FULL | 94 | 0.71 | 0.7508 | -410.00 | 0.42 | TBD | TBD | 20260309T173634_odpc_v1_dev_a |
+| EXP-20260309-020 | 2026-03-09 | COMPLETED | odpc_v1 | MES | 1m | SMOKE | 25 | 0.78 | 0.4226 | -363.75 | 0.42 | TBD | TBD | 20260309T173616_odpc_v1_smoke |
+| EXP-20260309-019 | 2026-03-09 | COMPLETED | forb_reversal_v1 | MES | 1m | FULL | 96 | 0.72 | 0.5562 | -716.25 | 0.81 | TBD | TBD | 20260309T171844_forb_reversal_v1_dev_a |
+| EXP-20260309-018 | 2026-03-09 | COMPLETED | forb_reversal_v1 | MES | 1m | SMOKE | 27 | 0.84 | 0.5954 | -196.25 | 0.31 | TBD | TBD | 20260309T171817_forb_reversal_v1_smoke |
+| EXP-20260309-017 | 2026-03-09 | COMPLETED | opening_range_breakout_v11a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | TBD | TBD | 20260309T133459_opening_range_breakout_v11a_dev_a |
+| EXP-20260309-016 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | TBD | TBD | 20260309T133337_opening_range_breakout_v6a_dev_a |
+| EXP-20260309-015 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | TBD | TBD | 20260309T133311_opening_range_breakout_v6a_dev_a |
+| EXP-20260309-014 | 2026-03-09 | COMPLETED | opening_range_breakout_v11a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T133259_opening_range_breakout_v11a_smoke |
+| EXP-20260309-013 | 2026-03-09 | COMPLETED | opening_range_breakout_v10a | MES | 1m | FULL | 22 | 0.17 | 0.9015 | -81.25 | 0.35 | TBD | TBD | 20260309T123024_opening_range_breakout_v10a_dev_a |
+| EXP-20260309-012 | 2026-03-09 | COMPLETED | opening_range_breakout_v10a | MES | 1m | SMOKE | 2 | 0.06 | 0.0000 | -158.75 | 0.16 | TBD | TBD | 20260309T122128_opening_range_breakout_v10a_smoke |
+| EXP-20260309-011 | 2026-03-09 | COMPLETED | opening_range_breakout_v9a | MES | 1m | FULL | 62 | 0.47 | 1.3074 | 572.50 | 0.32 | TBD | TBD | 20260309T114835_opening_range_breakout_v9a_dev_a |
+| EXP-20260309-010 | 2026-03-09 | COMPLETED | opening_range_breakout_v9a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T114814_opening_range_breakout_v9a_smoke |
+| EXP-20260309-009 | 2026-03-09 | COMPLETED | opening_range_breakout_v8a | MES | 1m | FULL | 63 | 0.47 | 1.3531 | 661.25 | 0.33 | TBD | TBD | 20260309T113507_opening_range_breakout_v8a_dev_a |
+| EXP-20260309-008 | 2026-03-09 | COMPLETED | opening_range_breakout_v8a | MES | 1m | SMOKE | 7 | 0.22 | 0.8298 | -50.00 | 0.25 | TBD | TBD | 20260309T113349_opening_range_breakout_v8a_smoke |
+| EXP-20260309-007 | 2026-03-09 | COMPLETED | opening_range_breakout_v7a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | TBD | TBD | 20260309T095003_opening_range_breakout_v7a_dev_a |
+| EXP-20260309-006 | 2026-03-09 | COMPLETED | opening_range_breakout_v7a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T094954_opening_range_breakout_v7a_smoke |
+| EXP-20260309-005 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 68 | 0.53 | 1.1869 | 441.25 | 0.67 | BASELINE_MEASUREMENT | Official new benchmark parent. | 20260309T091129_opening_range_breakout_v6a_dev_b |
+| EXP-20260309-004 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | BASELINE_MEASUREMENT | Official new benchmark parent. | 20260309T090108_opening_range_breakout_v6a_dev_a |
+| EXP-20260309-003 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T090049_opening_range_breakout_v6a_smoke |
+| EXP-20260309-002 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | FULL | 63 | 0.47 | 1.3701 | 687.50 | 0.32 | TBD | TBD | 20260309T082206_opening_range_breakout_v6a_dev_a |
+| EXP-20260309-001 | 2026-03-09 | COMPLETED | opening_range_breakout_v6a | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260309T082140_opening_range_breakout_v6a_smoke |
 | EXP-20260308-027 | 2026-03-08 | COMPLETED | opening_range_breakout_v5c | MES | 1m | FULL | 39 | 0.29 | 1.1833 | 231.25 | 0.47 | TBD | TBD | 20260308T222819_opening_range_breakout_v5c_dev_a |
 | EXP-20260308-026 | 2026-03-08 | COMPLETED | opening_range_breakout_v5c | MES | 1m | SMOKE | 5 | 0.16 | 0.7120 | -66.25 | 0.17 | TBD | TBD | 20260308T222758_opening_range_breakout_v5c_smoke |
 | EXP-20260308-025 | 2026-03-08 | COMPLETED | opening_range_breakout_v5b | MES | 1m | FULL | 26 | 0.20 | 1.2559 | 216.25 | 0.23 | TBD | TBD | 20260308T221446_opening_range_breakout_v5b_dev_a |
@@ -80,8 +140,8 @@ This file is meant to function like an institutional research notebook:
 | EXP-20260308-011 | 2026-03-08 | COMPLETED | opening_range_breakout_v4 | MES | 1m | FULL | 64 | 0.48 | 1.3070 | 587.50 | 0.42 | TBD | TBD | 20260308T155123_opening_range_breakout_v4a_dev_a |
 | EXP-20260308-010 | 2026-03-08 | COMPLETED | opening_range_breakout_v4 | MES | 1m | SMOKE | 7 | 0.22 | 0.8681 | -38.75 | 0.24 | TBD | TBD | 20260308T154918_opening_range_breakout_v4a_smoke |
 | EXP-20260308-009 | 2026-03-08 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
-| EXP-20260308-008 | 2026-03-08 | COMPLETED | opening_range_breakout_v2 | MES | 1m | FULL | 70 | 0.55 | 1.1594 | 391.25 | 0.74 | BASELINE_MEASUREMENT | Record benchmark parent performance on Dev-B before testing any V4 modules. | 20260308T122226_opening_range_breakout_v2_dev_b |
-| EXP-20260308-007 | 2026-03-08 | COMPLETED | opening_range_breakout_v2 | MES | 1m | FULL | 64 | 0.48 | 1.3070 | 587.50 | 0.42 | BASELINE_MEASUREMENT | Record benchmark parent performance on Dev-A before testing any V4 modules. | 20260308T122126_opening_range_breakout_v2_dev_a |
+| EXP-20260308-008 | 2026-03-08 | COMPLETED | opening_range_breakout_v2 | MES | 1m | FULL | 70 | 0.55 | 1.1594 | 391.25 | 0.74 | SUPERSEDED | Superseded by ORB-v6a benchmark. | 20260308T122226_opening_range_breakout_v2_dev_b |
+| EXP-20260308-007 | 2026-03-08 | COMPLETED | opening_range_breakout_v2 | MES | 1m | FULL | 64 | 0.48 | 1.3070 | 587.50 | 0.42 | SUPERSEDED | Superseded by ORB-v6a benchmark. | 20260308T122126_opening_range_breakout_v2_dev_a |
 | EXP-20260308-006 | 2026-03-08 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
 | EXP-20260308-005 | 2026-03-08 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
 | EXP-20260308-004 | 2026-03-08 | FAILED | unknown | unknown | unknown | FULL | 0 | 0.00 | 0.0000 | 0.00 | 0.00 | INVALID_RUN | Fix error in config or execution | unknown |
@@ -5685,5 +5745,6082 @@ TBD
 - **Report Directory:** `E:\project_1L\marketdata\backtests\20260308T222819_opening_range_breakout_v5c_dev_a`
 - **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260308T222819_opening_range_breakout_v5c_dev_a\closed_trades.csv`
 - **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260308T222819_opening_range_breakout_v5c_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-001 | opening_range_breakout_v6a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T082140_opening_range_breakout_v6a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T082140_opening_range_breakout_v6a_smoke`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v6a on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.2375 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T082140_opening_range_breakout_v6a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T082140_opening_range_breakout_v6a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T082140_opening_range_breakout_v6a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-002 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T082206_opening_range_breakout_v6a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T082206_opening_range_breakout_v6a_dev_a`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3170 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T082206_opening_range_breakout_v6a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T082206_opening_range_breakout_v6a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T082206_opening_range_breakout_v6a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-003 | opening_range_breakout_v6a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T090049_opening_range_breakout_v6a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T090049_opening_range_breakout_v6a_smoke`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v6a on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.2375 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T090049_opening_range_breakout_v6a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T090049_opening_range_breakout_v6a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T090049_opening_range_breakout_v6a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-004 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T090108_opening_range_breakout_v6a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T090108_opening_range_breakout_v6a_dev_a`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3170 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T090108_opening_range_breakout_v6a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T090108_opening_range_breakout_v6a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T090108_opening_range_breakout_v6a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-005 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T091129_opening_range_breakout_v6a_dev_b`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T091129_opening_range_breakout_v6a_dev_b`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-09-01 -> 2024-02-29`
+- **Days Tested:** `128`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-B.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100441.25 |
+| Net PnL | 441.25 |
+| Total Return % | 0.4412 |
+| Max Drawdown Abs | 675.00 |
+| Max Drawdown % | 0.6688 |
+| Daily Sharpe Approx | 0.8591 |
+| Execution Count | 136 |
+| Closed Trade Count | 68 |
+| Win Rate % | 45.5882 |
+| Gross Profit | 2802.50 |
+| Gross Loss | 2361.25 |
+| Profit Factor | 1.1869 |
+| Trades / Tested Day | 0.53 |
+| Approx Winning Trades | 31 |
+| Approx Losing Trades | 37 |
+| Approx Average Winner | 90.40 |
+| Approx Average Loser | 63.82 |
+| Approx Winner / Loser Ratio | 1.42 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T091129_opening_range_breakout_v6a_dev_b`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T091129_opening_range_breakout_v6a_dev_b\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T091129_opening_range_breakout_v6a_dev_b\daily_equity.csv`
+
+---
+
+## EXP-20260309-006 | opening_range_breakout_v7a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv7a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T094954_opening_range_breakout_v7a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T094954_opening_range_breakout_v7a_smoke`
+- **Strategy:** `opening_range_breakout_v7a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V7A is V6A plus the close-at-trigger gate.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-003`
+- **What changed:** `V7A smoke test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "require_signal_bar_close_at_or_above_trigger": true
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.2375 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T094954_opening_range_breakout_v7a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T094954_opening_range_breakout_v7a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T094954_opening_range_breakout_v7a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-007 | opening_range_breakout_v7a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv7a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T095003_opening_range_breakout_v7a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T095003_opening_range_breakout_v7a_dev_a`
+- **Strategy:** `opening_range_breakout_v7a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V7A is V6A plus the close-at-trigger gate.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-004`
+- **What changed:** `V7A Dev-A evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "require_signal_bar_close_at_or_above_trigger": true
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3170 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T095003_opening_range_breakout_v7a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T095003_opening_range_breakout_v7a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T095003_opening_range_breakout_v7a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-008 | opening_range_breakout_v8a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv8a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T113349_opening_range_breakout_v8a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T113349_opening_range_breakout_v8a_smoke`
+- **Strategy:** `opening_range_breakout_v8a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V8A tests whether performance improves if the signal bar must also have enough real bullish body (>= 0.30).
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-003`
+- **What changed:** `V8A smoke test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "breakout_bar_body_fraction_min": 0.3
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99950.00 |
+| Net PnL | -50.00 |
+| Total Return % | -0.0500 |
+| Max Drawdown Abs | 248.75 |
+| Max Drawdown % | 0.2488 |
+| Daily Sharpe Approx | -0.6681 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 243.75 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8298 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 81.25 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.11 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T113349_opening_range_breakout_v8a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T113349_opening_range_breakout_v8a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T113349_opening_range_breakout_v8a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-009 | opening_range_breakout_v8a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv8a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T113507_opening_range_breakout_v8a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T113507_opening_range_breakout_v8a_dev_a`
+- **Strategy:** `opening_range_breakout_v8a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V8A tests whether performance improves if the signal bar must also have enough real bullish body (>= 0.30).
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-004`
+- **What changed:** `V8A Dev-A test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "breakout_bar_body_fraction_min": 0.3
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100661.25 |
+| Net PnL | 661.25 |
+| Total Return % | 0.6612 |
+| Max Drawdown Abs | 332.50 |
+| Max Drawdown % | 0.3294 |
+| Daily Sharpe Approx | 1.3744 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2533.75 |
+| Gross Loss | 1872.50 |
+| Profit Factor | 1.3531 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.18 |
+| Approx Average Loser | 60.40 |
+| Approx Winner / Loser Ratio | 1.31 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T113507_opening_range_breakout_v8a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T113507_opening_range_breakout_v8a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T113507_opening_range_breakout_v8a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-010 | opening_range_breakout_v9a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv9a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T114814_opening_range_breakout_v9a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T114814_opening_range_breakout_v9a_smoke`
+- **Strategy:** `opening_range_breakout_v9a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V9A tests whether performance improves if signal bars are rejected when they close too far above the trigger relative to OR width.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-003`
+- **What changed:** `V9A smoke test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "signal_bar_extension_from_trigger_max": 0.25
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.2375 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T114814_opening_range_breakout_v9a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T114814_opening_range_breakout_v9a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T114814_opening_range_breakout_v9a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-011 | opening_range_breakout_v9a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv9a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T114835_opening_range_breakout_v9a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T114835_opening_range_breakout_v9a_dev_a`
+- **Strategy:** `opening_range_breakout_v9a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V9A tests whether performance improves if signal bars are rejected when they close too far above the trigger relative to OR width.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-004`
+- **What changed:** `V9A Dev-A test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "signal_bar_extension_from_trigger_max": 0.25
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100572.50 |
+| Net PnL | 572.50 |
+| Total Return % | 0.5725 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3173 |
+| Daily Sharpe Approx | 1.1958 |
+| Execution Count | 124 |
+| Closed Trade Count | 62 |
+| Win Rate % | 48.3871 |
+| Gross Profit | 2435.00 |
+| Gross Loss | 1862.50 |
+| Profit Factor | 1.3074 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 30 |
+| Approx Losing Trades | 32 |
+| Approx Average Winner | 81.17 |
+| Approx Average Loser | 58.20 |
+| Approx Winner / Loser Ratio | 1.39 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T114835_opening_range_breakout_v9a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T114835_opening_range_breakout_v9a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T114835_opening_range_breakout_v9a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-012 | opening_range_breakout_v10a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv10a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T122128_opening_range_breakout_v10a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T122128_opening_range_breakout_v10a_smoke`
+- **Strategy:** `opening_range_breakout_v10a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V10A tests whether performance improves if the signal bar must occur within the first 6 completed bars after OR completion.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-003`
+- **What changed:** `V10A smoke test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "max_signal_bars_after_or_completion": 6
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99841.25 |
+| Net PnL | -158.75 |
+| Total Return % | -0.1587 |
+| Max Drawdown Abs | 158.75 |
+| Max Drawdown % | 0.1588 |
+| Daily Sharpe Approx | -4.0999 |
+| Execution Count | 4 |
+| Closed Trade Count | 2 |
+| Win Rate % | 0.0000 |
+| Gross Profit | 0.00 |
+| Gross Loss | 158.75 |
+| Profit Factor | 0.0000 |
+| Trades / Tested Day | 0.06 |
+| Approx Winning Trades | 0 |
+| Approx Losing Trades | 2 |
+| Approx Average Winner | 0.00 |
+| Approx Average Loser | 79.38 |
+| Approx Winner / Loser Ratio | 0.00 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T122128_opening_range_breakout_v10a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T122128_opening_range_breakout_v10a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T122128_opening_range_breakout_v10a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-013 | opening_range_breakout_v10a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv10a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T123024_opening_range_breakout_v10a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T123024_opening_range_breakout_v10a_dev_a`
+- **Strategy:** `opening_range_breakout_v10a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V10A tests whether performance improves if the signal bar must occur within the first 6 completed bars after OR completion.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-004`
+- **What changed:** `V10A Dev-A test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "max_signal_bars_after_or_completion": 6
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99918.75 |
+| Net PnL | -81.25 |
+| Total Return % | -0.0812 |
+| Max Drawdown Abs | 347.50 |
+| Max Drawdown % | 0.3475 |
+| Daily Sharpe Approx | -0.2742 |
+| Execution Count | 44 |
+| Closed Trade Count | 22 |
+| Win Rate % | 45.4545 |
+| Gross Profit | 743.75 |
+| Gross Loss | 825.00 |
+| Profit Factor | 0.9015 |
+| Trades / Tested Day | 0.17 |
+| Approx Winning Trades | 10 |
+| Approx Losing Trades | 12 |
+| Approx Average Winner | 74.38 |
+| Approx Average Loser | 68.75 |
+| Approx Winner / Loser Ratio | 1.08 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T123024_opening_range_breakout_v10a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T123024_opening_range_breakout_v10a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T123024_opening_range_breakout_v10a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-014 | opening_range_breakout_v11a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv11a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T133259_opening_range_breakout_v11a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133259_opening_range_breakout_v11a_smoke`
+- **Strategy:** `opening_range_breakout_v11a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V11A tests whether performance improves if a newly opened long position is exited early when the first completed bar after entry closes back below the original breakout trigger.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-003`
+- **What changed:** `V11A smoke test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "enable_first_post_entry_close_below_trigger_exit": true
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.2375 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133259_opening_range_breakout_v11a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T133259_opening_range_breakout_v11a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T133259_opening_range_breakout_v11a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-015 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T133311_opening_range_breakout_v6a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133311_opening_range_breakout_v6a_dev_a`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3170 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133311_opening_range_breakout_v6a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T133311_opening_range_breakout_v6a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T133311_opening_range_breakout_v6a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-016 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T133337_opening_range_breakout_v6a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133337_opening_range_breakout_v6a_dev_a`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3170 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133337_opening_range_breakout_v6a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T133337_opening_range_breakout_v6a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T133337_opening_range_breakout_v6a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-017 | opening_range_breakout_v11a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv11a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T133459_opening_range_breakout_v11a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133459_opening_range_breakout_v11a_dev_a`
+- **Strategy:** `opening_range_breakout_v11a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+V11A tests whether performance improves if a newly opened long position is exited early when the first completed bar after entry closes back below the original breakout trigger.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260309-004`
+- **What changed:** `V11A Dev-A test evaluation.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7,
+  "enable_first_post_entry_close_below_trigger_exit": true
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3170 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T133459_opening_range_breakout_v11a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T133459_opening_range_breakout_v11a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T133459_opening_range_breakout_v11a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-018 | forb_reversal_v1 | MES | 1m | SMOKE
+
+**Tags:** #strategy/forbreversalv1 #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T171817_forb_reversal_v1_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T171817_forb_reversal_v1_smoke`
+- **Strategy:** `forb_reversal_v1`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Base parameterization for the initial failed ORB reversal parent family candidate.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for forb_reversal_v1 on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "time_stop": "13:30",
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99803.75 |
+| Net PnL | -196.25 |
+| Total Return % | -0.1962 |
+| Max Drawdown Abs | 311.25 |
+| Max Drawdown % | 0.3111 |
+| Daily Sharpe Approx | -4.0883 |
+| Execution Count | 54 |
+| Closed Trade Count | 27 |
+| Win Rate % | 29.6296 |
+| Gross Profit | 288.75 |
+| Gross Loss | 485.00 |
+| Profit Factor | 0.5954 |
+| Trades / Tested Day | 0.84 |
+| Approx Winning Trades | 8 |
+| Approx Losing Trades | 19 |
+| Approx Average Winner | 36.09 |
+| Approx Average Loser | 25.53 |
+| Approx Winner / Loser Ratio | 1.41 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T171817_forb_reversal_v1_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T171817_forb_reversal_v1_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T171817_forb_reversal_v1_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-019 | forb_reversal_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/forbreversalv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T171844_forb_reversal_v1_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T171844_forb_reversal_v1_dev_a`
+- **Strategy:** `forb_reversal_v1`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Base parameterization for the initial failed ORB reversal parent family candidate.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `forb_reversal_v1 evaluated on Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "time_stop": "13:30",
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99283.75 |
+| Net PnL | -716.25 |
+| Total Return % | -0.7162 |
+| Max Drawdown Abs | 808.75 |
+| Max Drawdown % | 0.8083 |
+| Daily Sharpe Approx | -3.4800 |
+| Execution Count | 192 |
+| Closed Trade Count | 96 |
+| Win Rate % | 21.8750 |
+| Gross Profit | 897.50 |
+| Gross Loss | 1613.75 |
+| Profit Factor | 0.5562 |
+| Trades / Tested Day | 0.72 |
+| Approx Winning Trades | 21 |
+| Approx Losing Trades | 75 |
+| Approx Average Winner | 42.74 |
+| Approx Average Loser | 21.52 |
+| Approx Winner / Loser Ratio | 1.99 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T171844_forb_reversal_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T171844_forb_reversal_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T171844_forb_reversal_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-020 | odpc_v1 | MES | 1m | SMOKE
+
+**Tags:** #strategy/odpcv1 #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T173616_odpc_v1_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T173616_odpc_v1_smoke`
+- **Strategy:** `odpc_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Base parameterization for the initial opening drive pullback continuation parent family candidate.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for odpc_v1 on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "time_stop": "13:30",
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99636.25 |
+| Net PnL | -363.75 |
+| Total Return % | -0.3637 |
+| Max Drawdown Abs | 423.75 |
+| Max Drawdown % | 0.4238 |
+| Daily Sharpe Approx | -5.3334 |
+| Execution Count | 50 |
+| Closed Trade Count | 25 |
+| Win Rate % | 20.0000 |
+| Gross Profit | 266.25 |
+| Gross Loss | 630.00 |
+| Profit Factor | 0.4226 |
+| Trades / Tested Day | 0.78 |
+| Approx Winning Trades | 5 |
+| Approx Losing Trades | 20 |
+| Approx Average Winner | 53.25 |
+| Approx Average Loser | 31.50 |
+| Approx Winner / Loser Ratio | 1.69 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T173616_odpc_v1_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T173616_odpc_v1_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T173616_odpc_v1_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-021 | odpc_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/odpcv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T173634_odpc_v1_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T173634_odpc_v1_dev_a`
+- **Strategy:** `odpc_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Base parameterization for the initial opening drive pullback continuation parent family candidate.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `odpc_v1 evaluated on Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "time_stop": "13:30",
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99590.00 |
+| Net PnL | -410.00 |
+| Total Return % | -0.4100 |
+| Max Drawdown Abs | 423.75 |
+| Max Drawdown % | 0.4238 |
+| Daily Sharpe Approx | -1.5907 |
+| Execution Count | 188 |
+| Closed Trade Count | 94 |
+| Win Rate % | 27.6596 |
+| Gross Profit | 1235.00 |
+| Gross Loss | 1645.00 |
+| Profit Factor | 0.7508 |
+| Trades / Tested Day | 0.71 |
+| Approx Winning Trades | 26 |
+| Approx Losing Trades | 68 |
+| Approx Average Winner | 47.50 |
+| Approx Average Loser | 24.19 |
+| Approx Winner / Loser Ratio | 1.96 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T173634_odpc_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T173634_odpc_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T173634_odpc_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-022 | opening_range_breakout_v6a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T185051_opening_range_breakout_v6a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185051_opening_range_breakout_v6a_smoke`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v6a on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.2375 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185051_opening_range_breakout_v6a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T185051_opening_range_breakout_v6a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T185051_opening_range_breakout_v6a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-023 | opening_range_breakout_v6a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T185157_opening_range_breakout_v6a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185157_opening_range_breakout_v6a_smoke`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v6a on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.2375 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185157_opening_range_breakout_v6a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T185157_opening_range_breakout_v6a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T185157_opening_range_breakout_v6a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-024 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T185654_opening_range_breakout_v6a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185654_opening_range_breakout_v6a_dev_a`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.3170 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185654_opening_range_breakout_v6a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T185654_opening_range_breakout_v6a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T185654_opening_range_breakout_v6a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-025 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T185710_opening_range_breakout_v6a_dev_b`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185710_opening_range_breakout_v6a_dev_b`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-09-01 -> 2024-02-29`
+- **Days Tested:** `128`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-B.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100441.25 |
+| Net PnL | 441.25 |
+| Total Return % | 0.4412 |
+| Max Drawdown Abs | 675.00 |
+| Max Drawdown % | 0.6688 |
+| Daily Sharpe Approx | 0.8591 |
+| Execution Count | 136 |
+| Closed Trade Count | 68 |
+| Win Rate % | 45.5882 |
+| Gross Profit | 2802.50 |
+| Gross Loss | 2361.25 |
+| Profit Factor | 1.1869 |
+| Trades / Tested Day | 0.53 |
+| Approx Winning Trades | 31 |
+| Approx Losing Trades | 37 |
+| Approx Average Winner | 90.40 |
+| Approx Average Loser | 63.82 |
+| Approx Winner / Loser Ratio | 1.42 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T185710_opening_range_breakout_v6a_dev_b`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T185710_opening_range_breakout_v6a_dev_b\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T185710_opening_range_breakout_v6a_dev_b\daily_equity.csv`
+
+---
+
+## EXP-20260309-026 | gir_v1 | MES | 1m | SMOKE
+
+**Tags:** #strategy/girv1 #family/MES #interval/1m #sample/smoke #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs\active\gir_v1_smoke.json`
+- **Strategy:** `gir_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Gap up days after bearish prior read exhaustion and offer short trend
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for gir_v1 on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:15`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "atr_period": 14,
+  "gap_threshold_atr": 1.0,
+  "min_gap_atr": 0.5,
+  "opening_drive_minutes": 15,
+  "time_stop_minutes": 120,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "session_end": "15:15",
+  "timezone": "America/Chicago",
+  "allow_long": false,
+  "allow_short": true
+}
+```
+
+### Results
+Run failed with error:
+```
+unsupported format string passed to NoneType.__format__
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs\active\gir_v1_smoke.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-027 | gir_v1 | MES | 1m | SMOKE
+
+**Tags:** #strategy/girv1 #family/MES #interval/1m #sample/smoke #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs\active\gir_v1_smoke.json`
+- **Strategy:** `gir_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Gap up days after bearish prior read exhaustion and offer short trend
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for gir_v1 on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:15`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "atr_period": 14,
+  "gap_threshold_atr": 1.0,
+  "min_gap_atr": 0.5,
+  "opening_drive_minutes": 15,
+  "time_stop_minutes": 120,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "session_end": "15:15",
+  "timezone": "America/Chicago",
+  "allow_long": false,
+  "allow_short": true
+}
+```
+
+### Results
+Run failed with error:
+```
+unsupported format string passed to NoneType.__format__
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs\active\gir_v1_smoke.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-028 | gir_v1 | MES | 1m | SMOKE
+
+**Tags:** #strategy/girv1 #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T190348_gir_v1_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190348_gir_v1_smoke`
+- **Strategy:** `gir_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Gap up days after bearish prior read exhaustion and offer short trend
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for gir_v1 on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:15`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "atr_period": 14,
+  "gap_threshold_atr": 1.0,
+  "min_gap_atr": 0.5,
+  "opening_drive_minutes": 15,
+  "time_stop_minutes": 120,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "session_end": "15:15",
+  "timezone": "America/Chicago",
+  "allow_long": false,
+  "allow_short": true
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100305.00 |
+| Net PnL | 305.00 |
+| Total Return % | 0.3050 |
+| Max Drawdown Abs | 0.00 |
+| Max Drawdown % | N/A |
+| Daily Sharpe Approx | 5.8736 |
+| Execution Count | 10 |
+| Closed Trade Count | 5 |
+| Win Rate % | 100.0000 |
+| Gross Profit | 305.00 |
+| Gross Loss | -0.00 |
+| Profit Factor | N/A |
+| Trades / Tested Day | 0.16 |
+| Approx Winning Trades | 5 |
+| Approx Losing Trades | 0 |
+| Approx Average Winner | 61.00 |
+| Approx Average Loser | 0.00 |
+| Approx Winner / Loser Ratio | 0.00 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190348_gir_v1_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T190348_gir_v1_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T190348_gir_v1_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-029 | gir_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/girv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T190409_gir_v1_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190409_gir_v1_dev_a`
+- **Strategy:** `gir_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Gap up days after bearish prior read exhaustion and offer short trend
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Dev-A test for gir_v1 on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:15`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "atr_period": 14,
+  "gap_threshold_atr": 1.0,
+  "min_gap_atr": 0.5,
+  "opening_drive_minutes": 15,
+  "time_stop_minutes": 120,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "session_end": "15:15",
+  "timezone": "America/Chicago",
+  "allow_long": false,
+  "allow_short": true
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100027.50 |
+| Net PnL | 27.50 |
+| Total Return % | 0.0275 |
+| Max Drawdown Abs | 436.25 |
+| Max Drawdown % | 0.43 |
+| Daily Sharpe Approx | 0.1348 |
+| Execution Count | 52 |
+| Closed Trade Count | 26 |
+| Win Rate % | 65.3846 |
+| Gross Profit | 637.50 |
+| Gross Loss | 610.00 |
+| Profit Factor | 1.0451 |
+| Trades / Tested Day | 0.20 |
+| Approx Winning Trades | 17 |
+| Approx Losing Trades | 9 |
+| Approx Average Winner | 37.50 |
+| Approx Average Loser | 67.78 |
+| Approx Winner / Loser Ratio | 0.55 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190409_gir_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T190409_gir_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T190409_gir_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-030 | opening_range_breakout_v6a | MES | 1m | SMOKE
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T190938_opening_range_breakout_v6a_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190938_opening_range_breakout_v6a_smoke`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2026-02-22`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for ORB-v6a on MES.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99961.25 |
+| Net PnL | -38.75 |
+| Total Return % | -0.0387 |
+| Max Drawdown Abs | 237.50 |
+| Max Drawdown % | 0.24 |
+| Daily Sharpe Approx | -0.5102 |
+| Execution Count | 14 |
+| Closed Trade Count | 7 |
+| Win Rate % | 42.8571 |
+| Gross Profit | 255.00 |
+| Gross Loss | 293.75 |
+| Profit Factor | 0.8681 |
+| Trades / Tested Day | 0.22 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 4 |
+| Approx Average Winner | 85.00 |
+| Approx Average Loser | 73.44 |
+| Approx Winner / Loser Ratio | 1.16 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190938_opening_range_breakout_v6a_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T190938_opening_range_breakout_v6a_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T190938_opening_range_breakout_v6a_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-031 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T190952_opening_range_breakout_v6a_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190952_opening_range_breakout_v6a_dev_a`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-A.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100687.50 |
+| Net PnL | 687.50 |
+| Total Return % | 0.6875 |
+| Max Drawdown Abs | 320.00 |
+| Max Drawdown % | 0.32 |
+| Daily Sharpe Approx | 1.4311 |
+| Execution Count | 126 |
+| Closed Trade Count | 63 |
+| Win Rate % | 50.7937 |
+| Gross Profit | 2545.00 |
+| Gross Loss | 1857.50 |
+| Profit Factor | 1.3701 |
+| Trades / Tested Day | 0.47 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 31 |
+| Approx Average Winner | 79.53 |
+| Approx Average Loser | 59.92 |
+| Approx Winner / Loser Ratio | 1.33 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T190952_opening_range_breakout_v6a_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T190952_opening_range_breakout_v6a_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T190952_opening_range_breakout_v6a_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-032 | opening_range_breakout_v6a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv6a #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T191007_opening_range_breakout_v6a_dev_b`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T191007_opening_range_breakout_v6a_dev_b`
+- **Strategy:** `opening_range_breakout_v6a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-09-01 -> 2024-02-29`
+- **Days Tested:** `128`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v6a modifies ORB-v2 by requiring a breakout bar close location >= 0.70. This ablated branch evaluates breakout bar quality.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v6a benchmark split run on MES Dev-B.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.5,
+  "or_width_max_factor": 2.0,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0,
+  "breakout_bar_close_location_min": 0.7
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100441.25 |
+| Net PnL | 441.25 |
+| Total Return % | 0.4412 |
+| Max Drawdown Abs | 675.00 |
+| Max Drawdown % | 0.67 |
+| Daily Sharpe Approx | 0.8591 |
+| Execution Count | 136 |
+| Closed Trade Count | 68 |
+| Win Rate % | 45.5882 |
+| Gross Profit | 2802.50 |
+| Gross Loss | 2361.25 |
+| Profit Factor | 1.1869 |
+| Trades / Tested Day | 0.53 |
+| Approx Winning Trades | 31 |
+| Approx Losing Trades | 37 |
+| Approx Average Winner | 90.40 |
+| Approx Average Loser | 63.82 |
+| Approx Winner / Loser Ratio | 1.42 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T191007_opening_range_breakout_v6a_dev_b`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T191007_opening_range_breakout_v6a_dev_b\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T191007_opening_range_breakout_v6a_dev_b\daily_equity.csv`
+
+---
+
+## EXP-20260309-033 | mes_mnq_rmr_v1 | MES | 1m | SMOKE
+
+**Tags:** #strategy/mesmnqrmrv1 #family/MES #interval/1m #sample/smoke #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T193730_mes_mnq_rmr_v1_smoke`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T193730_mes_mnq_rmr_v1_smoke`
+- **Strategy:** `mes_mnq_rmr_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `SMOKE`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `32`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+MES weakness versus MNQ after OR normalization will support a tradable long mean-reversion response.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Smoke test for mes_mnq_rmr_v1.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:15`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "time_stop_bars": 60,
+  "divergence_threshold": -0.75,
+  "target_divergence": -0.25,
+  "position_size": 1,
+  "session_open": "08:30",
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100091.25 |
+| Net PnL | 91.25 |
+| Total Return % | 0.0913 |
+| Max Drawdown Abs | 148.75 |
+| Max Drawdown % | 0.15 |
+| Daily Sharpe Approx | 1.0791 |
+| Execution Count | 42 |
+| Closed Trade Count | 21 |
+| Win Rate % | 23.8095 |
+| Gross Profit | 417.50 |
+| Gross Loss | 326.25 |
+| Profit Factor | 1.2797 |
+| Trades / Tested Day | 0.66 |
+| Approx Winning Trades | 5 |
+| Approx Losing Trades | 16 |
+| Approx Average Winner | 83.50 |
+| Approx Average Loser | 20.39 |
+| Approx Winner / Loser Ratio | 4.10 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T193730_mes_mnq_rmr_v1_smoke`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T193730_mes_mnq_rmr_v1_smoke\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T193730_mes_mnq_rmr_v1_smoke\daily_equity.csv`
+
+---
+
+## EXP-20260309-034 | mes_mnq_rmr_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqrmrv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T193920_mes_mnq_rmr_v1_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T193920_mes_mnq_rmr_v1_dev_a`
+- **Strategy:** `mes_mnq_rmr_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+MES weakness versus MNQ after OR normalization will support a tradable long mean-reversion response.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Dev-A benchmark split run for mes_mnq_rmr_v1.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:15`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "time_stop_bars": 60,
+  "divergence_threshold": -0.75,
+  "target_divergence": -0.25,
+  "position_size": 1,
+  "session_open": "08:30",
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99975.00 |
+| Net PnL | -25.00 |
+| Total Return % | -0.0250 |
+| Max Drawdown Abs | 263.75 |
+| Max Drawdown % | 0.26 |
+| Daily Sharpe Approx | -0.0175 |
+| Execution Count | 136 |
+| Closed Trade Count | 68 |
+| Win Rate % | 29.4118 |
+| Gross Profit | 911.25 |
+| Gross Loss | 936.25 |
+| Profit Factor | 0.9733 |
+| Trades / Tested Day | 0.51 |
+| Approx Winning Trades | 20 |
+| Approx Losing Trades | 48 |
+| Approx Average Winner | 45.56 |
+| Approx Average Loser | 19.51 |
+| Approx Winner / Loser Ratio | 2.34 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T193920_mes_mnq_rmr_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T193920_mes_mnq_rmr_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T193920_mes_mnq_rmr_v1_dev_a\daily_equity.csv`
+
+---
+
+
+## Final Assessment: mes_mnq_rmr_v1
+- **Strategy Outcome:** mes_mnq_rmr_v1 was formally tested to its Dev-A bounds and is **REJECTED**.
+- **Next Steps:** It does not qualify for Dev-B testing. No child branches should be opened from it at this time.
+
+## Infrastructure Improvement Note: Cross-Market Context
+- The replay engine successfully gained thin **MES/MNQ matched-timestamp context support** during this sprint.
+- This was purely an infrastructure improvement, isolated via a non-mutating extension (context_family, uses_context_bar).
+- It should not be confused with strategy success (the strategy failed, but the engine upgrade succeeded).
+- This cleanly mapped timestamp context extension may support future cross-market relative value families.
+
+## EXP-20260309-035 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/hedgingdemandintradaymomentumv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-036 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/hedgingdemandintradaymomentumv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-037 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/hedgingdemandintradaymomentumv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-038 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/hedgingdemandintradaymomentumv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-039 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/hedgingdemandintradaymomentumv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-040 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/hedgingdemandintradaymomentumv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+int() argument must be a string, a bytes-like object or a real number, not 'Execution'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/hedging_demand_intraday_momentum_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260309-041 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/hedgingdemandintradaymomentumv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260309T220017_hedging_demand_intraday_momentum_v1_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T220017_hedging_demand_intraday_momentum_v1_dev_a`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99626.25 |
+| Net PnL | -373.75 |
+| Total Return % | -0.3737 |
+| Max Drawdown Abs | 482.50 |
+| Max Drawdown % | 0.48 |
+| Daily Sharpe Approx | -2.6209 |
+| Execution Count | 72 |
+| Closed Trade Count | 36 |
+| Win Rate % | 36.1111 |
+| Gross Profit | 287.50 |
+| Gross Loss | 661.25 |
+| Profit Factor | 0.4348 |
+| Trades / Tested Day | 0.27 |
+| Approx Winning Trades | 13 |
+| Approx Losing Trades | 23 |
+| Approx Average Winner | 22.12 |
+| Approx Average Loser | 28.75 |
+| Approx Winner / Loser Ratio | 0.77 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T220017_hedging_demand_intraday_momentum_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T220017_hedging_demand_intraday_momentum_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T220017_hedging_demand_intraday_momentum_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260309-042 | hedging_demand_intraday_momentum_v1 | MES | 1m | FULL
+
+**Tags:** `#strategy/hedging_demand_intraday_momentum_v1` `#family/MES` `#interval/1m` `#sample/dev_a` `#status/completed` `#decision/reject_current_baseline` `#ssrn/001` `#stage/dev_a` `#verdict/rejected`
+
+**Status:** `COMPLETED`  
+**Decision:** `REJECTED`
+
+### Metadata
+- **Run ID:** `20260309T220049_hedging_demand_intraday_momentum_v1_dev_a`
+- **Run Date:** `2026-03-09`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T220049_hedging_demand_intraday_momentum_v1_dev_a`
+- **Strategy:** `hedging_demand_intraday_momentum_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Hedging demand drives late-day momentum on strong trend days. Enters at 14:30 CST if the absolute move from the 08:30 CST open exceeds 30 points.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the new SSRN-001 bridging-flow momentum parent family.`
+- **Why this run exists:** `First and only Dev-A run for the hedging_demand_intraday_momentum_v1 parent family (SSRN-001). Determines whether the family shows any raw live edge before branching or optimization.`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "trend_threshold_points": 30.0,
+  "time_entry": "14:30",
+  "time_exit": "15:00",
+  "session_open": "08:30",
+  "hard_stop_points": 8.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99626.25 |
+| Net PnL | -373.75 |
+| Total Return % | -0.3737 |
+| Max Drawdown Abs | 482.50 |
+| Max Drawdown % | 0.48 |
+| Daily Sharpe Approx | -2.6209 |
+| Execution Count | 72 |
+| Closed Trade Count | 36 |
+| Win Rate % | 36.1111 |
+| Gross Profit | 287.50 |
+| Gross Loss | 661.25 |
+| Profit Factor | 0.4348 |
+| Trades / Tested Day | 0.27 |
+| Approx Winning Trades | 13 |
+| Approx Losing Trades | 23 |
+| Approx Average Winner | 22.12 |
+| Approx Average Loser | -30.06 |
+| Approx Winner / Loser Ratio | 0.77 |
+
+### Behavioral Read
+Low trade frequency (36 trades over 133 session days; ~27% of days triggered the ±30-point threshold). When trades did fire, winners averaged $22 and losers averaged -$30. The payoff ratio (~0.74) was adverse, and the hit rate of 36% was well below the breakeven required for that ratio.
+
+### Interpretation
+The parent parameters show no raw life in the Dev-A window. The core structural hypothesis — that hedging demand drives detectable late-day momentum following strong-trend days — did not produce tradable alpha at this threshold level on MES 1m bars over the 2023-02-26 to 2023-08-31 in-sample window. The payoff ratio and hit rate were jointly unfavorable; this is not a frequency-alone issue that could be rescued by threshold loosening.
+
+> **Infrastructure note (separate from alpha result):** Two engine-level bugs were discovered and patched during this run:
+> 1. `BacktestEngine.run()` at line 3353 — `int(next_target)` cast was not null-safe; patched to `int(next_target) if next_target is not None else 0`.
+> 2. `HedgingDemandIntradayMomentumV1Strategy.on_bar()` — initially drafted to return `Execution` objects, corrected to return integer target quantities per the engine contract.
+>
+> These are infrastructure/compatibility corrections only. They have no bearing on the alpha result.
+
+### Risk Notes
+N/A — rejected at Dev-A gate. No further risk assessment warranted.
+
+### Recommendation / Next Action
+REJECT. No child branching, no parameter rescue, no re-test justified. Family is parked in source library with status `rejected after Dev-A`. The engine infrastructure fixes benefit all future strategy implementations.
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260309T220049_hedging_demand_intraday_momentum_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260309T220049_hedging_demand_intraday_momentum_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260309T220049_hedging_demand_intraday_momentum_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-001 | overnight_intraday_reversal_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/overnightintradayreversalv1 #family/MES #interval/1m #stage/dev_a #ssrn/003 #status/completed #decision/advanced_to_dev_b
+
+**Status:** `COMPLETED`  
+**Decision:** `ADVANCED TO DEV-B`
+
+### Metadata
+- **Run ID:** `20260310T084154_overnight_intraday_reversal_v1_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T084154_overnight_intraday_reversal_v1_dev_a`
+- **Strategy:** `overnight_intraday_reversal_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Fading a qualifying MES overnight gap (prior RTH close to 08:30 CT bar open, threshold 8.0 points) during the RTH session produces positive raw expectancy. Signal evaluated at 08:30 CT bar close; exit at 14:30 CT bar close. Single-instrument derivative of SSRN-003.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the overnight_intraday_reversal parent family (SSRN-003 derivative).`
+- **Why this run exists:** `First Dev-A in-sample discovery run for the overnight_intraday_reversal parent family. Evaluates whether fading a qualifying MES overnight gap produces positive raw expectancy.`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "gap_threshold_points": 8.0,
+  "time_eval": "08:30",
+  "time_exit": "14:30",
+  "session_start": "08:30",
+  "session_end": "15:00",
+  "hard_stop_points": 10.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 101007.50 |
+| Net PnL | 1007.50 |
+| Total Return % | 1.0075 |
+| Max Drawdown Abs | 435.00 |
+| Max Drawdown % | 0.43 |
+| Daily Sharpe Approx | 1.4261 |
+| Execution Count | 172 |
+| Closed Trade Count | 86 |
+| Win Rate % | 37.2093 |
+| Gross Profit | 3820.00 |
+| Gross Loss | 2812.50 |
+| Profit Factor | 1.3582 |
+| Trades / Tested Day | 0.65 |
+| Approx Winning Trades | 32 |
+| Approx Losing Trades | 54 |
+| Approx Average Winner | 119.38 |
+| Approx Average Loser | 52.08 |
+| Approx Winner / Loser Ratio | 2.29 |
+
+### Behavioral Read
+Positive payoff asymmetry: avg winner ($119.38) was 2.29× the avg loser ($52.08). Hit rate was low at 37.2% but insufficient to break the edge given the payoff ratio. Max drawdown of $435 (0.43%) indicates controlled drawdown behavior during the Dev-A window. Trade frequency was 86 trades over 133 days, approximately 0.65 trades per day.
+
+### Interpretation
+Dev-A showed raw life. Profit factor of 1.36 confirms positive expectancy in-sample. The edge is entirely payoff-asymmetry driven rather than win-rate driven, which is typical for fade strategies holding an adverse selection risk. The parent passed the Dev-A gate and was advanced to Dev-B for out-of-sample confirmation.
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+Advanced to Dev-B (EXP-20260310-002) for out-of-sample confirmation. No parameter tuning or child branching performed prior to Dev-B.
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T084154_overnight_intraday_reversal_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T084154_overnight_intraday_reversal_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T084154_overnight_intraday_reversal_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-002 | overnight_intraday_reversal_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/overnightintradayreversalv1 #family/MES #interval/1m #stage/dev_b #ssrn/003 #status/completed #decision/rejected #verdict/rejected
+
+**Status:** `COMPLETED`  
+**Decision:** `REJECTED`
+
+### Metadata
+- **Run ID:** `20260310T084539_overnight_intraday_reversal_v1_dev_b`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T084539_overnight_intraday_reversal_v1_dev_b`
+- **Strategy:** `overnight_intraday_reversal_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-09-01 -> 2024-02-29`
+- **Days Tested:** `128`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Out-of-sample confirmation of Dev-A result: fading a qualifying MES overnight gap (prior RTH close to 08:30 CT bar open, threshold 8.0 points) produces positive raw expectancy. No logic or parameter changes from Dev-A.
+
+### Change Description
+- **Parent Experiment:** `EXP-20260310-001`
+- **What changed:** `Dev-B out-of-sample confirmation run for overnight_intraday_reversal_v1. Identical logic and parameters to Dev-A.`
+- **Why this run exists:** `Out-of-sample confirmation required after Dev-A passed. Dev-B tests whether the Dev-A edge persists on unseen data (2023-09-01 to 2024-02-29) without any parameter changes.`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "gap_threshold_points": 8.0,
+  "time_eval": "08:30",
+  "time_exit": "14:30",
+  "session_start": "08:30",
+  "session_end": "15:00",
+  "hard_stop_points": 10.0,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "timezone": "America/Chicago",
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99308.75 |
+| Net PnL | -691.25 |
+| Total Return % | -0.6912 |
+| Max Drawdown Abs | 1192.50 |
+| Max Drawdown % | 1.19 |
+| Daily Sharpe Approx | -1.4272 |
+| Execution Count | 150 |
+| Closed Trade Count | 75 |
+| Win Rate % | 26.6667 |
+| Gross Profit | 2117.50 |
+| Gross Loss | 2808.75 |
+| Profit Factor | 0.7539 |
+| Trades / Tested Day | 0.59 |
+| Approx Winning Trades | 20 |
+| Approx Losing Trades | 55 |
+| Approx Average Winner | 105.88 |
+| Approx Average Loser | 51.07 |
+| Approx Winner / Loser Ratio | 2.07 |
+
+### Behavioral Read
+Win rate collapsed from 37.2% (Dev-A) to 26.7% (Dev-B), a drop of over 10 percentage points. Payoff structure was broadly preserved: avg winner ($105.88) and avg loser ($51.07) were similar to Dev-A. However, the lower hit rate was sufficient to push the strategy to a net loss. Max drawdown tripled from $435 to $1,192.50. Daily Sharpe flipped from +1.43 to −1.43.
+
+### Interpretation
+Dev-B failed to confirm. The payoff structure held, but the directional accuracy of the gap signal degraded materially out of sample. This is consistent with the known risk identified in the pre-code evidence memo and strategy spec: the single-instrument MES implementation is a notable simplification of the academic cross-sectional source, and the overnight gap sign on a single instrument may not provide a stable directional predictive signal across different market regimes. The Dev-A result appears to have benefited from the specific volatility and momentum regime of Q1–Q2 2023 (post-Fed hiking cycle peak, relatively high gap variance). Dev-B (Sep 2023 – Feb 2024) did not exhibit the same gap-reversal tendency.
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+REJECT. Dev-B out-of-sample confirmation failed. No benchmark promotion, no child branching, no rescue optimization. The family is closed.
+
+### Research Note
+This family was an honest single-instrument MES derivative of a cross-sectional academic source (SSRN-003). The Dev-B failure weakens the transfer case from cross-sectional overnight reversal (ranked across a universe of futures) to single-instrument MES gap fade. The Dev-A result was likely regime-specific. This is useful research information: the overnight gap signal on a single MES instrument does not appear to carry a stable, generalizable directional edge at the tested threshold, and the cross-sectional-to-single-instrument reduction is likely a meaningful source of signal degradation.
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T084539_overnight_intraday_reversal_v1_dev_b`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T084539_overnight_intraday_reversal_v1_dev_b\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T084539_overnight_intraday_reversal_v1_dev_b\daily_equity.csv`
+
+---
+
+## CLOSEOUT NOTE | overnight_intraday_reversal_v1 | SSRN-003 | REJECTED AFTER DEV-B
+
+**Family:** `overnight_intraday_reversal_v1`  
+**Source Lineage:** `SSRN-003 — overnight_intraday_reversal`  
+**Final Decision:** `REJECTED AFTER DEV-B`  
+**Date Closed:** `2026-03-10`
+
+**Reason:** Raw life appeared in Dev-A, but out-of-sample confirmation failed. No promotion, no rescue optimization, no child branching justified.
+
+### Dev-A Summary (EXP-20260310-001 | 2023-02-26 → 2023-08-31)
+| Metric | Value |
+|---|---:|
+| Net PnL | +$1,007.50 |
+| Profit Factor | 1.36 |
+| Max Drawdown % | 0.43% |
+| Total Trades | 86 |
+| Win Rate | 37.2% |
+| Avg Winner | +$119.38 |
+| Avg Loser | −$52.08 |
+
+### Dev-B Summary (EXP-20260310-002 | 2023-09-01 → 2024-02-29)
+| Metric | Value |
+|---|---:|
+| Net PnL | −$691.25 |
+| Profit Factor | 0.75 |
+| Max Drawdown % | 1.19% |
+| Total Trades | 75 |
+| Win Rate | 26.7% |
+| Avg Winner | +$105.88 |
+| Avg Loser | −$51.07 |
+
+### Interpretation
+- Payoff structure (avg winner / avg loser ratio) remained broadly similar across Dev-A and Dev-B.
+- Win rate collapsed materially out of sample (37.2% → 26.7%), which was sufficient to push the strategy to a net loss.
+- Profit factor fell below breakeven (1.36 → 0.75).
+- The Dev-A result did not confirm; no benchmark promotion, no child branching, no rescue optimization.
+
+### Research Note
+- This family was implemented as an honest **single-instrument MES derivative** of a cross-sectional academic source (SSRN-003).
+- The Dev-B failure weakens the transfer case from cross-sectional overnight reversal to single-instrument MES gap fade.
+- The cross-sectional-to-single-instrument reduction is the most likely source of the instability: the gap sign on one instrument does not carry the same stable signal as relative ranking across a universe.
+- This is useful research even in rejection: the overnight gap direction on MES alone is not a reliable standalone entry signal at this parameter set.
+
+---
+
+## EXP-20260310-003 | mes_mnq_relative_value_spread_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqrelativevaluespreadv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/mes_mnq_relative_value_spread_v1_dev_a.json`
+- **Strategy:** `mes_mnq_relative_value_spread_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+A fixed-ratio MES/MNQ intraday substitute spread entered against the 10:00 CT normalized percent-move divergence (threshold 0.0030) shows positive raw expectancy. Long MES / Short MNQ when MNQ has outperformed; reversed when MES has outperformed. Single evaluation per day; exit at 14:30 CT or pair hard stop -$200.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the QC-001 pilot spread parent family mes_mnq_relative_value_spread_v1.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "divergence_threshold": 0.003,
+  "time_eval": "10:00",
+  "time_exit": "14:30",
+  "session_start": "08:30",
+  "session_end": "15:00",
+  "pair_hard_stop_dollars": 200.0,
+  "mes_contract_multiplier": 5.0,
+  "mnq_contract_multiplier": 2.0,
+  "slippage_ticks": 1.0,
+  "tick_size_mes": 0.25,
+  "tick_size_mnq": 0.25,
+  "commission_per_side": 1.25,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+Run failed with error:
+```
+Conversion Error: invalid timestamp field format: "20230703T15:00:00-05:00", expected format is (YYYY-MM-DD HH:MM:SS[.US][±HH[:MM[:SS]]| ZONE])
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/mes_mnq_relative_value_spread_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-004 | mes_mnq_relative_value_spread_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqrelativevaluespreadv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/active/mes_mnq_relative_value_spread_v1_dev_a.json`
+- **Strategy:** `mes_mnq_relative_value_spread_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+A fixed-ratio MES/MNQ intraday substitute spread entered against the 10:00 CT normalized percent-move divergence (threshold 0.0030) shows positive raw expectancy. Long MES / Short MNQ when MNQ has outperformed; reversed when MES has outperformed. Single evaluation per day; exit at 14:30 CT or pair hard stop -$200.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the QC-001 pilot spread parent family mes_mnq_relative_value_spread_v1.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "divergence_threshold": 0.003,
+  "time_eval": "10:00",
+  "time_exit": "14:30",
+  "session_start": "08:30",
+  "session_end": "15:00",
+  "pair_hard_stop_dollars": 200.0,
+  "mes_contract_multiplier": 5.0,
+  "mnq_contract_multiplier": 2.0,
+  "slippage_ticks": 1.0,
+  "tick_size_mes": 0.25,
+  "tick_size_mnq": 0.25,
+  "commission_per_side": 1.25,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+Run failed with error:
+```
+Conversion Error: invalid timestamp field format: "20230703 15:00:00", expected format is (YYYY-MM-DD HH:MM:SS[.US][±HH[:MM[:SS]]| ZONE])
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/active/mes_mnq_relative_value_spread_v1_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-005 | mes_mnq_relative_value_spread_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqrelativevaluespreadv1 #family/MES #context/MNQ #interval/1m #stage/dev_a #qc/001 #status/completed #decision/rejected #verdict/rejected
+
+**Status:** `COMPLETED`  
+**Decision:** `REJECTED AT DEV-A`
+
+### Metadata
+- **Run ID:** `20260310T134625_mes_mnq_relative_value_spread_v1_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T134625_mes_mnq_relative_value_spread_v1_dev_a`
+- **Strategy:** `mes_mnq_relative_value_spread_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+A fixed-ratio MES/MNQ intraday substitute spread entered against the 10:00 CT normalized percent-move divergence (threshold 0.0030) shows positive raw expectancy. Long MES / Short MNQ when MNQ has outperformed; reversed when MES has outperformed. Single evaluation per day; exit at 14:30 CT or pair hard stop -$200.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First Dev-A test of the QC-001 pilot spread parent family mes_mnq_relative_value_spread_v1.`
+- **Why this run exists:** `First Dev-A in-sample discovery run for the QC-001 pilot spread parent. Tests whether a thin fixed-ratio MES/MNQ relative-value divergence entered once intraday shows any raw positive expectancy without ratio normalization, filters, or optimization.`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "divergence_threshold": 0.003,
+  "time_eval": "10:00",
+  "time_exit": "14:30",
+  "session_start": "08:30",
+  "session_end": "15:00",
+  "pair_hard_stop_dollars": 200.0,
+  "mes_contract_multiplier": 5.0,
+  "mnq_contract_multiplier": 2.0,
+  "slippage_ticks": 1.0,
+  "tick_size_mes": 0.25,
+  "tick_size_mnq": 0.25,
+  "commission_per_side": 1.25,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99691.75 |
+| Net PnL | -308.25 |
+| Total Return % | -0.3082 |
+| Max Drawdown Abs | 723.25 |
+| Max Drawdown % | 0.72 |
+| Daily Sharpe Approx | -0.6324 |
+| Execution Count | 188 |
+| Closed Trade Count | 47 |
+| Win Rate % | 46.8085 |
+| Gross Profit | 1427.50 |
+| Gross Loss | 1900.00 |
+| Profit Factor | 0.7513 |
+| Trades / Tested Day | 0.35 |
+| Approx Winning Trades | 22 |
+| Approx Losing Trades | 25 |
+| Approx Average Winner | 64.89 |
+| Approx Average Loser | 76.00 |
+| Approx Winner / Loser Ratio | 0.85 |
+
+### Behavioral Read
+Win rate of 46.8% (22W / 25L) — close to 50/50 but slightly below. The payoff ratio is inverted: avg winner (+$64.89) is smaller than avg loser (−$76.00). Profit factor 0.75, Daily Sharpe −0.63. Trade count low at 47 over 133 days — the 0.0030 threshold filtered aggressively. Max drawdown $723.25 (0.72%) is controlled. No evidence of directional clustering or stop-cascade. The failure is structural, not due to a single outlier.
+
+### Interpretation
+No raw life. The parent failed the primary Dev-A question. The most plausible load-bearing cause is the intentionally crude 1:1 MES/MNQ contract ratio: MES ($5/pt × ~4500 pts ≈ $22,500 notional) and MNQ ($2/pt × ~15,000 pts ≈ $30,000 notional) are not economically equivalent at 1:1. The spread likely carries systematic beta leakage — the strategy is not testing true relative-value isolation, but rather a noisy single-leg proxy dressed as a spread. This was explicitly flagged as Risk #1 in the spec ("1:1 ratio distortion / outright beta leakage"). The parent did exactly what a thin, unoptimized first parent should do: it ran honestly and showed nothing useful.
+
+### Risk Notes
+Infrastructure worked correctly. Two-leg execution, per-bar MNQ P&L injection, pair-level hard stop, and execution audit logging all functioned as intended. Engine timing semantics (bar-close signal / next-bar-open fill) were verified and accepted under Outcome B. The failure is in alpha, not in plumbing.
+
+### Recommendation / Next Action
+REJECT. No Dev-B. No child branching. No ratio tuning, threshold tuning, stop tuning, or rescue optimization. The family is closed.
+
+### Research Note
+A thin synchronous MES/MNQ residual-divergence parent with fixed 1:1 sizing and simple time-based structure did not show raw life in Dev-A. The 1:1 ratio is the most likely structural failure point — MES and MNQ have meaningfully different notional values, so a 1:1 contract count is directionally imbalanced by construction. The infrastructure built for this run (paired-leg execution support, two-leg accounting path, execution auditability, clarified engine timing semantics) is preserved and available for future spread families. The alpha failure does not indict the infrastructure.
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T134625_mes_mnq_relative_value_spread_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T134625_mes_mnq_relative_value_spread_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T134625_mes_mnq_relative_value_spread_v1_dev_a\daily_equity.csv`
+
+---
+
+## CLOSEOUT NOTE | mes_mnq_relative_value_spread_v1 | QC-001 | REJECTED AT DEV-A
+
+**Family:** `mes_mnq_relative_value_spread_v1`  
+**Source Lineage:** `QC-001 — spread_residual_cointegration (MES/MNQ pilot derivative)`  
+**Final Decision:** `REJECTED AT DEV-A`  
+**Date Closed:** `2026-03-10`
+
+**Reason:** No raw life in Dev-A. Profit factor below breakeven, payoff ratio inverted. No promotion, no rescue optimization, no child branching justified.
+
+### Dev-A Summary (EXP-20260310-005 | 2023-02-26 → 2023-08-31)
+| Metric | Value |
+|---|---:|
+| Net PnL | −$308.25 |
+| Profit Factor | 0.75 |
+| Max Drawdown % | 0.72% |
+| Total Trades | 47 |
+| Win Rate | 46.8% |
+| Avg Winner | +$64.89 |
+| Avg Loser | −$76.00 |
+| Payoff Ratio | 0.85 : 1 |
+| Daily Sharpe | −0.63 |
+
+### Interpretation
+- Win rate was close to 50/50 but slightly below; payoff ratio was inverted (avg loser > avg winner).
+- Combined, the strategy produced negative expectancy with no ambiguity.
+- Most plausible structural cause: fixed 1:1 MES/MNQ contract count produces systematic beta leakage rather than true relative-value isolation. MES and MNQ have materially different notional values at 1:1.
+- No child branching, no ratio tuning, no threshold optimization, no rescue optimization.
+
+### Research Lesson
+A thin synchronous MES/MNQ residual-divergence parent with fixed 1:1 sizing and simple time-based structure did not show raw life in Dev-A. The infrastructure (two-leg execution, per-bar MNQ P&L injection, execution auditability) worked correctly and is preserved. The failure is in alpha, not in plumbing.
+
+### Infrastructure Note
+Paired-leg execution support, two-leg cash accounting via `context_leg_cash_delta`, execution audit logging for the context leg, and engine Outcome B timing semantics were all confirmed working. These remain available for future spread families that survive screening.
+
+---
+
+## EXP-20260310-006 | opening_range_breakout_v5a | MES | 1m | FULL
+
+**Tags:** #strategy/openingrangebreakoutv5a #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/Active/opening_range_breakout_v5_orb_v5.json`
+- **Strategy:** `opening_range_breakout_v5a`
+- **Strategy Archetype:** `breakout`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-09-01 -> 2024-02-29`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+ORB-v2 should perform more robustly when the opening range width is constrained to a tighter healthy band relative to recent OR history, and the opening range closes strongly near its high.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `ORB-v5a run on MES Dev-B. Tests whether a tighter OR width band and a strict OR close-location strength filter improve performance over the parent baseline.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "range_minutes": 15,
+  "entry_buffer_ticks": 1,
+  "stop_buffer_ticks": 1,
+  "position_size": 1,
+  "tick_size": 0.25,
+  "session_open": "08:30",
+  "no_new_entries_after": "11:00",
+  "time_stop": "13:30",
+  "allow_long": true,
+  "timezone": "America/Chicago",
+  "or_width_lookback_days": 20,
+  "or_width_min_factor": 0.8,
+  "or_width_max_factor": 1.6,
+  "or_close_location_min": 0.7,
+  "cost_protect_trigger_r": 1.25,
+  "trail_activate_r": 2.0,
+  "atr_period": 20,
+  "atr_trail_multiple": 3.0,
+  "slippage_ticks": 1.0,
+  "commission_per_side": 1.25,
+  "contract_multiplier": 5.0
+}
+```
+
+### Results
+Run failed with error:
+```
+Unknown strategy 'opening_range_breakout_v5a'.
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/Active/opening_range_breakout_v5_orb_v5.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-007 | mes_mnq_co_oc_reversal_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqcoocreversalv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260310T202924_mes_mnq_co_oc_reversal_v1_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T202924_mes_mnq_co_oc_reversal_v1_dev_a`
+- **Strategy:** `mes_mnq_co_oc_reversal_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+MES/MNQ overnight relative displacement (CO-OC) partially reverses during the following cash session. Long the overnight loser, short the overnight winner. 3 MES vs 2 MNQ fixed spread unit. No threshold filter.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Thin parent: overnight return ranking as entry signal, 08:30 open anchor, 14:59 time exit, -$300 pair hard stop. No filters.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "session_start": "08:30",
+  "time_exit": "14:59",
+  "session_end": "15:00",
+  "pair_hard_stop_dollars": 300.0,
+  "mes_contract_multiplier": 5.0,
+  "mnq_contract_multiplier": 2.0,
+  "slippage_ticks": 1.0,
+  "tick_size_mes": 0.25,
+  "tick_size_mnq": 0.25,
+  "commission_per_side": 1.25,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 97367.50 |
+| Net PnL | -2632.50 |
+| Total Return % | -2.6325 |
+| Max Drawdown Abs | 4518.00 |
+| Max Drawdown % | 4.50 |
+| Daily Sharpe Approx | -1.4529 |
+| Execution Count | 527 |
+| Closed Trade Count | 132 |
+| Win Rate % | 42.4242 |
+| Gross Profit | 16785.00 |
+| Gross Loss | 23347.50 |
+| Profit Factor | 0.7189 |
+| Trades / Tested Day | 0.99 |
+| Approx Winning Trades | 56 |
+| Approx Losing Trades | 76 |
+| Approx Average Winner | 299.73 |
+| Approx Average Loser | 307.20 |
+| Approx Winner / Loser Ratio | 0.98 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T202924_mes_mnq_co_oc_reversal_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T202924_mes_mnq_co_oc_reversal_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T202924_mes_mnq_co_oc_reversal_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-008 | mes_mnq_co_oc_reversal_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqcoocreversalv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260310T203852_mes_mnq_co_oc_reversal_v1_sign_flip_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T203852_mes_mnq_co_oc_reversal_v1_sign_flip_dev_a`
+- **Strategy:** `mes_mnq_co_oc_reversal_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Sign flip control. Tests if long overnight winner / short overnight loser generates positive expectancy, which would indicate an overnight momentum effect rather than reversal.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `Sign flip control for mes_mnq_co_oc_reversal_v1_dev_a.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "session_start": "08:30",
+  "time_exit": "14:59",
+  "session_end": "15:00",
+  "pair_hard_stop_dollars": 300.0,
+  "mes_contract_multiplier": 5.0,
+  "mnq_contract_multiplier": 2.0,
+  "slippage_ticks": 1.0,
+  "tick_size_mes": 0.25,
+  "tick_size_mnq": 0.25,
+  "commission_per_side": 1.25,
+  "timezone": "America/Chicago",
+  "invert_signal": true
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 98227.25 |
+| Net PnL | -1772.75 |
+| Total Return % | -1.7728 |
+| Max Drawdown Abs | 3043.75 |
+| Max Drawdown % | 3.01 |
+| Daily Sharpe Approx | -0.9129 |
+| Execution Count | 528 |
+| Closed Trade Count | 132 |
+| Win Rate % | 53.7879 |
+| Gross Profit | 21150.00 |
+| Gross Loss | 17958.75 |
+| Profit Factor | 1.1777 |
+| Trades / Tested Day | 0.99 |
+| Approx Winning Trades | 71 |
+| Approx Losing Trades | 61 |
+| Approx Average Winner | 297.89 |
+| Approx Average Loser | 294.41 |
+| Approx Winner / Loser Ratio | 1.01 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T203852_mes_mnq_co_oc_reversal_v1_sign_flip_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T203852_mes_mnq_co_oc_reversal_v1_sign_flip_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T203852_mes_mnq_co_oc_reversal_v1_sign_flip_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-009 | mes_mnq_co_oc_extreme_reversal_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqcoocextremereversalv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260310T205042_mes_mnq_co_oc_extreme_reversal_v1_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T205042_mes_mnq_co_oc_extreme_reversal_v1_dev_a`
+- **Strategy:** `mes_mnq_co_oc_extreme_reversal_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2023-02-26 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme overnight relative moves (>= 2 sigma) between MES and MNQ represent temporary inventory imbalance and partially revert early in the cash session (before 11:30 CT, exiting at 0.25 sigma convergence). 3 MES vs 2 MNQ fixed pair.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `New parent: 2-sigma threshold filter required for entry. Early exit at 11:30 time stop or 0.25 convergence.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "session_start": "08:30",
+  "time_exit": "11:30",
+  "pair_hard_stop_dollars": 300.0,
+  "entry_std_threshold": 2.0,
+  "exit_std_threshold": 0.25,
+  "rolling_window_days": 60,
+  "mes_contract_multiplier": 5.0,
+  "mnq_contract_multiplier": 2.0,
+  "slippage_ticks": 1.0,
+  "tick_size_mes": 0.25,
+  "tick_size_mnq": 0.25,
+  "commission_per_side": 1.25,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99060.25 |
+| Net PnL | -939.75 |
+| Total Return % | -0.9397 |
+| Max Drawdown Abs | 1166.75 |
+| Max Drawdown % | 1.17 |
+| Daily Sharpe Approx | -2.3349 |
+| Execution Count | 32 |
+| Closed Trade Count | 8 |
+| Win Rate % | 37.5000 |
+| Gross Profit | 1031.25 |
+| Gross Loss | 615.00 |
+| Profit Factor | 1.6768 |
+| Trades / Tested Day | 0.06 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 5 |
+| Approx Average Winner | 343.75 |
+| Approx Average Loser | 123.00 |
+| Approx Winner / Loser Ratio | 2.79 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T205042_mes_mnq_co_oc_extreme_reversal_v1_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T205042_mes_mnq_co_oc_extreme_reversal_v1_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T205042_mes_mnq_co_oc_extreme_reversal_v1_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-010 | mes_mnq_co_oc_extreme_reversal_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/mesmnqcoocextremereversalv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260310T205233_mes_mnq_co_oc_extreme_reversal_v1_extended_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T205233_mes_mnq_co_oc_extreme_reversal_v1_extended_dev_a`
+- **Strategy:** `mes_mnq_co_oc_extreme_reversal_v1`
+- **Strategy Archetype:** `unknown`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2022-01-01 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme overnight relative moves (>= 2 sigma) between MES and MNQ represent temporary inventory imbalance and partially revert early in the cash session. Extended sample window to achieve 20+ trade statistical floor before judgment.
+
+### Change Description
+- **Parent Experiment:** `20260310T205042_mes_mnq_co_oc_extreme_reversal_v1_dev_a`
+- **What changed:** `Sample extension back to 2022-01-01 to achieve minimum trade count floor. No strategy changes.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "session_start": "08:30",
+  "time_exit": "11:30",
+  "pair_hard_stop_dollars": 300.0,
+  "entry_std_threshold": 2.0,
+  "exit_std_threshold": 0.25,
+  "rolling_window_days": 60,
+  "mes_contract_multiplier": 5.0,
+  "mnq_contract_multiplier": 2.0,
+  "slippage_ticks": 1.0,
+  "tick_size_mes": 0.25,
+  "tick_size_mnq": 0.25,
+  "commission_per_side": 1.25,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 99060.25 |
+| Net PnL | -939.75 |
+| Total Return % | -0.9397 |
+| Max Drawdown Abs | 1166.75 |
+| Max Drawdown % | 1.17 |
+| Daily Sharpe Approx | -2.3349 |
+| Execution Count | 32 |
+| Closed Trade Count | 8 |
+| Win Rate % | 37.5000 |
+| Gross Profit | 1031.25 |
+| Gross Loss | 615.00 |
+| Profit Factor | 1.6768 |
+| Trades / Tested Day | 0.06 |
+| Approx Winning Trades | 3 |
+| Approx Losing Trades | 5 |
+| Approx Average Winner | 343.75 |
+| Approx Average Loser | 123.00 |
+| Approx Winner / Loser Ratio | 2.79 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T205233_mes_mnq_co_oc_extreme_reversal_v1_extended_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T205233_mes_mnq_co_oc_extreme_reversal_v1_extended_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T205233_mes_mnq_co_oc_extreme_reversal_v1_extended_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-011 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+Run failed with error:
+```
+PriceGapReversionV1Strategy.on_bar() missing 2 required positional arguments: 'current_bar' and 'context_bars'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-012 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+Run failed with error:
+```
+'Bar' object has no attribute 'ts'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-013 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+Run failed with error:
+```
+time data '20230227' does not match format '%Y-%m-%d'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-014 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+Run failed with error:
+```
+unsupported operand type(s) for *: 'int' and 'NoneType'
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-015 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/failed #decision/tbd
+
+**Status:** `FAILED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `unknown`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2023-08-31`
+- **Days Tested:** `1`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+Run failed with error:
+```
+unsupported format string passed to NoneType.__format__
+```
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `Config: configs/Active/price_gap_reversion_v1_extended_dev_a.json`
+- **Closed Trades CSV:** `unknown`
+- **Daily Equity CSV:** `unknown`
+
+---
+
+## EXP-20260310-016 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260310T210338_price_gap_reversion_v1_extended_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T210338_price_gap_reversion_v1_extended_dev_a`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100000.00 |
+| Net PnL | 0.00 |
+| Total Return % | 0.0000 |
+| Max Drawdown Abs | 0.00 |
+| Max Drawdown % | N/A |
+| Daily Sharpe Approx | N/A |
+| Execution Count | 0 |
+| Closed Trade Count | 0 |
+| Win Rate % | 0.0000 |
+| Gross Profit | 0.00 |
+| Gross Loss | 0.00 |
+| Profit Factor | N/A |
+| Trades / Tested Day | 0.00 |
+| Approx Winning Trades | 0 |
+| Approx Losing Trades | 0 |
+| Approx Average Winner | 0.00 |
+| Approx Average Loser | 0.00 |
+| Approx Winner / Loser Ratio | 0.00 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T210338_price_gap_reversion_v1_extended_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T210338_price_gap_reversion_v1_extended_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T210338_price_gap_reversion_v1_extended_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-017 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260310T210359_price_gap_reversion_v1_extended_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T210359_price_gap_reversion_v1_extended_dev_a`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2023-08-31`
+- **Days Tested:** `133`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100000.00 |
+| Net PnL | 0.00 |
+| Total Return % | 0.0000 |
+| Max Drawdown Abs | 0.00 |
+| Max Drawdown % | N/A |
+| Daily Sharpe Approx | N/A |
+| Execution Count | 0 |
+| Closed Trade Count | 0 |
+| Win Rate % | 0.0000 |
+| Gross Profit | 0.00 |
+| Gross Loss | 0.00 |
+| Profit Factor | N/A |
+| Trades / Tested Day | 0.00 |
+| Approx Winning Trades | 0 |
+| Approx Losing Trades | 0 |
+| Approx Average Winner | 0.00 |
+| Approx Average Loser | 0.00 |
+| Approx Winner / Loser Ratio | 0.00 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T210359_price_gap_reversion_v1_extended_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T210359_price_gap_reversion_v1_extended_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T210359_price_gap_reversion_v1_extended_dev_a\daily_equity.csv`
+
+---
+
+## EXP-20260310-018 | price_gap_reversion_v1 | MES | 1m | FULL
+
+**Tags:** #strategy/pricegapreversionv1 #family/MES #interval/1m #sample/full #status/completed #decision/tbd
+
+**Status:** `COMPLETED`  
+**Decision:** `TBD`
+
+### Metadata
+- **Run ID:** `20260310T211028_price_gap_reversion_v1_extended_dev_a`
+- **Run Date:** `2026-03-10`
+- **Researcher:** `auto`
+- **Code Version / Commit:** `main @ b72d9f1`
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T211028_price_gap_reversion_v1_extended_dev_a`
+- **Strategy:** `price_gap_reversion_v1`
+- **Strategy Archetype:** `mean_reversion`
+- **Family:** `MES`
+- **Interval:** `1m`
+- **Sample Type:** `FULL`
+- **Date Range:** `2019-01-01 -> 2026-02-22`
+- **Days Tested:** `770`
+- **Instrument Mode:** `dominant_by_day`
+- **Instrument Key:** `None`
+
+### Research Question / Hypothesis
+Extreme opening gaps (>= 3.0 sigma) are liquidity-driven overreactions that get filled by institutional flow in the early cash session. 5-year sample window used to capture minimum trade count floor for an extreme outlier condition.
+
+### Change Description
+- **Parent Experiment:** `none`
+- **What changed:** `First thin-parent run using the full available local catalog data.`
+- **Why this run exists:** `TBD`
+
+### Execution Assumptions
+- **Session Timezone:** `America/Chicago`
+- **Session:** `08:30 -> 15:00`
+- **Flatten Daily:** `true`
+- **Flatten On Last Bar:** `true`
+- **Initial Cash:** `100000.0`
+- **Contract Multiplier:** `5.0`
+- **Tick Size:** `0.25`
+- **Slippage Ticks:** `1.0`
+- **Commission Per Side:** `1.25`
+
+### Strategy Parameters
+```json
+{
+  "time_anchor": "08:30",
+  "time_exit": "11:30",
+  "entry_std_threshold": 3.0,
+  "rolling_window_days": 60,
+  "hard_stop_dollars": 150.0,
+  "multiplier": 5.0,
+  "timezone": "America/Chicago"
+}
+```
+
+### Results
+| Metric | Value |
+|---|---:|
+| Final Equity | 100000.00 |
+| Net PnL | 0.00 |
+| Total Return % | 0.0000 |
+| Max Drawdown Abs | 0.00 |
+| Max Drawdown % | N/A |
+| Daily Sharpe Approx | N/A |
+| Execution Count | 0 |
+| Closed Trade Count | 0 |
+| Win Rate % | 0.0000 |
+| Gross Profit | 0.00 |
+| Gross Loss | 0.00 |
+| Profit Factor | N/A |
+| Trades / Tested Day | 0.00 |
+| Approx Winning Trades | 0 |
+| Approx Losing Trades | 0 |
+| Approx Average Winner | 0.00 |
+| Approx Average Loser | 0.00 |
+| Approx Winner / Loser Ratio | 0.00 |
+
+### Behavioral Read
+TBD
+
+### Interpretation
+TBD
+
+### Risk Notes
+TBD
+
+### Recommendation / Next Action
+TBD
+
+### Artifacts
+- **Report Directory:** `E:\project_1L\marketdata\backtests\20260310T211028_price_gap_reversion_v1_extended_dev_a`
+- **Closed Trades CSV:** `E:\project_1L\marketdata\backtests\20260310T211028_price_gap_reversion_v1_extended_dev_a\closed_trades.csv`
+- **Daily Equity CSV:** `E:\project_1L\marketdata\backtests\20260310T211028_price_gap_reversion_v1_extended_dev_a\daily_equity.csv`
 
 ---

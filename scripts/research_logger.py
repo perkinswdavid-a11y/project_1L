@@ -187,11 +187,12 @@ def log_experiment(
     
     # Derivations
     days_tested = result.get("days_tested", 1)
-    if days_tested <= 0:
+    if days_tested is None or days_tested <= 0:
         days_tested = 1
 
     trades_per_tested_day = closed_trades / days_tested
-    win_rate_pct = result.get("win_rate_pct", 0.0)
+    win_rate_pct = result.get("win_rate_pct")
+    win_rate_pct = win_rate_pct if win_rate_pct is not None else 0.0
     gross_profit = result.get("gross_profit", 0.0)
     gross_loss = result.get("gross_loss", 0.0)
     
@@ -216,6 +217,10 @@ def log_experiment(
     tags_line = f"**Tags:** {' '.join(filter(None, [tag_strategy, tag_family, tag_interval, tag_sample, tag_status, tag_decision]))}"
 
     # Build Index Row
+    pf_str = f"{profit_factor:.4f}" if profit_factor is not None else "N/A"
+    dd_str = f"{max_dd_pct:.2f}" if max_dd_pct is not None else "N/A"
+    sharpe_raw = result.get("daily_sharpe_approx")
+    sharpe_str = f"{sharpe_raw:.4f}" if sharpe_raw is not None else "N/A"
     index_row_parts = [
         experiment_id,
         run_date,
@@ -226,9 +231,9 @@ def log_experiment(
         sample_type,
         f"{closed_trades}",
         f"{trades_per_tested_day:.2f}",
-        f"{profit_factor:.4f}",
+        pf_str,
         f"{net_pnl:.2f}",
-        f"{max_dd_pct:.2f}",
+        dd_str,
         decision_clean,
         next_action_cell,
         run_id,
@@ -296,14 +301,14 @@ def log_experiment(
 | Net PnL | {net_pnl:.2f} |
 | Total Return % | {result.get('total_return_pct', 0.0):.4f} |
 | Max Drawdown Abs | {result.get('max_drawdown_abs', 0.0):.2f} |
-| Max Drawdown % | {max_dd_pct:.4f} |
-| Daily Sharpe Approx | {result.get('daily_sharpe_approx', 0.0):.4f} |
+| Max Drawdown % | {dd_str} |
+| Daily Sharpe Approx | {sharpe_str} |
 | Execution Count | {result.get('execution_count', 0)} |
 | Closed Trade Count | {closed_trades} |
 | Win Rate % | {win_rate_pct:.4f} |
 | Gross Profit | {gross_profit:.2f} |
 | Gross Loss | {gross_loss:.2f} |
-| Profit Factor | {profit_factor:.4f} |
+| Profit Factor | {pf_str} |
 | Trades / Tested Day | {trades_per_tested_day:.2f} |
 | Approx Winning Trades | {approx_winning_trades} |
 | Approx Losing Trades | {approx_losing_trades} |
