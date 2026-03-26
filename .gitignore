@@ -1,4 +1,5 @@
 ### Python & Tooling ###
+venv/
 .venv/
 __pycache__/
 *.pyc
@@ -21,6 +22,8 @@ STOP_TRADING.lock
 PROTECTIVE_LOCK.lock
 VICTORY_ACHIEVED.lock
 ### Data and Storage (Runtime Only) ###
+*.csv
+*.parquet
 /data/
 /audit/logs/
 ### Logs ###
