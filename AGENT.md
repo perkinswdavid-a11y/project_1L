@@ -3,7 +3,7 @@
 ## 0. Mission (Non‑Negotiable)
 Project 1L exists for **one purpose**:
 
-> **Pass the Apex 50K (Rithmic) EOD Trailing Evaluation** with maximum probability and minimum disqualification risk.
+> **Develop and maintain a high-expectancy institutional-grade automated trading system** with robust risk management and execution fidelity.
 
 After the evaluation is passed, a **copy** of this system may be deployed to a privately funded account using **different parameters**, but:
 - The **core architecture** and **core strategy logic** must remain identical.
@@ -45,16 +45,8 @@ Conflict resolution:
 
 ---
 
-## 3. Evaluation Model Lock (Hard Requirement)
-This system is built for **EOD evaluation rules only**.
-
-Hard requirement:
-- If `EVALUATION_RULESET != "EOD_EVAL"`, the system must:
-  - create `STOP_TRADING_LOCK`
-  - flatten + cancel
-  - halt in Level 3 failure mode
-
-No automatic fallback to other evaluation models is permitted.
+## 3. Risk Management Context
+This system is designed for professional risk management. All risk rules must be strictly adhered to and enforced by the Risk Engine.
 
 ---
 
@@ -137,8 +129,8 @@ All time logic uses `TIMEZONE_TRADING` (ET).
 
 There are two separate reset concepts:
 
-1. **Apex Trading Day Reset**
-   - `APEX_DAY_RESET_TIME`
+1. **System Trading Day Reset**
+   - `SYSTEM_DAY_RESET_TIME`
    - resets: DLL counters, daily profit cap, daily trade counts, two-win stop tracking, day_start_equity
 
 2. **Strategy Session Reset (RTH)**
@@ -182,7 +174,7 @@ Code is not done until all items below pass:
    - spread gate
    - latency gate
    - EOD trailing buffer gate
-   - Apex DLL gate (equity-based)
+   - System DLL gate (equity-based)
    - internal daily loss gate (equity-based)
    - trade-count caps and stop rules (two-win stop, daily profit cap)
    - Tier‑1 calendar freshness + blackout windows

@@ -12,7 +12,7 @@ This is a new parent-family candidate, not an ORB child branch.
 When MES and MNQ diverge abnormally on a normalized intraday basis after the opening range is complete, the relative divergence may mean-revert enough to support a tradable signal in MES.
 
 This family is intentionally defined as a **raw market-edge test**.
-Do not include Apex rules, prop-firm rules, or payout-rule adaptations in this family spec.
+Do not include specific payout-rule adaptations in this family spec.
 
 ## Instrument Roles
 

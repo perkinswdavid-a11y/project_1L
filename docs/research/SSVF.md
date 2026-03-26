@@ -766,8 +766,8 @@ Before additional ORB child branches are launched, Project 1L should normally re
 
 Current priority should be:
 
-- keep ORB-v6A as the active benchmark parent
-- perform a formal ORB-v6A postmortem
+- keep ORB-v14A as the active benchmark parent (promoted from v6A)
+- perform a formal ORB-v14A postmortem
 - open at least two non-ORB parent-family discovery tracks
 - use evidence to decide which family deserves the next heavy research allocation
 

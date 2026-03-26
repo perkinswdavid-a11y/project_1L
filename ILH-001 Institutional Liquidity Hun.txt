@@ -1,0 +1,637 @@
+ILH-001 Institutional Liquidity Hunter Microstructure Audit
+Operating assumptions that dominate edge and friction
+ILH-001 is built on top-of-book (“L1”) event data (MBP-1): every trade plus best-bid/best-offer updates with aggregate size at the BBO. That is the correct granularity for a low-latency “lead–lag” scout/trap architecture, but it comes with a hard constraint: you do not see queue dynamics (adds/cancels, hidden/iceberg refresh) that institutional/HFT desks often use to distinguish true absorption from ordinary replenishment. MBP-1 is explicitly “top-of-book” data, commonly called L1. 
+
+Your instrument economics make the “commission-friction sensitivity” problem mathematically unavoidable. The Micro E-mini S&P 500 contract is $5 × index points with minimum tick 0.25 points (=$1.25/tick). The Micro E-mini Nasdaq-100 contract is $2 × index points with minimum tick 0.25 points (=$0.50/tick). 
+
+With a ~$2.50 round-trip commission on 1 Micro contract (your current backtester model) plus even modest slippage, the strategy has an effective “edge tax” on every trade; that is why the system looks fragile in choppy regimes (high trade count + low average excursion). 
+
+Finally, your deployment constraint (low-latency execution near Chicago on QuantVPS) is directionally correct for CME index futures, because the only sustainable version of a cross-instrument lead–lag is the one that minimizes end-to-end latency and stale-feature risk. 
+
+Logic audit of microstructure_v1.py
+MNQ “Momentum Surge” implementation is conceptually correct but is vulnerable to contaminated ticks
+Your “surge” is implemented as a rolling 10-second change in cumulative volume delta (CVD): you append (ts_event, cum_delta) into cvd_history, evict items older than 10 seconds, then compute surge = cum_delta - oldest_cum_delta. That matches your stated trigger (signed delta > threshold over rolling 10 seconds). The direction mapping you use is also consistent with the normalized aggressor-side convention: Databento’s side for action == Trade is B for buy aggressor and A for sell aggressor. 
+
+However, in your current code you update cum_delta before validating whether the trade price is sane relative to the current BBO, and you treat any non-B side as negative delta. That creates two concrete failure modes:
+
+Ghost-print contamination of MNQ surge: A bad trade event with an impossible price can still add (or subtract) size to CVD, which can trigger (or suppress) the scout condition even though the market never truly traded there. This is structurally the same “ghost problem,” just moved from exits to feature generation. (In an L1 schema, the correct place to filter ghost trades is at the event-ingestion layer, not in PnL evaluation.) 
+Misclassification of side == N: Databento explicitly documents N as “no side specified.” Treating N as sells biases CVD and will matter in low-liquidity moments or edge cases. 
+MES “Absorption” definition matches the right intuition but the windowing is not actually a rolling 60 seconds
+Your absorption logic attempts to detect “a lot of aggressor volume hitting a level while the level holds.” In institutional terms, that’s the right behavioral definition. But the current implementation is not a true rolling 60-second measure:
+
+You increment absorption_ask when (side == 'B' and trade_price == ask_price) and absorption_bid when (side == 'A' and trade_price == bid_price). This is the correct side/action/price alignment for “aggressor at ask/bid” in an L1 futures book. 
+You reset absorption on BBO price change (bid change resets bid absorption; ask change resets ask absorption). That is aligned with “level holds” logic.
+But your “60-second window” is implemented as: reset only when the time gap between consecutive trades exceeds 60 seconds. If trades keep arriving every few seconds, the counter can accumulate over many minutes, which is exactly the “stale data” risk you flagged. This will create false positives in range-bound conditions where small prints keep occurring at the level but the absorption never happened as a burst within the intended 60-second window.
+For “institutional absorption” the burst rate matters at least as much as total. A desk would typically measure executed-aggressor volume within a strict rolling window and often normalize it by either (a) displayed depth or (b) typical flow for that time-of-day. L1 can approximate this, but only if you implement the window correctly. 
+
+Structural alpha risk: L1-only absorption cannot distinguish “true absorption” from “ordinary top-of-book replenishment”
+Because MBP-1 is top-of-book aggregated data, absorption-by-volume alone can be ambiguous: the top-of-book size can refill repeatedly (possibly from different participants), and you can’t see whether that’s hidden liquidity, re-posting by the same participant, or simply normal two-sided market making. This is why many microstructure predictors explicitly incorporate order flow imbalance (OFI) and depth/size, not only “executed at bid/ask.” 
+
+A useful institutional bridge that still respects your data constraint is to combine:
+
+executed aggressor volume at the level (your absorption), with
+book imbalance / microprice derived from BBO sizes.
+Microprice uses BBO prices and sizes; the standard formula is:
+microprice = (s_b * p_a + s_a * p_b) / (s_b + s_a) (top-of-book case). 
+
+This gives you a low-latency “fair price tilt” that often improves discrimination between “real defense” and “paper defense.” 
+
+Execution audit of ilh_backtester_v1.py
+The current “Silicon Shield” risks overstating robustness by ignoring adverse reality, not just bad ticks
+In update_pnl(), you reject any price update whose absolute drift from entry exceeds 15 points. This does block obvious ghost spikes, but it also creates a backtest artifact: large adverse moves (gaps, news impulses) are dropped on the floor, meaning the simulator can “survive” situations where a live stop would be filled badly or where the market would have moved through the stop rapidly. That converts a data-quality safeguard into a PnL-optimistic censoring mechanism, which is a structural weakness for production-readiness. 
+
+A production-grade approach is to gate on BBO sanity (or trade-to-BBO sanity), not distance-from-entry. If the BBO itself moves, that’s the real market. If a single print is far outside the BBO, that’s likely bad data. MBP-1 provides exactly what you need to do that. 
+
+Trailing stop logic is coherent but fill modeling is too optimistic for stops and scale
+Your trailing structure (breakeven at +1.5 points, then trail 2 points behind peak after +3 points) is internally consistent and tick-aligned for MES (0.25 ticks). But two execution assumptions materially understate friction:
+
+Stops fill at the stop price in your simulator. In real futures microstructure, stop orders become marketable orders once triggered; the realized fill can be worse, especially in fast markets. Treating stops as perfect fills will inflate profit factor. 
+1-tick slippage is not a safe global default for 5 contracts. For MES, a 5-lot is usually small relative to normal top-of-book size during liquid periods, so often you’ll see 0–1 tick slippage; but the tail risk (fast moves, thin moments, post-data microbursts) is what kills short-horizon edge. A realistic simulator needs at least: separate slippage assumptions for (a) entry, (b) target limit fills, and (c) stop-market fills, and it should scale costs with order size. 
+Hidden correctness issue: run_ilh_v1.py marks-to-market using row.price on all events
+Your batch runner calls tester.update_pnl(price, ts) whenever row.symbol == "MES.v.0", regardless of whether the row is a Trade or a Book update. In MBP-1, the meaning of price depends on action/side; on non-trade events it is not a clean “last traded price.” This can cause false stop/target triggers or missed exits. The safest low-latency mark for exit simulation is the BBO itself (bid/ask), which you already have in every record. 
+
+Benchmarking the alpha mechanism and improving the feature set
+What your current alpha claim reduces to
+The strategy is a conditional momentum/continuation bet:
+
+Scout: MNQ experiences a short-horizon order-flow impulse (CVD surge in 10 seconds).
+Trap: MES prints substantial aggressor volume into the best bid/ask without breaking the level (absorption).
+You enter MES in the direction consistent with “defended level + lead impulse.”
+This is plausible because short-horizon price changes are strongly linked to order flow imbalance at the best bid/ask (OFI), and cross-market linkages are real in modern electronic markets. 
+
+But the strategy will only survive friction if:
+
+the conditional distribution of post-entry returns is sufficiently skewed (fat right tail) before costs, and
+the signal is fresh (no staleness) because any slow lead–lag is quickly arbitraged away.
+Thin-parent feature upgrades that are most likely to improve win rate without adding latency bloat
+A high-integrity path (source → screen → memo → spec → implementation → testing) suggests adding only features that naturally come from MBP-1 and have established microstructure relevance.
+
+First upgrade: replace “absorption sum only” with absorption + top-of-book imbalance.
+Microprice and book imbalance are explicitly defined using bid/ask prices and sizes; the formulas are standard and computationally cheap. 
+
+Empirically, OFI/imbalance measures are known to be strongly linked to short-horizon price changes. 
+
+Implementation-wise, this becomes: only take an “ABSORPTION_BUYING” long if BBO imbalance is also bid-heavy (or microprice > mid), and only take “ABSORPTION_SELLING” short if imbalance is ask-heavy.
+
+Second upgrade: lead staleness enforcement.
+Your current implementation evaluates MNQ surge only at MES-trigger time. This is fine if MNQ is actively updating. But if MNQ has not printed recently, you are using stale lead information. A simple “MNQ last trade age ≤ X seconds” gate is extremely cheap and removes a major class of false alignments. 
+
+Third upgrade (optional, higher scope): add ZN only as a regime/context filter, not a direct trigger.
+Cross-asset studies show meaningful interconnectedness and spillovers, but the predictive direction can be regime-dependent; if you add a third instrument, treat it as a low-frequency context gate (risk-on vs risk-off) rather than a microsecond “lead.” 
+
+This avoids turning ILH into an overfit multi-factor system while still letting you shut down equity-index scalping when bonds are dominating the tape (macro shock regimes).
+
+Production-ready optimizations
+Exit logic improvements that directly target profit factor
+Your observed failure mode is “choppy regime → absorption breaks → many small losses + commissions.” The cleanest PF improvement is to reduce loss frequency and time-in-trade when the impulse fails, not to add complexity to entries.
+
+A mathematically disciplined exit upgrade for this kind of impulse strategy is a time stop conditioned on MFE:
+
+If the trade has not achieved at least +X points favorable excursion within T seconds, exit at market.
+This makes sense for an order-flow-driven continuation bet: if the market cannot move quickly after a strong, localized impulse, the conditional edge decays while costs remain constant.
+For “thin parent” parameters on MES, a reasonable starter is T = 45s and X = 1.0 point (4 ticks). This is intentionally modest: it cuts the dead trades (where you’re paying the friction tax) while leaving the winners intact under your existing trail/target framework.
+
+Regime filter to shut down ranging / low-volatility conditions
+Because you already trade only the morning window, the dominant bad regime is not “overnight desert” but intraday chop—price paths with low directional efficiency.
+
+Two low-latency filters are appropriate:
+
+Kaufman Efficiency Ratio (ER): ER = net change / sum of absolute changes; ranges from 0 (chop) to 1 (trend). 
+Choppiness Index (CHOP): a normalized (0–100) measure designed explicitly to distinguish trending vs ranging behavior. 
+For a production-minded “first pass” on your architecture, ER is easier to compute on tick/BBO data and requires no OHLC bar construction. A robust rule is:
+
+Maintain a rolling 5-minute deque of midprices (or exit-side prices).
+Compute ER over that window.
+Disable entries when ER < 0.20 or when the rolling 5-minute high–low range is below a low-vol threshold (e.g., < 2.0 points).
+This directly targets your known weakness (ranging chop) while remaining lightweight enough for low-latency execution.
+
+Correctness and stability fixes that should be treated as mandatory, not optional
+To move toward production-ready behavior:
+
+Implement absorption as a true rolling 60-second window (deque + running sum), not “time since last trade.”
+Debounce absorption to fire on threshold cross, not on every subsequent trade at the level.
+Move ghost filtering to event-level BBO/trade sanity instead of “ignore if far from entry.”
+Use BBO-based exit simulation (bid for long exits, ask for short exits), and model stop slippage separately from target fills.
+These are structural correctness fixes that will change backtest outcomes, but in a direction that is more representative of live execution. 
+
+Code revisions that materially improve correctness
+Below are full-file rewrites that preserve your architecture constraints (per-event processing, cross-symbol synchronization compatibility, and the DuckDB-based streamer layer unchanged). The two files are drop-in replacements with the same class names, but improved internal mechanics.
+
+microstructure_v1.py rewrite
+python
+Copy
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from datetime import datetime, timedelta
+from typing import Deque, Dict, Optional, Tuple
+from collections import deque
+from pathlib import Path
+
+
+_NS = 1_000_000_000  # Databento normalization: 1 price unit = 1e-9
+
+
+@dataclass
+class MicroState:
+    symbol: str
+
+    # Top-of-book (integer nanounits)
+    bid_px_00: int = 0
+    ask_px_00: int = 0
+    bid_sz_00: int = 0
+    ask_sz_00: int = 0
+
+    # Tape
+    last_trade_px: int = 0
+    last_trade_ts: Optional[datetime] = None
+
+    # Cumulative volume delta (aggressor-defined)
+    cum_delta: int = 0
+    cvd_history: Deque[Tuple[datetime, int]] = field(default_factory=deque)  # (ts, cum_delta)
+
+    # Absorption tracking (rolling window)
+    ask_hits: Deque[Tuple[datetime, int]] = field(default_factory=deque)  # buy aggressor @ ask
+    bid_hits: Deque[Tuple[datetime, int]] = field(default_factory=deque)  # sell aggressor @ bid
+    ask_hit_sum: int = 0
+    bid_hit_sum: int = 0
+    ask_fired: bool = False
+    bid_fired: bool = False
+
+
+class ILHMicroEngine:
+    """
+    ILH-001: Institutional Liquidity Hunter (signal engine)
+    Processes MBP-1 events (trade + top-of-book updates) to detect:
+
+      - MNQ "Momentum Surge": 10s rolling cumulative-volume-delta change
+      - MES "Absorption": rolling sum of aggressor-at-ask or aggressor-at-bid volume
+        while the best price level holds
+
+    Design goals:
+      - O(1) per-event updates (deques + running sums)
+      - Deterministic resets (on best price change)
+      - Staleness guards on cross-instrument lead data
+    """
+
+    def __init__(
+        self,
+        db_path: Path,
+        *,
+        tick_size: float = 0.25,
+        surge_window_s: float = 10.0,
+        absorption_window_s: float = 60.0,
+        surge_trade_price_tolerance_ticks: int = 2,
+        absorption_threshold: int = 100,
+        max_book_jump_points: float = 15.0,
+        lead_staleness_max_s: float = 2.0,
+    ):
+        self.db_path = db_path  # intentionally kept (DuckDB catalog path)
+        self.states: Dict[str, MicroState] = {}
+
+        self.tick_size = float(tick_size)
+        self.tick_px = int(round(self.tick_size * _NS))
+
+        self.surge_window = timedelta(seconds=float(surge_window_s))
+        self.absorption_window = timedelta(seconds=float(absorption_window_s))
+        self.absorption_threshold = int(absorption_threshold)
+
+        self.max_trade_outside_ticks = int(surge_trade_price_tolerance_ticks)
+        self.max_trade_outside_px = self.max_trade_outside_ticks * self.tick_px
+
+        self.max_book_jump_px = int(round(float(max_book_jump_points) * _NS))
+        self.lead_staleness_max = timedelta(seconds=float(lead_staleness_max_s))
+
+    def get_state(self, symbol: str) -> MicroState:
+        s = self.states.get(symbol)
+        if s is None:
+            s = MicroState(symbol=symbol)
+            self.states[symbol] = s
+        return s
+
+    @staticmethod
+    def _px_to_float(px: int) -> float:
+        return px / _NS
+
+    def _reset_ask_absorption(self, state: MicroState) -> None:
+        state.ask_hits.clear()
+        state.ask_hit_sum = 0
+        state.ask_fired = False
+
+    def _reset_bid_absorption(self, state: MicroState) -> None:
+        state.bid_hits.clear()
+        state.bid_hit_sum = 0
+        state.bid_fired = False
+
+    def _evict_old(self, dq: Deque[Tuple[datetime, int]], cutoff: datetime) -> int:
+        """
+        Evict entries older than cutoff from deque and return total size evicted.
+        """
+        evicted = 0
+        while dq and dq[0][0] < cutoff:
+            _, sz = dq.popleft()
+            evicted += int(sz)
+        return evicted
+
+    def _update_bbo_from_event(self, state: MicroState, event: Dict) -> bool:
+        """
+        Update top-of-book from event fields. Returns False if the update looks like a ghost jump.
+
+        We update BBO on both trade and non-trade events because Databento MBP-1 records carry
+        top-of-book fields. This helps reduce classification errors due to ordering between trade vs book
+        updates at the same timestamp.
+        """
+        new_bid = int(event.get("bid_px_00") or 0)
+        new_ask = int(event.get("ask_px_00") or 0)
+
+        prev_bid = state.bid_px_00
+        prev_ask = state.ask_px_00
+
+        if prev_bid and new_bid and abs(new_bid - prev_bid) > self.max_book_jump_px:
+            return False
+        if prev_ask and new_ask and abs(new_ask - prev_ask) > self.max_book_jump_px:
+            return False
+
+        if new_bid:
+            state.bid_px_00 = new_bid
+            state.bid_sz_00 = int(event.get("bid_sz_00") or state.bid_sz_00)
+        if new_ask:
+            state.ask_px_00 = new_ask
+            state.ask_sz_00 = int(event.get("ask_sz_00") or state.ask_sz_00)
+
+        if prev_ask and state.ask_px_00 != prev_ask:
+            self._reset_ask_absorption(state)
+        if prev_bid and state.bid_px_00 != prev_bid:
+            self._reset_bid_absorption(state)
+
+        return True
+
+    def _update_cvd(self, state: MicroState, ts: datetime, side: str, size: int) -> None:
+        """
+        Update CVD with Databento aggressor-side convention:
+          - 'B' = buy aggressor (+)
+          - 'A' = sell aggressor (-)
+          - else = 0
+        """
+        if side == "B":
+            state.cum_delta += int(size)
+        elif side == "A":
+            state.cum_delta -= int(size)
+
+        state.cvd_history.append((ts, state.cum_delta))
+        cutoff = ts - self.surge_window
+        while state.cvd_history and state.cvd_history[0][0] < cutoff:
+            state.cvd_history.popleft()
+
+    def _cvd_surge(self, state: MicroState) -> int:
+        if len(state.cvd_history) < 2:
+            return 0
+        return state.cum_delta - state.cvd_history[0][1]
+
+    def process_event(self, event: Dict) -> Optional[Dict]:
+        """
+        Process one MBP-1 event. Returns a signal dict when an absorption threshold edge-crosses.
+        """
+        symbol = event["symbol"]
+        ts: datetime = event["ts_event"]
+
+        state = self.get_state(symbol)
+
+        # Update BBO first (trade and book) and ghost-filter impossible jumps.
+        if not self._update_bbo_from_event(state, event):
+            return None
+
+        action = event["action"]
+        if action != "T":
+            return None
+
+        # Trade processing
+        trade_px = int(event["price"])
+        trade_sz = int(event["size"] or 0)
+        side = event.get("side") or "N"
+
+        state.last_trade_px = trade_px
+        state.last_trade_ts = ts
+
+        # Ignore prints far outside BBO (ghost-print protection)
+        if state.bid_px_00 and state.ask_px_00:
+            lo = state.bid_px_00 - self.max_trade_outside_px
+            hi = state.ask_px_00 + self.max_trade_outside_px
+            if trade_px < lo or trade_px > hi:
+                return None
+
+        # Update CVD history for surge calculation
+        self._update_cvd(state, ts, side, trade_sz)
+
+        hit_ask = (side == "B") and (state.ask_px_00 > 0) and (trade_px == state.ask_px_00)
+        hit_bid = (side == "A") and (state.bid_px_00 > 0) and (trade_px == state.bid_px_00)
+
+        cutoff_abs = ts - self.absorption_window
+
+        if hit_ask:
+            state.ask_hits.append((ts, trade_sz))
+            state.ask_hit_sum += trade_sz
+            state.ask_hit_sum -= self._evict_old(state.ask_hits, cutoff_abs)
+
+            if (not state.ask_fired) and (state.ask_hit_sum >= self.absorption_threshold):
+                state.ask_fired = True
+                return self._build_signal(ts, symbol, state, kind="ABSORPTION_SELLING")
+
+        if hit_bid:
+            state.bid_hits.append((ts, trade_sz))
+            state.bid_hit_sum += trade_sz
+            state.bid_hit_sum -= self._evict_old(state.bid_hits, cutoff_abs)
+
+            if (not state.bid_fired) and (state.bid_hit_sum >= self.absorption_threshold):
+                state.bid_fired = True
+                return self._build_signal(ts, symbol, state, kind="ABSORPTION_BUYING")
+
+        # Keep state from becoming stale during quiet periods
+        if state.ask_hits:
+            ev = self._evict_old(state.ask_hits, cutoff_abs)
+            if ev:
+                state.ask_hit_sum -= ev
+                if state.ask_hit_sum < self.absorption_threshold:
+                    state.ask_fired = False
+        if state.bid_hits:
+            ev = self._evict_old(state.bid_hits, cutoff_abs)
+            if ev:
+                state.bid_hit_sum -= ev
+                if state.bid_hit_sum < self.absorption_threshold:
+                    state.bid_fired = False
+
+        return None
+
+    def _build_signal(self, ts: datetime, symbol: str, state: MicroState, kind: str) -> Dict:
+        mnq_state = self.states.get("MNQ.v.0")
+
+        mnq_surge = 0
+        mnq_cvd = 0
+        mnq_age_s: Optional[float] = None
+
+        if mnq_state and mnq_state.last_trade_ts:
+            mnq_age = ts - mnq_state.last_trade_ts
+            mnq_age_s = mnq_age.total_seconds()
+            if mnq_age <= self.lead_staleness_max:
+                mnq_surge = self._cvd_surge(mnq_state)
+                mnq_cvd = mnq_state.cum_delta
+            else:
+                mnq_surge = 0
+                mnq_cvd = mnq_state.cum_delta
+
+        intensity = state.bid_hit_sum if kind == "ABSORPTION_BUYING" else state.ask_hit_sum
+
+        return {
+            "ts": ts,
+            "type": kind,
+            "symbol": symbol,
+            "price": self._px_to_float(state.last_trade_px),
+            "bid": self._px_to_float(state.bid_px_00),
+            "ask": self._px_to_float(state.ask_px_00),
+            "intensity": int(intensity),
+            "cvd": int(state.cum_delta),
+            "mnq_surge": int(mnq_surge),
+            "mnq_cvd": int(mnq_cvd),
+            "mnq_age_s": mnq_age_s,
+        }
+
+
+if __name__ == "__main__":
+    print("ILH Micro Engine Ready for High-Fidelity Streaming (v1.1).")
+ilh_backtester_v1.py rewrite
+python
+Copy
+from __future__ import annotations
+
+from dataclasses import dataclass
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+
+
+@dataclass
+class ILHTrade:
+    entry_ts: datetime
+    side: str  # 'LONG' or 'SHORT'
+    qty: int
+    entry_price: float
+
+    stop_loss: float
+    take_profit: float
+
+    exit_ts: Optional[datetime] = None
+    exit_price: Optional[float] = None
+    status: str = "OPEN"
+    pnl: float = 0.0
+
+    # For trailing stop logic
+    peak_favorable_price: float = 0.0  # high for long, low for short
+
+
+class ILHBacktester:
+    """
+    High-fidelity execution simulator for ILH-001, focused on realistic friction and clean tick handling.
+
+    Major differences vs. prior v1:
+      - Uses bid/ask (BBO) for stop/target evaluation (more realistic than last trade or mixed 'price' field).
+      - Moves ghost filtering to BBO jump detection (avoids 'ignoring' real adverse moves vs entry).
+      - Optional time-stop to reduce chop/commission churn.
+      - Parameterized slippage & commission with qty support.
+
+    This remains a simplified simulator (not a full order-management emulator).
+    """
+
+    def __init__(
+        self,
+        *,
+        initial_cash: float = 100000.0,
+        qty: int = 1,
+        contract_multiplier: float = 5.0,  # MES = $5 * index point
+        tick_size: float = 0.25,
+        commission_per_side: float = 1.25,  # per contract, per side
+        entry_slip_ticks: int = 1,          # includes "paying the spread" assumption
+        exit_slip_ticks_stop: int = 1,      # stop orders can slip
+        exit_slip_ticks_target: int = 0,    # assume limit target (0 slip), conservative users can set to 1
+        max_bbo_jump_points: float = 15.0,  # silicon shield at the BBO level
+        time_stop_s: Optional[float] = 45.0,
+        time_stop_min_favorable_pts: float = 1.0,
+        breakeven_trigger_pts: float = 1.5,
+        trail_trigger_pts: float = 3.0,
+        trail_distance_pts: float = 2.0,
+        stop_pts: float = 3.0,
+        target_pts: float = 10.0,
+    ):
+        self.cash = float(initial_cash)
+        self.qty = int(qty)
+        self.multiplier = float(contract_multiplier)
+        self.tick_size = float(tick_size)
+
+        self.commission_per_side = float(commission_per_side)
+        self.entry_slip_ticks = int(entry_slip_ticks)
+        self.exit_slip_ticks_stop = int(exit_slip_ticks_stop)
+        self.exit_slip_ticks_target = int(exit_slip_ticks_target)
+
+        self.max_bbo_jump_points = float(max_bbo_jump_points)
+
+        self.time_stop = timedelta(seconds=float(time_stop_s)) if time_stop_s is not None else None
+        self.time_stop_min_fav = float(time_stop_min_favorable_pts)
+
+        self.breakeven_trigger = float(breakeven_trigger_pts)
+        self.trail_trigger = float(trail_trigger_pts)
+        self.trail_distance = float(trail_distance_pts)
+
+        self.stop_pts = float(stop_pts)
+        self.target_pts = float(target_pts)
+
+        self.trades: List[ILHTrade] = []
+        self.active_trade: Optional[ILHTrade] = None
+
+        # last valid BBO for ghost filtering
+        self._last_bid: Optional[float] = None
+        self._last_ask: Optional[float] = None
+
+    def _round_to_tick(self, px: float) -> float:
+        return round(px / self.tick_size) * self.tick_size
+
+    def _apply_slippage(self, px: float, *, action: str, ticks: int) -> float:
+        if ticks <= 0:
+            return px
+        slip = ticks * self.tick_size
+        if action == "BUY":
+            return self._round_to_tick(px + slip)
+        if action == "SELL":
+            return self._round_to_tick(px - slip)
+        return px
+
+    def process_signal(self, signal: Dict, event_ts: datetime):
+        if self.active_trade:
+            return
+
+        s_type = signal.get("type")
+        mnq_surge = int(signal.get("mnq_surge") or 0)
+
+        is_long = (s_type == "ABSORPTION_BUYING") and (mnq_surge > 200)
+        is_short = (s_type == "ABSORPTION_SELLING") and (mnq_surge < -200)
+        if not (is_long or is_short):
+            return
+
+        side = "LONG" if is_long else "SHORT"
+
+        bid = float(signal.get("bid") or 0.0)
+        ask = float(signal.get("ask") or 0.0)
+        if bid <= 0.0 or ask <= 0.0:
+            return
+
+        if side == "LONG":
+            entry_px = self._apply_slippage(ask, action="BUY", ticks=self.entry_slip_ticks)
+            stop = self._round_to_tick(entry_px - self.stop_pts)
+            target = self._round_to_tick(entry_px + self.target_pts)
+        else:
+            entry_px = self._apply_slippage(bid, action="SELL", ticks=self.entry_slip_ticks)
+            stop = self._round_to_tick(entry_px + self.stop_pts)
+            target = self._round_to_tick(entry_px - self.target_pts)
+
+        self.active_trade = ILHTrade(
+            entry_ts=event_ts,
+            side=side,
+            qty=self.qty,
+            entry_price=entry_px,
+            stop_loss=stop,
+            take_profit=target,
+        )
+
+    def update_from_bbo(self, bid: float, ask: float, ts: datetime):
+        if not self.active_trade:
+            self._last_bid = bid
+            self._last_ask = ask
+            return
+
+        if bid <= 0.0 or ask <= 0.0:
+            return
+
+        # Silicon Shield: ignore impossible BBO jumps (data-quality protection)
+        if self._last_bid is not None and abs(bid - self._last_bid) > self.max_bbo_jump_points:
+            return
+        if self._last_ask is not None and abs(ask - self._last_ask) > self.max_bbo_jump_points:
+            return
+
+        self._last_bid = bid
+        self._last_ask = ask
+
+        trade = self.active_trade
+        mark = bid if trade.side == "LONG" else ask  # exit-side mark
+
+        if trade.side == "LONG":
+            if trade.peak_favorable_price == 0.0 or mark > trade.peak_favorable_price:
+                trade.peak_favorable_price = mark
+
+                if (trade.peak_favorable_price - trade.entry_price) >= self.breakeven_trigger:
+                    if trade.stop_loss < trade.entry_price:
+                        trade.stop_loss = self._round_to_tick(trade.entry_price)
+
+                if (trade.peak_favorable_price - trade.entry_price) >= self.trail_trigger:
+                    new_stop = self._round_to_tick(trade.peak_favorable_price - self.trail_distance)
+                    if new_stop > trade.stop_loss:
+                        trade.stop_loss = new_stop
+
+            if self.time_stop is not None:
+                age = ts - trade.entry_ts
+                mfe = trade.peak_favorable_price - trade.entry_price
+                if age >= self.time_stop and mfe < self.time_stop_min_fav:
+                    self._close_trade(ts, mark, reason="TIME_STOP")
+                    return
+
+            if mark <= trade.stop_loss:
+                fill = self._apply_slippage(trade.stop_loss, action="SELL", ticks=self.exit_slip_ticks_stop)
+                self._close_trade(ts, fill, reason="STOP/TRAIL")
+            elif mark >= trade.take_profit:
+                fill = self._apply_slippage(trade.take_profit, action="SELL", ticks=self.exit_slip_ticks_target)
+                self._close_trade(ts, fill, reason="TARGET")
+
+        else:
+            if trade.peak_favorable_price == 0.0 or mark < trade.peak_favorable_price:
+                trade.peak_favorable_price = mark
+
+                if (trade.entry_price - trade.peak_favorable_price) >= self.breakeven_trigger:
+                    if trade.stop_loss > trade.entry_price:
+                        trade.stop_loss = self._round_to_tick(trade.entry_price)
+
+                if (trade.entry_price - trade.peak_favorable_price) >= self.trail_trigger:
+                    new_stop = self._round_to_tick(trade.peak_favorable_price + self.trail_distance)
+                    if new_stop < trade.stop_loss:
+                        trade.stop_loss = new_stop
+
+            if self.time_stop is not None:
+                age = ts - trade.entry_ts
+                mfe = trade.entry_price - trade.peak_favorable_price
+                if age >= self.time_stop and mfe < self.time_stop_min_fav:
+                    self._close_trade(ts, mark, reason="TIME_STOP")
+                    return
+
+            if mark >= trade.stop_loss:
+                fill = self._apply_slippage(trade.stop_loss, action="BUY", ticks=self.exit_slip_ticks_stop)
+                self._close_trade(ts, fill, reason="STOP/TRAIL")
+            elif mark <= trade.take_profit:
+                fill = self._apply_slippage(trade.take_profit, action="BUY", ticks=self.exit_slip_ticks_target)
+                self._close_trade(ts, fill, reason="TARGET")
+
+    def _close_trade(self, ts: datetime, fill_price: float, reason: str):
+        trade = self.active_trade
+        if trade is None:
+            return
+
+        trade.exit_ts = ts
+        trade.exit_price = float(fill_price)
+        trade.status = "CLOSED"
+
+        points = (trade.exit_price - trade.entry_price) if trade.side == "LONG" else (trade.entry_price - trade.exit_price)
+
+        gross = points * self.multiplier * trade.qty
+        commissions = self.commission_per_side * 2.0 * trade.qty
+        trade.pnl = gross - commissions
+
+        self.cash += trade.pnl
+        self.trades.append(trade)
+        self.active_trade = None
+
+        print(f"[{ts}] CLOSED {trade.side} x{trade.qty} at {trade.exit_price:.2f} | PnL: ${trade.pnl:.2f} | Reason: {reason}")
+These rewrites directly address the institutional microstructure issues that most often break strategies in production: stale-window absorption, contaminated lead features, optimistic ghost filtering, and unrealistically favorable stop fills. 

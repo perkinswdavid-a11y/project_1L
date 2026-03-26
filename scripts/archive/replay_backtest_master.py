@@ -1081,9 +1081,20 @@ class BacktestEngine:
     def _record_execution(self, bar_ts: datetime, instrument_key: str, qty_delta: int, reference_price: float, reason: str) -> None:
         if qty_delta == 0:
             return
-        fill_price = reference_price + (math.copysign(self.slippage_ticks * self.tick_size, qty_delta))
-        commission = abs(qty_delta) * self.commission_per_side
-        slippage_cost = abs(qty_delta) * self.slippage_ticks * self.tick_size * self.contract_multiplier
+            
+        local_time = bar_ts.astimezone(self.session_tz).timetz().replace(tzinfo=None)
+        ny_start = time(8, 30)
+        ny_end = time(15, 0)
+        base_commission_per_side = 0.60
+        
+        if ny_start <= local_time < ny_end:
+            dynamic_slippage_ticks = 1.0
+        else:
+            dynamic_slippage_ticks = 3.0
+            
+        fill_price = reference_price + (math.copysign(dynamic_slippage_ticks * self.tick_size, qty_delta))
+        commission = abs(qty_delta) * base_commission_per_side
+        slippage_cost = abs(qty_delta) * dynamic_slippage_ticks * self.tick_size * self.contract_multiplier
 
         self.cash -= commission
         self.cash -= slippage_cost
@@ -1168,11 +1179,33 @@ class BacktestEngine:
             if not bar_files:
                 raise SystemExit("No Stage 5 bar files found for this config.")
 
+            prev_session_close = None
             for idx, bar_file in enumerate(bar_files, start=1):
                 instrument_key = self.select_instrument_key(con, bar_file.parquet_path)
                 if instrument_key is None:
                     logging.warning("[SKIP] %s no instrument selected for %s", bar_file.trade_date, bar_file.parquet_path)
                     continue
+
+                bars = self.fetch_bars_for_day(con, bar_file.parquet_path, instrument_key)
+                
+                if bars and prev_session_close is not None:
+                    session_open = bars[0].open
+                    if abs(session_open - prev_session_close) > 30.0:
+                        logging.warning(f"[SKIP] {bar_file.trade_date} skipped due to phantom rollover gap ({abs(session_open - prev_session_close):.2f} pts).")
+                        if self.position_qty != 0 and self.last_bar is not None:
+                            logging.warning("Force-liquidating open positions before banned date.")
+                            self._flatten_at_price(
+                                bar_ts=self.last_bar.bar_ts,
+                                instrument_key=self.active_instrument_key or self.last_bar.instrument_key,
+                                reference_price=self.last_bar.close,
+                                reason="PhantomGap_ForceLiquidation"
+                            )
+                            self._update_last_daily_row_after_forced_flatten()
+                        prev_session_close = bars[-1].close
+                        continue
+                        
+                if bars:
+                    prev_session_close = bars[-1].close
 
                 if self.active_instrument_key and instrument_key != self.active_instrument_key and self.last_bar is not None:
                     logging.info(
@@ -1190,7 +1223,6 @@ class BacktestEngine:
                     self._update_last_daily_row_after_forced_flatten()
 
                 self.active_instrument_key = instrument_key
-                bars = self.fetch_bars_for_day(con, bar_file.parquet_path, instrument_key)
                 day_equity_start = self.cash
                 session_bars = 0
 
