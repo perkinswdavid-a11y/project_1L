@@ -55,6 +55,8 @@ def run_ilh_batch(dates: List[str]):
         stop_loss = 0.0
         target = 0.0
         traded_today = False  # THE MACHINE GUN SAFETY LOCK
+        gate_checked = False  # <--- RESETS THE 15-MINUTE GATE
+        mfe_price = 0.0       # <--- RESETS THE TRAILING STOP HIGH-WATER MARK
         regime_machine.logged_today = False
         
         def close_position(price: float, reason: str, current_time: datetime):
@@ -129,6 +131,48 @@ def run_ilh_batch(dates: List[str]):
 
             # 2. THE EXIT LOGIC
             elif position != 0:
+                
+                # --- >>> 1. UPDATE THE HIGH-WATER MARK (MFE) <<< ---
+                if mfe_price == 0.0:
+                    mfe_price = current_price
+                elif position == 1:
+                    mfe_price = max(mfe_price, current_price)
+                elif position == -1:
+                    mfe_price = min(mfe_price, current_price)
+
+                # --- >>> 2. STRATEGY 2 RATCHET TRAILING STOP <<< ---
+                if active_strategy == 2:
+                    activation_points = 20.0  # Start trailing after 20 points
+                    trail_distance = 15.0     # Trail 15 points behind peak
+                    
+                    if position == 1:
+                        if (mfe_price - entry_price) >= activation_points:
+                            new_stop = mfe_price - trail_distance
+                            if new_stop > stop_loss:  # Only move UP
+                                stop_loss = new_stop
+                                
+                    elif position == -1:
+                        if (entry_price - mfe_price) >= activation_points:
+                            new_stop = mfe_price + trail_distance
+                            if new_stop < stop_loss:  # Only move DOWN
+                                stop_loss = new_stop
+
+                # --- >>> 3. STRATEGY 2 TIME GATE (15-Minute False Breakout) <<< ---
+                if active_strategy == 2 and not gate_checked:
+                    if current_time >= entry_time + timedelta(minutes=15):
+                        gate_checked = True 
+                        
+                        # Bullish Failure
+                        if position == 1 and current_price < prev_vah:
+                            close_position(price=current_price, reason="15-MIN GATE FAIL", current_time=current_time)
+                            continue 
+                            
+                        # Bearish Failure
+                        elif position == -1 and current_price > prev_val:
+                            close_position(price=current_price, reason="15-MIN GATE FAIL", current_time=current_time)
+                            continue 
+
+                # --- >>> 4. STANDARD EXITS (Target & Hard Stop) <<< ---
                 # Long Exits
                 if position == 1:
                     if current_price >= target:
