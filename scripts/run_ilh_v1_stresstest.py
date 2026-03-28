@@ -49,6 +49,9 @@ def run_ilh_batch(dates: List[str]):
 
         # INITIALIZE AT START OF DAY (09:30 EST)
         active_strategy = 0
+        pending_dir = 0
+        pending_time = None
+        pending_strat = 0
         position = 0
         entry_time = None
         entry_price = 0.0
@@ -61,8 +64,12 @@ def run_ilh_batch(dates: List[str]):
         
         def close_position(price: float, reason: str, current_time: datetime):
             nonlocal position, active_strategy, entry_price, entry_time
-            gross_pnl = (price - entry_price) * position * 2.0
-            net_pnl = gross_pnl
+            # Slippage on exit
+            exit_price = price * (1 - 0.0005) if position == 1 else price * (1 + 0.0005)
+            gross_pnl = (exit_price - entry_price) * position * 2.0
+            # Fee: 0.05% of notional on both entry and exit
+            total_fee = (entry_price + exit_price) * 0.0005 * 2.0
+            net_pnl = gross_pnl - total_fee
             
             trades.append({
                 "date": date,
@@ -70,7 +77,7 @@ def run_ilh_batch(dates: List[str]):
                 "entry_time": entry_time,
                 "entry_price": entry_price,
                 "exit_time": current_time,
-                "exit_price": price,
+                "exit_price": exit_price,
                 "reason": reason,
                 "gross_pnl": gross_pnl,
                 "net_pnl": net_pnl
@@ -85,49 +92,44 @@ def run_ilh_batch(dates: List[str]):
                 continue
                 
             # 1. THE ENTRY LOGIC (With Safety Lock)
-            if position == 0 and not traded_today:
+            # Latency execution
+            if pending_dir != 0 and current_time >= pending_time:
+                position = pending_dir
+                # Execute with slippage on ENTRY
+                entry_price = current_price * (1 + 0.0005) if position == 1 else current_price * (1 - 0.0005)
+                active_strategy = pending_strat
+                entry_time = current_time
+                if position == 1:
+                    stop_loss = entry_price - 15.0
+                    target = entry_price + 100.0 if active_strategy == 2 else prev_poc
+                else:
+                    stop_loss = entry_price + 15.0
+                    target = entry_price - 100.0 if active_strategy == 2 else prev_poc
+                traded_today = True
+                pending_dir = 0
+            
+            if position == 0 and pending_dir == 0 and not traded_today:
                 if regime_state == "BALANCE":
                     if current_price < prev_val:
-                        position = 1
-                        entry_price = current_price
-                        stop_loss = entry_price - 15.0
-                        target = prev_poc
-                        active_strategy = 1
-                        entry_time = current_time
-                        traded_today = True  # THE MACHINE GUN KILL-SWITCH
+                        pending_dir = 1
+                        pending_time = current_time + timedelta(milliseconds=200)
+                        pending_strat = 1
                         
                     elif current_price > prev_vah:
-                        position = -1
-                        entry_price = current_price
-                        stop_loss = entry_price + 15.0
-                        target = prev_poc
-                        active_strategy = 1
-                        entry_time = current_time
-                        traded_today = True  # THE MACHINE GUN KILL-SWITCH
+                        pending_dir = -1
+                        pending_time = current_time + timedelta(milliseconds=200)
+                        pending_strat = 1
 
-                # >>> PASTE THIS NEW STRATEGY 2 BLOCK RIGHT HERE <<<
                 elif regime_state == "PENDING_IMBALANCE":
-                    # STRATEGY 2: TREND CONTINUATION (With 5-Point Zone)
-                    
-                    # Bullish: Open above VAH, pullback gets within 5 points of VAH
                     if regime_machine.rth_open_price > prev_vah and current_price <= (prev_vah + 5.0):
-                        position = 1
-                        entry_price = current_price  # Entering at market in the zone
-                        stop_loss = entry_price - 15.0
-                        target = entry_price + 100.0  
-                        active_strategy = 2
-                        entry_time = current_time
-                        traded_today = True  
+                        pending_dir = 1
+                        pending_time = current_time + timedelta(milliseconds=200)
+                        pending_strat = 2
                         
-                    # Bearish: Open below VAL, pullback gets within 5 points of VAL
                     elif regime_machine.rth_open_price < prev_val and current_price >= (prev_val - 5.0):
-                        position = -1
-                        entry_price = current_price  # Entering at market in the zone
-                        stop_loss = entry_price + 15.0
-                        target = entry_price - 100.0  
-                        active_strategy = 2
-                        entry_time = current_time
-                        traded_today = True
+                        pending_dir = -1
+                        pending_time = current_time + timedelta(milliseconds=200)
+                        pending_strat = 2
 
             # 2. THE EXIT LOGIC
             elif position != 0:
@@ -199,12 +201,7 @@ def run_ilh_batch(dates: List[str]):
     print(f"Total Trades: {total_trades}")
     
     if total_trades > 0:
-        # --- >>> NEW: INSTITUTIONAL FRICTION TAX <<< ---
-        friction_per_trade = 2.24  # $1.24 commissions + $1.00 total slippage
-        
-        # Tax every individual trade FIRST so Win Rate and Drawdown are mathematically pure
-        for t in trades:
-            t["net_pnl"] -= friction_per_trade
+        # (Fees and Slippage now integrated per trade)
 
         net_pnl = sum(t["net_pnl"] for t in trades)
         winners = sum(1 for t in trades if t["net_pnl"] > 0)
@@ -213,10 +210,9 @@ def run_ilh_batch(dates: List[str]):
         gross_profit = sum(t["net_pnl"] for t in trades if t["net_pnl"] > 0)
         gross_loss = abs(sum(t["net_pnl"] for t in trades if t["net_pnl"] < 0))
         pf = (gross_profit / gross_loss) if gross_loss > 0 else float('inf')
-        
+        print(f"Profit Factor: {pf:.2f}")
         print(f"Net PnL: ${net_pnl:.2f}")
         print(f"Win Rate: {win_rate:.2f}%")
-        print(f"Profit Factor: {pf:.2f}")
         
         max_drawdown = 0.0
         peak = 0.0
