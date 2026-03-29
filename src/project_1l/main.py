@@ -103,8 +103,12 @@ if __name__ == "__main__":
         
         print(f"Commencing Databento Stream for {SYMBOL}...")
         
-        # Begin event loop blocking call
+        # Mount the stream
         client.start()
+        
+        # Freeze the main thread over the socket until interruption
+        logging.info("Awaiting live stream. Freezing main thread for the callback loop...")
+        client.block_for_close()
         
     except Exception as e:
         logging.critical(f"Failed to bootstrap Databento Livestream: {e}")
