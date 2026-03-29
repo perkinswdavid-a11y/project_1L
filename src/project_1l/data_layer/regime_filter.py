@@ -1,14 +1,13 @@
-import duckdb
+import json
+import logging
+import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Tuple, Optional, Dict
-
+from typing import Tuple, Optional
 
 class RegimeMachine:
-    def __init__(self, db_path: Path):
-        self.con = duckdb.connect(str(db_path), read_only=True)
-        # cache logic: date_yyyymmdd -> symbol -> (poc, vah, val)
-        self.cached_vp: Dict[str, Dict[str, Tuple[float, float, float]]] = {}
+    def __init__(self, levels_file_path: Path):
+        self.levels_file_path = levels_file_path
         
         self.current_day = None
         self.current_regime = None
@@ -18,98 +17,32 @@ class RegimeMachine:
         self.rth_open_price = None
         self.logged_today = False
 
-    def get_previous_trading_day(self, current_date_yyyymmdd: str, symbol: str) -> Optional[str]:
-        family = symbol.split('.')[0]
-        query = f"""
-            SELECT MAX(yyyymmdd) 
-            FROM mbp1_ok_files 
-            WHERE family='{family}' 
-              AND yyyymmdd < '{current_date_yyyymmdd}'
+    def get_daily_levels(self, current_date_yyyymmdd: str, symbol: str) -> Optional[Tuple[float, float, float]]:
         """
-        row = self.con.execute(query).fetchone()
-        return row[0] if row and row[0] else None
-
-    def compute_previous_vp(self, current_date_yyyymmdd: str, symbol: str) -> Optional[Tuple[float, float, float]]:
-        prev_date = self.get_previous_trading_day(current_date_yyyymmdd, symbol)
-        if not prev_date:
-            return None
-            
-        if prev_date in self.cached_vp and symbol in self.cached_vp[prev_date]:
-            return self.cached_vp[prev_date][symbol]
-
-        family = symbol.split('.')[0]
-        row = self.con.execute(
-            f"SELECT parquet_path FROM mbp1_ok_files WHERE family='{family}' AND yyyymmdd='{prev_date}'"
-        ).fetchone()
-        
-        if not row:
-            return None
-        
-        parquet_path = row[0]
-        target_date = f"{prev_date[0:4]}-{prev_date[4:6]}-{prev_date[6:8]}"
-        
-        # SQL Query for Volume Profile (RTH 09:30 to 16:00 EST)
-        query = f"""
-            SELECT 
-                FLOOR(price / 1e9) AS price_bin,
-                SUM(size) AS bin_volume
-            FROM read_parquet('{parquet_path}')
-            WHERE symbol = '{symbol}'
-              AND ts_event >= '{target_date} 09:30:00'
-              AND ts_event <= '{target_date} 16:00:00'
-            GROUP BY 1
-            ORDER BY price_bin
+        Reads daily_levels.json to retrieve the POC, VAH, and VAL for the specified date and symbol.
+        Triggers a critical, system-halting error if the file is missing or the date does not match.
         """
-        
-        df = self.con.execute(query).df()
-        
-        if df.empty:
-            return None
+        if not self.levels_file_path.exists():
+            logging.critical(f"FATAL: Levels file {self.levels_file_path.name} not found. Trading halted.")
+            sys.exit(1)
             
-        total_vol = df['bin_volume'].sum()
-        if total_vol == 0:
-            return None
+        try:
+            with open(self.levels_file_path, 'r') as f:
+                data = json.load(f)
+        except json.JSONDecodeError:
+            logging.critical(f"FATAL: {self.levels_file_path.name} contains invalid JSON. Trading halted.")
+            sys.exit(1)
             
-        # 1) Prev_POC: the bin with highest volume
-        poc_idx = df['bin_volume'].idxmax()
-        poc = df.loc[poc_idx, 'price_bin']
-        
-        # 2) Expand around POC to find 70% bounds
-        target_vol = total_vol * 0.70
-        current_vol = df.loc[poc_idx, 'bin_volume']
-        
-        val_idx = poc_idx
-        vah_idx = poc_idx
-        
-        while current_vol < target_vol:
-            up_idx = vah_idx + 1 if (vah_idx + 1) in df.index else None
-            down_idx = val_idx - 1 if (val_idx - 1) in df.index else None
+        if "date" not in data or data["date"] != current_date_yyyymmdd:
+            logging.critical(f"FATAL: Date in {self.levels_file_path.name} ({data.get('date')}) does not match current trading day ({current_date_yyyymmdd}). Trading halted.")
+            sys.exit(1)
             
-            up_vol = df.loc[up_idx, 'bin_volume'] if up_idx is not None else -1
-            down_vol = df.loc[down_idx, 'bin_volume'] if down_idx is not None else -1
+        if "symbols" not in data or symbol not in data["symbols"]:
+            logging.critical(f"FATAL: Symbol {symbol} missing in {self.levels_file_path.name}. Trading halted.")
+            sys.exit(1)
             
-            if up_vol == -1 and down_vol == -1:
-                break
-                
-            if up_vol >= down_vol:
-                vah_idx = up_idx
-                current_vol += up_vol
-            else:
-                val_idx = down_idx
-                current_vol += down_vol
-                
-        val_bin = df.loc[val_idx, 'price_bin']
-        vah_bin = df.loc[vah_idx, 'price_bin']
-        
-        # The upper boundary of a 1.0 bin is bin + 1.0
-        val = val_bin
-        vah = vah_bin + 1.0
-        
-        if prev_date not in self.cached_vp:
-            self.cached_vp[prev_date] = {}
-        self.cached_vp[prev_date][symbol] = (poc, vah, val)
-        
-        return (poc, vah, val)
+        levels = data["symbols"][symbol]
+        return (levels["poc"], levels["vah"], levels["val"])
 
     def evaluate_regime(self, current_time: datetime, current_price: float, vp_levels: Tuple[float, float, float]) -> Optional[str]:
         # Fast path if already initialized
