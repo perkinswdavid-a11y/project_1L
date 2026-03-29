@@ -27,7 +27,7 @@ levels_file_path = Path("daily_levels.json")
 strategy = RegimeMachine(levels_file_path=levels_file_path)
 
 # --- THE TICK CALLBACK ---
-async def on_tick(record):
+def on_tick(record):
     """
     Ingests live ticks, routes them to the strategy, parses signals,
     checks the Risk Management Golden Gate, and strictly routes execution.
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             dataset="GLBX.MDP3",
             schema="mbp-1",
             stype_in="continuous",
-            symbols=f"XCME:{SYMBOL}"
+            symbols=f"{SYMBOL}.c.0"
         )
         
         # Register the asynchronous tick processor
