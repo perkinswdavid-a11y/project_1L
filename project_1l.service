@@ -1,0 +1,21 @@
+[Unit]
+Description=Project 1L Live Market Execution Bot
+After=network.target
+
+[Service]
+Type=simple
+# Ensure you change this to your actual VPS username (e.g., ubuntu, root, etc.)
+User=ubuntu
+# Update this to the absolute path of your project directory
+WorkingDirectory=/home/ubuntu/project_1l
+# Route to the virtual environment python mapping directly to the live sequence generator
+ExecStart=/home/ubuntu/project_1l/.venv/bin/python src/project_1l/main.py
+# Safely pull our secrets directly off the disk without hardcoding
+EnvironmentFile=/home/ubuntu/project_1l/.env
+
+# The "Always-On" Linux Kernel Reboot Directives
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -7,12 +7,15 @@ requires-python = ">=3.13.12"
 dependencies = [
     "databento>=0.72.0",
     "duckdb>=1.4.4",
+    "httpx>=0.28.1",
+    "ib-insync>=0.9.86",
     "loguru>=0.7.3",
     "orjson>=3.11.7",
     "polars>=1.38.1",
     "pyarrow>=23.0.1",
     "pydantic>=2.12.5",
     "pytz>=2026.1.post1",
+    "requests>=2.32.5",
     "watchdog>=6.0.0",
 ]
 
