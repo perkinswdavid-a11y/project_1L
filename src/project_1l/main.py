@@ -3,6 +3,7 @@ import logging
 import uuid
 import os
 import sys
+import time
 from pathlib import Path
 from requests.exceptions import RequestException
 import databento as db
@@ -27,7 +28,7 @@ levels_file_path = Path("daily_levels.json")
 strategy = RegimeMachine(levels_file_path=levels_file_path)
 
 # --- THE TICK CALLBACK ---
-async def on_tick(record):
+def on_tick(record):
     """
     Ingests live ticks, routes them to the strategy, parses signals,
     checks the Risk Management Golden Gate, and strictly routes execution.
@@ -95,7 +96,7 @@ if __name__ == "__main__":
             dataset="GLBX.MDP3",
             schema="mbp-1",
             stype_in="continuous",
-            symbols=f"XCME:{SYMBOL}"
+            symbols=f"{SYMBOL}.c.0"
         )
         
         # Register the asynchronous tick processor
@@ -106,9 +107,13 @@ if __name__ == "__main__":
         # Mount the stream
         client.start()
         
-        # Freeze the main thread over the socket until interruption
-        logging.info("Awaiting live stream. Freezing main thread for the callback loop...")
-        client.block_for_close()
+        logging.info("Awaiting live stream. Entering interruptible polling loop...")
+        try:
+            while True:
+                time.sleep(0.5)
+        except KeyboardInterrupt:
+            logging.info("KeyboardInterrupt detected. Gracefully tearing down Databento client...")
+            client.stop()
         
     except Exception as e:
         logging.critical(f"Failed to bootstrap Databento Livestream: {e}")
