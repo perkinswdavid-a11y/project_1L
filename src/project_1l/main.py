@@ -21,11 +21,10 @@ DRY_RUN = True  # CRITICAL: Bypasses Ironbeam network calls until keys arrive
 risk_manager = PositionManager(max_daily_loss=MAX_DAILY_LOSS)
 broker = IronbeamClient(is_paper=True)
 
-# Note: In the current src tree, RegimeMachine requires db_path on init, 
-# so we pass a default path. Update this as we refine the live strategy interface.
-db_path = Path("marketdata/catalog/marketdata.duckdb")
-strategy = RegimeMachine(db_path=db_path) 
-
+# The live strategy explicitly requires yesterday's VAH/VAL/POC levels
+# calculated out of band to enforce decoupled low-latency execution.
+levels_file_path = Path("daily_levels.json")
+strategy = RegimeMachine(levels_file_path=levels_file_path)
 
 # --- THE TICK CALLBACK ---
 async def on_tick(record):
