@@ -3,6 +3,7 @@ import logging
 import uuid
 import os
 import sys
+import time
 from pathlib import Path
 from requests.exceptions import RequestException
 import databento as db
@@ -106,9 +107,13 @@ if __name__ == "__main__":
         # Mount the stream
         client.start()
         
-        # Freeze the main thread over the socket until interruption
-        logging.info("Awaiting live stream. Freezing main thread for the callback loop...")
-        client.block_for_close()
+        logging.info("Awaiting live stream. Entering interruptible polling loop...")
+        try:
+            while True:
+                time.sleep(0.5)
+        except KeyboardInterrupt:
+            logging.info("KeyboardInterrupt detected. Gracefully tearing down Databento client...")
+            client.stop()
         
     except Exception as e:
         logging.critical(f"Failed to bootstrap Databento Livestream: {e}")
